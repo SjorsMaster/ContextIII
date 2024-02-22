@@ -6,6 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/ClientScene.unity
+    guid: edf8dc35d24e0d24aaa10782d0244d8f
+  - enabled: 1
+    path: Assets/Scenes/GameScene.unity
+    guid: 105a6c1464d074d4682360036e81d96d
+  - enabled: 1
+    path: Assets/Scenes/HostScene.unity
+    guid: 01a0a2cb53fe0634c95416ef3130884e
+  - enabled: 1
+    path: Assets/Scenes/OfflineScene.unity
+    guid: 1d02c1be21b0c1a4fbb882080e8a695c
+  - enabled: 0
     path: Assets/Demo/Scenes/startup.unity
     guid: 03803215ca3874944a34217e807f249e
   - enabled: 0
@@ -29,7 +41,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Demo/Scenes/mediatheek_setup.unity
     guid: cd4715ef72e3451479739d36e0ec6ad9
-  - enabled: 1
+  - enabled: 0
     path: Assets/Demo/Scenes/Portal_Puzzle_1.unity
     guid: 4c80212f8eb415446b00224fad7eda70
   m_configObjects:
