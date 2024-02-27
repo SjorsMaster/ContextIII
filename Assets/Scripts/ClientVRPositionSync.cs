@@ -15,6 +15,8 @@ namespace ContextIII
         [field: SerializeField] public GameObject LeftHandObject { get; private set; }
         [field: SerializeField] public GameObject RightHandObject { get; private set; }
 
+        [SerializeField] private TrackedDevice trackedDevicePrefab;
+
         // find out why this is serialized
         [SerializeField, SyncVar] private Vector3 headOffset;
         [SerializeField, SyncVar] private Vector3 leftHandOffset;
@@ -38,6 +40,8 @@ namespace ContextIII
         public Transform leftHand;
         public Transform rightHand;
 
+        private TrackedDevice trackedDevice;
+
         private void Awake()
         {
             actorHandler = GetComponent<ActorHandler>();
@@ -56,6 +60,7 @@ namespace ContextIII
 
             if (isLocalPlayer)
             {
+                trackedDevice = Instantiate(trackedDevicePrefab, transform);
                 LeftHandObject.SetActive(false);
                 RightHandObject.SetActive(false);
                 CmdSendAddRequest();
@@ -73,8 +78,6 @@ namespace ContextIII
         {
             if (!isLocalPlayer)
                 return;
-
-            TrackedDevice trackedDevice = LocalPlayerController.Instance.TrackedDevice;
 
             //Synchronize player transforms with OVR Rig transforms
             Synchronize(head, trackedDevice.TrackedHeadTransform);                // Head
