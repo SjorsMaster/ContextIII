@@ -10,7 +10,7 @@ namespace ContextIII
         [SerializeField] private NetworkManager networkManager;
         [SerializeField] string networkAddress;
 
-        void Start()
+        public void StartClient()
         {
             if (!string.IsNullOrEmpty(networkAddress))
                 networkManager.networkAddress = networkAddress;

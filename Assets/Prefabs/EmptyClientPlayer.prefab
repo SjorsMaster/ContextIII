@@ -5115,8 +5115,8 @@ MonoBehaviour:
   syncDirection: 1
   syncMode: 0
   syncInterval: 0
-  leftHandObject: {fileID: 4997355895508161135}
-  rightHandObject: {fileID: 6341212300437557598}
+  <LeftHandObject>k__BackingField: {fileID: 4997355895508161135}
+  <RightHandObject>k__BackingField: {fileID: 6341212300437557598}
   headOffset: {x: 0, y: 0, z: 0}
   leftHandOffset: {x: 0, y: 0, z: 0}
   rightHandOffset: {x: 0, y: 0, z: 0}

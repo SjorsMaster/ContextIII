@@ -12,7 +12,8 @@ namespace ContextIII
     [RequireComponent(typeof(ActorHandler))]
     public class ClientVRPositionSync : NetworkBehaviour
     {
-        [SerializeField] private GameObject leftHandObject, rightHandObject;
+        [field: SerializeField] public GameObject LeftHandObject { get; private set; }
+        [field: SerializeField] public GameObject RightHandObject { get; private set; }
 
         // find out why this is serialized
         [SerializeField, SyncVar] private Vector3 headOffset;
@@ -33,14 +34,19 @@ namespace ContextIII
 
         public TextMeshPro debugText;
 
-        public Transform head, leftHand, rightHand;
+        public Transform head;
+        public Transform leftHand;
+        public Transform rightHand;
 
-        // TODO:
-        // - Add clients to GameData list on server side
-
-        private void Start()
+        private void Awake()
         {
             actorHandler = GetComponent<ActorHandler>();
+        }
+
+        [ClientCallback]
+        private void Start()
+        {
+            GameData.Clients.Add(this);
 
             if (debugBallsToggle)
             {
@@ -50,43 +56,49 @@ namespace ContextIII
 
             if (isLocalPlayer)
             {
-                leftHandObject.SetActive(false);
-                rightHandObject.SetActive(false);
-                CmdSendDetectRequest();
+                LeftHandObject.SetActive(false);
+                RightHandObject.SetActive(false);
+                CmdSendAddRequest();
             }
 
-            ServerOffsetter.instance.clientHeadsetData.Add(new ServerOffsetter.ClientHeadsetData { netId = this.netId, isActor = actorHandler.isActor });
+            ServerOffsetter.Instance.clientHeadsetData.Add(new ClientHeadsetData
+            {
+                netId = netId,
+                isActor = actorHandler.isActor
+            });
         }
 
+        [ClientCallback]
         private void LateUpdate()
         {
-            LocalPlayerController control = LocalPlayerController.self;
-            if (!control || !isLocalPlayer)
+            if (!isLocalPlayer)
                 return;
 
+            TrackedDevice trackedDevice = LocalPlayerController.Instance.TrackedDevice;
+
             //Synchronize player transforms with OVR Rig transforms
-            Synchronize(head, control.trackedHeadTransform);                // Head
-            Synchronize(leftHand, control.trackedLeftHandTransform);        // Left Hand
-            Synchronize(rightHand, control.trackedRightHandTransform);      // Right Hand
+            Synchronize(head, trackedDevice.TrackedHeadTransform);                // Head
+            Synchronize(leftHand, trackedDevice.TrackedLeftHandTransform);        // Left Hand
+            Synchronize(rightHand, trackedDevice.TrackedRightHandTransform);      // Right Hand
 
             CalibrationSource source = CalibrationSource.Instance;
             if (source)
             {
                 Transform t = source.transform;
-                headOffset = t.InverseTransformPoint(control.trackedHeadTransform.position);
+                headOffset = t.InverseTransformPoint(trackedDevice.TrackedHeadTransform.position);
                 headOffset.Scale(t.localScale);
-                headUp = t.InverseTransformDirection(control.trackedHeadTransform.up);
-                headForward = t.InverseTransformDirection(control.trackedHeadTransform.forward);
+                headUp = t.InverseTransformDirection(trackedDevice.TrackedHeadTransform.up);
+                headForward = t.InverseTransformDirection(trackedDevice.TrackedHeadTransform.forward);
 
-                leftHandOffset = t.InverseTransformPoint(control.trackedLeftHandTransform.position);
+                leftHandOffset = t.InverseTransformPoint(trackedDevice.TrackedLeftHandTransform.position);
                 leftHandOffset.Scale(t.localScale);
-                leftHandUp = t.InverseTransformDirection(control.trackedLeftHandTransform.up);
-                leftHandForward = t.InverseTransformDirection(control.trackedLeftHandTransform.forward);
+                leftHandUp = t.InverseTransformDirection(trackedDevice.TrackedLeftHandTransform.up);
+                leftHandForward = t.InverseTransformDirection(trackedDevice.TrackedLeftHandTransform.forward);
 
-                rightHandOffset = t.InverseTransformPoint(control.trackedRightHandTransform.position);
+                rightHandOffset = t.InverseTransformPoint(trackedDevice.TrackedRightHandTransform.position);
                 rightHandOffset.Scale(t.localScale);
-                rightHandUp = t.InverseTransformDirection(control.trackedRightHandTransform.up);
-                rightHandForward = t.InverseTransformDirection(control.trackedRightHandTransform.forward);
+                rightHandUp = t.InverseTransformDirection(trackedDevice.TrackedRightHandTransform.up);
+                rightHandForward = t.InverseTransformDirection(trackedDevice.TrackedRightHandTransform.forward);
             }
 
             CmdAddServersideOffset();
@@ -131,55 +143,18 @@ namespace ContextIII
             rightHand.up = rightHandUp;
             rightHand.forward = rightHandForward;
 
-            ServerOffsetter.instance.UpdateClientPositions(netId, headOffset, leftHandOffset, rightHandOffset, headUp, headForward, leftHandUp, leftHandForward, rightHandUp, rightHandForward, actorHandler.isActor);
-        }
-
-        [ClientRpc]
-        public void RpcSetClient(
-            uint id,
-            Vector3 head,
-            Vector3 leftHand,
-            Vector3 rightHand,
-            Vector3 handUp,
-            Vector3 handForward,
-            Vector3 leftHandUp,
-            Vector3 leftHandForward,
-            Vector3 rightHandUp,
-            Vector3 rightHandForward,
-            bool isActor)
-        {
-            List<ClientVRPositionSync> clients = GameData.Clients;
-            CalibrationSource source = CalibrationSource.Instance;
-
-            foreach (ClientVRPositionSync client in clients)
-            {
-                if (client != this && id == client.netId) // Only correct other headsets.
-                {
-                    if (source)
-                    {
-                        Transform t = source.transform;
-                        client.head.position = t.TransformPoint(head * (1 / t.localScale.x));
-                        client.head.LookAt(client.head.position + t.TransformDirection(handForward), t.TransformDirection(handUp));
-                        client.leftHand.position = t.TransformPoint(leftHand * (1 / t.localScale.x));
-                        client.leftHand.LookAt(client.leftHand.position + t.TransformDirection(leftHandForward), t.TransformDirection(leftHandUp));
-                        client.rightHand.position = t.TransformPoint(rightHand * (1 / t.localScale.x));
-                        client.rightHand.LookAt(client.rightHand.position + t.TransformDirection(rightHandForward), t.TransformDirection(rightHandUp));
-                    }
-
-                    if (isActor) // && AshantiManController.instance)
-                    {
-                        // TODO: Abstract this away from core networking
-                        /*
-                           Vector3 ashantiTarget = new Vector3(clients[i].head.position.x, t.position.y, clients[i].head.position.z);
-                           AshantiManController.instance.transform.position = ashantiTarget;
-                        */
-
-                        client.head.gameObject.SetActive(false);
-                        client.leftHandObject.SetActive(false);
-                        client.rightHandObject.SetActive(false);
-                    }
-                }
-            }
+            ServerOffsetter.Instance.UpdateClientPositions(
+                netId,
+                headOffset,
+                leftHandOffset,
+                rightHandOffset,
+                headUp,
+                headForward,
+                leftHandUp,
+                leftHandForward,
+                rightHandUp,
+                rightHandForward,
+                actorHandler.isActor);
         }
 
         [ClientRpc]
@@ -248,9 +223,9 @@ namespace ContextIII
         }
 
         [Command]
-        private void CmdSendDetectRequest()
+        private void CmdSendAddRequest()
         {
-            ServerOffsetter.instance.DetectClients();
+            ServerOffsetter.Instance.AddClient(this);
         }
     }
 }

@@ -189,8 +189,8 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
+  updateDelay: 0.2
   clientHeadsetData: []
-  m_UpdateDelay: 0.2
 --- !u!1 &951502601
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,7 +208,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &951502602
 AudioListener:
   m_ObjectHideFlags: 0
