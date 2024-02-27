@@ -3,16 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
-public class BasicStartClient : MonoBehaviour
+namespace ContextIII
 {
-    [SerializeField] private NetworkManager networkManager;
-    [SerializeField] string networkAddress;
-
-    void Start()
+    public class BasicStartClient : MonoBehaviour
     {
-        if (!string.IsNullOrEmpty(networkAddress))
-            networkManager.networkAddress = networkAddress;
-        
-        networkManager.StartClient();
+        [SerializeField] private NetworkManager networkManager;
+        [SerializeField] string networkAddress;
+
+        void Start()
+        {
+            if (!string.IsNullOrEmpty(networkAddress))
+                networkManager.networkAddress = networkAddress;
+
+            networkManager.StartClient();
+        }
     }
 }
