@@ -11,13 +11,12 @@ namespace ContextIII
 
         public List<ClientHeadsetData> clientHeadsetData = new();
 
-        private ClientVRPositionSync[] clients;
-
         //public string debugString;
         private float updateDelayTimer;
 
-        private void Start()
+        protected override void Start()
         {
+            base.Start();
             updateDelayTimer = updateDelay;
         }
 
@@ -32,7 +31,7 @@ namespace ContextIII
             else
                 updateDelayTimer = updateDelay;
 
-            if (clients == null)
+            if (GameData.Clients == null)
             {
                 Debug.Log("No clients found yet.");
                 return;
@@ -40,7 +39,7 @@ namespace ContextIII
 
             // Before this was a for loop to do a RPC call foreach client, for each headset data, but an
             // RPC call already sends from the server to every client, so  that seems like a lot of trafic.
-            //for (int i = 0; i < clients.Length; i++)
+            // for (int i = 0; i < clients.Length; i++)
             //    //clients[i].RpcDebug(debugString);
             for (int j = 0; j < clientHeadsetData.Count; j++)
                 RpcSetClient(clientHeadsetData[j].netId,
