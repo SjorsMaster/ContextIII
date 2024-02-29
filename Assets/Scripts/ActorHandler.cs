@@ -4,7 +4,7 @@ namespace ContextIII
 {
     public class ActorHandler : NetworkBehaviour
     {
-        public bool isActor { get; set; }
+        public bool IsActor { get; private set; }
 
         private void Awake()
         {
@@ -14,7 +14,7 @@ namespace ContextIII
 
             for (int i = 0; i < actors.Length; i++)
             {
-                if (actors[i].isActor)
+                if (actors[i].IsActor)
                 {
                     _actorFound = true;
                     break;
@@ -23,10 +23,8 @@ namespace ContextIII
 
             if (!_actorFound)
             {
-                isActor = true;
+                IsActor = true;
             }
-
         }
-
     }
 }

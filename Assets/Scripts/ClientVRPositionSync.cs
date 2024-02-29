@@ -69,7 +69,7 @@ namespace ContextIII
             ServerOffsetter.Instance.clientHeadsetData.Add(new ClientHeadsetData
             {
                 netId = netId,
-                isActor = actorHandler.isActor
+                isActor = actorHandler.IsActor
             });
         }
 
@@ -106,7 +106,7 @@ namespace ContextIII
 
             CmdAddServersideOffset();
 
-            if (actorHandler.isActor)
+            if (actorHandler.IsActor)
             {
                 // TODO: Abstract this using an interface or something...
                 // AshantiManController.instance.gameObject.SetActive(false);
@@ -157,7 +157,7 @@ namespace ContextIII
                 leftHandForward,
                 rightHandUp,
                 rightHandForward,
-                actorHandler.isActor);
+                actorHandler.IsActor);
         }
 
         [ClientRpc]
