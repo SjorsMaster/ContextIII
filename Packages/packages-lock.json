@@ -5,7 +5,7 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "de46742849334280ab5a7cceee5bb38a461d3d54"
+      "hash": "9efb3b7920123c9e6501100f1ef90d3f8d74aba0"
     },
     "com.meta.xr.sdk.all": {
       "version": "59.0.0",
