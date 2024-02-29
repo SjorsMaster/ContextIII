@@ -8,11 +8,12 @@ namespace ContextIII
     {
         [SerializeField] private Camera serverCamera;
 
-        [ServerCallback]
         private void Start()
         {
             if (isServer)
                 serverCamera.gameObject.SetActive(true);
+            else
+                serverCamera.gameObject.SetActive(false);
         }
     }
 }
