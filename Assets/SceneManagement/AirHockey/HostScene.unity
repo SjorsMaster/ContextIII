@@ -175,8 +175,8 @@ MonoBehaviour:
   sendRate: 60
   autoStartServerBuild: 0
   autoConnectClientBuild: 0
-  offlineScene: Assets/Scenes/0_HostScene.unity
-  onlineScene: Assets/Scenes/2_GameScene.unity
+  offlineScene: Assets/SceneManagement/AirHockey/HostScene.unity
+  onlineScene: Assets/SceneManagement/AirHockey/GameScene.unity
   transport: {fileID: 569194229}
   networkAddress: localhost
   maxConnections: 100
