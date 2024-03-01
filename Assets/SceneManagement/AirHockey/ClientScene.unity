@@ -178,7 +178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   autoConnectOnStartup: 1
   networkManager: {fileID: 50690423}
-  networkAddress: 192.168.2.16
+  networkAddress: 86.84.4.36
   inputField: {fileID: 2118373542}
 --- !u!114 &47895231
 MonoBehaviour:
