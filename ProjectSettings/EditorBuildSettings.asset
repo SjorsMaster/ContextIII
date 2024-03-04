@@ -5,10 +5,11 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
+<<<<<<< HEAD
     path: Assets/SceneManagement/IBB Scenes/startup.unity
     guid: 03803215ca3874944a34217e807f249e
-  - enabled: 0
+  - enabled: 1
     path: Assets/SceneManagement/IBB Scenes/IBB_3.10.unity
     guid: 589a590c17782e7408affe036114c837
   - enabled: 1
@@ -20,10 +21,35 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/SceneManagement/AirHockey/GameScene.unity
     guid: 105a6c1464d074d4682360036e81d96d
+=======
+    path: Assets/Table/TableScene.unity
+    guid: 61b81c74d99224e2abc463c6f6b83bde
+  - enabled: 1
+    path: Assets/SceneManagement/AirHockey/ClientScene.unity
+    guid: edf8dc35d24e0d24aaa10782d0244d8f
+  - enabled: 1
+    path: Assets/SceneManagement/AirHockey/GameScene.unity
+    guid: 105a6c1464d074d4682360036e81d96d
+  - enabled: 1
+    path: Assets/SceneManagement/AirHockey/HostScene.unity
+    guid: 01a0a2cb53fe0634c95416ef3130884e
+  - enabled: 1
+    path: Assets/Scenes/OfflineScene.unity
+    guid: 1d02c1be21b0c1a4fbb882080e8a695c
+  - enabled: 0
+    path: Assets/SceneManagement/IBB Scenes/startup.unity
+    guid: 03803215ca3874944a34217e807f249e
+>>>>>>> 4ba424a (added some stuff for testing from the testscene)
   - enabled: 0
     path: Assets/SceneManagement/IBB Scenes/IBB_3.10_TEST-arch.unity
     guid: d7b519221c2d0d0409c028861432687e
   - enabled: 0
+<<<<<<< HEAD
+=======
+    path: Assets/SceneManagement/IBB Scenes/IBB_3.10.unity
+    guid: 589a590c17782e7408affe036114c837
+  - enabled: 0
+>>>>>>> 4ba424a (added some stuff for testing from the testscene)
     path: Assets/SceneManagement/IBB Scenes/IBB_3.10_TEST.unity
     guid: a8f470dce6d9b5543879d4554c7d8952
   - enabled: 0
