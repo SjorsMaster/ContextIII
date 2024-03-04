@@ -1,4 +1,3 @@
-using MacUtils;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -31,7 +30,7 @@ public class OnScreenLog : MonoBehaviour
 
         UpdateText();
 
-        yield return WaitForSecondsPool.GetWaitForSeconds(delay);
+        yield return new WaitForSeconds(delay);
         stringQueue.Dequeue();
 
         UpdateText();

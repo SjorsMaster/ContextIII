@@ -1,12 +1,5 @@
 {
   "dependencies": {
-    "com.mcyvar.macutilspackage": {
-      "version": "https://github.com/McYvar/MacUtilsPackage.git",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "b89c91713bac479e0e081c7d3f98c1bdac616cf7"
-    },
     "com.meta.xr.sdk.all": {
       "version": "59.0.0",
       "depth": 0,
