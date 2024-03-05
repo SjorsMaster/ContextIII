@@ -865,7 +865,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   autoConnectOnStartup: 0
   networkManager: {fileID: 50690423}
-  networkAddress: 192.168.2.8
+  networkAddress: 192.168.2.51
   ipTextFields:
   - {fileID: 1859552641}
   - {fileID: 2013835685}
@@ -2932,6 +2932,7 @@ GameObject:
   - component: {fileID: 1825785119}
   - component: {fileID: 1825785118}
   - component: {fileID: 1825785122}
+  - component: {fileID: 1825785123}
   m_Layer: 5
   m_Name: WorldSpaceCanvas
   m_TagString: Untagged
@@ -3010,8 +3011,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1825785117}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 100}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalPosition: {x: 0, y: 0, z: 20}
+  m_LocalScale: {x: 0.08, y: 0.08, z: 0.08}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 406122902}
@@ -3041,6 +3042,14 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RaycastTriggerInteraction: 1
+--- !u!222 &1825785123
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825785117}
+  m_CullTransparentMesh: 1
 --- !u!1 &1859552639
 GameObject:
   m_ObjectHideFlags: 0
@@ -3687,7 +3696,7 @@ PrefabInstance:
     - target: {fileID: 5762070994093526461, guid: 070003f3fd7c8134c8561253bfc949fd,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 44.7
       objectReference: {fileID: 0}
     - target: {fileID: 5762070994093526461, guid: 070003f3fd7c8134c8561253bfc949fd,
         type: 3}
@@ -3732,7 +3741,7 @@ PrefabInstance:
     - target: {fileID: 9220848363707947502, guid: 070003f3fd7c8134c8561253bfc949fd,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 44.7
       objectReference: {fileID: 0}
     - target: {fileID: 9220848363707947502, guid: 070003f3fd7c8134c8561253bfc949fd,
         type: 3}

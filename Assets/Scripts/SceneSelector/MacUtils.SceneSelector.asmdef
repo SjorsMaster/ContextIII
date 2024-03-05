@@ -1,0 +1,16 @@
+{
+    "name": "MacUtils.Utilities.SceneSelector",
+    "rootNamespace": "",
+    "references": [
+        "GUID:00abc811b9b3d50458ef346ee28b6d2f"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

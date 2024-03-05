@@ -1,4 +1,5 @@
 ﻿using Mirror;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -8,7 +9,7 @@ using UnityEngine.SceneManagement;
 
 namespace ContextIII
 {
-    //This script also handles most if not all clientside logic such as RPC's.
+    //This script also handles most if not all clientside logic such as RPC's
     [RequireComponent(typeof(ActorHandler))]
     public class ClientVRPositionSync : NetworkBehaviour
     {

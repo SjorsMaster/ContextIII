@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace ContextIII
 {
-    public partial class ServerOffsetter : NetworkSingleton<ServerOffsetter>
+    public class ServerOffsetter : NetworkSingleton<ServerOffsetter>
     {
         [SerializeField] private float updateDelay = 0.2f;
 
