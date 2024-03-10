@@ -26,6 +26,8 @@ namespace ContextIII
         {
             if (isLocalPlayer)
             {
+                // Instead of sending the local client's headset and hand positions and rotations to the server,
+                // we should send the relative positions and rotations to the server
                 CmdSyncToServer(
                     LocalTrackedDevice.Instance.CentreAnchorEyeTransform.position,
                     LocalTrackedDevice.Instance.CentreAnchorEyeTransform.rotation,
