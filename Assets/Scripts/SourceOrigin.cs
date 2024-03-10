@@ -8,9 +8,10 @@ namespace ContextIII
     /// </summary>
     public class SourceOrigin : Singleton<SourceOrigin>
     {
-        public event Action<CalculationType, Origin, Origin> OnRecalculateRelativeTransforms;
+        public event Action<CalculationType, Transform, Transform> OnRecalculateRelativeTransforms;
 
         [field: SerializeField] public TrackPositionAndRotationSelector TrackPositionAndRotationSelector { get; private set; }
+        [field: SerializeField] public Transform RelativeOrigin { get; private set; }
 
         public Vector3 StartPosition { get; private set; }
         public Vector3 StartEulers { get; private set; }
@@ -19,6 +20,10 @@ namespace ContextIII
         {
             StartPosition = transform.position;
             StartEulers = transform.eulerAngles;
+
+            LocalTrackedDevice localTrackedDevice = LocalTrackedDevice.Instance;
+            RelativeOrigin.position = localTrackedDevice.LeftAnchorTransform.position;
+            RelativeOrigin.eulerAngles = localTrackedDevice.LeftAnchorTransform.eulerAngles;
         }
 
         private void Update()
@@ -29,15 +34,14 @@ namespace ContextIII
 
         public void RecalculateAllRelativeTransforms()
         {
-            Transform leftController = LocalTrackedDevice.Instance.LeftAnchorTransform;
-
-            Origin thisOrigin = new(StartPosition, StartEulers);
-            Origin leftControllerOrigin = new(leftController.position, leftController.eulerAngles);
-
+            LocalTrackedDevice localTrackedDevice = LocalTrackedDevice.Instance;
             OnRecalculateRelativeTransforms?.Invoke(
-                CalculationType.All, 
-                thisOrigin, 
-                leftControllerOrigin);
+                CalculationType.NonNetworked,
+                transform,
+                localTrackedDevice.LeftAnchorTransform);
+
+            RelativeOrigin.position = localTrackedDevice.LeftAnchorTransform.position;
+            RelativeOrigin.eulerAngles = localTrackedDevice.LeftAnchorTransform.eulerAngles;
         }
     }
 }

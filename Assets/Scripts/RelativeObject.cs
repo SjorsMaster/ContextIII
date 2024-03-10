@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace ContextIII
 {
@@ -10,13 +9,26 @@ namespace ContextIII
         public Vector3 StartPosition { get; private set; }
         public Vector3 StartEuler { get; private set; }
 
+        /// <summary>
+        /// This is going to be used to send the relative position and rotation to the server.
+        /// </summary>
+        public (Vector3, Vector3) RelativeToSource { 
+            get
+            {
+                return CalculateRelativeToNewOrigin(
+                    transform,
+                    SourceOrigin.Instance.RelativeOrigin,
+                    SourceOrigin.Instance.transform);
+            }
+        }
+
         private void OnEnable()
         {
             StartPosition = transform.position;
             StartEuler = transform.eulerAngles;
 
             SourceOrigin sourceOrigin = SourceOrigin.Instance;
-            sourceOrigin.OnRecalculateRelativeTransforms += SourceOrigin_OnRecalculateRelativeTransform;
+            sourceOrigin.OnRecalculateRelativeTransforms += TransformRelativeToNewOrigin;
         }
 
         private void OnDisable()
@@ -25,40 +37,77 @@ namespace ContextIII
             transform.eulerAngles = StartEuler;
 
             SourceOrigin soureOrigin = SourceOrigin.Instance;
-            soureOrigin.OnRecalculateRelativeTransforms -= SourceOrigin_OnRecalculateRelativeTransform;
+            soureOrigin.OnRecalculateRelativeTransforms -= TransformRelativeToNewOrigin;
         }
 
-        public void SourceOrigin_OnRecalculateRelativeTransform(
+        /// <summary>
+        /// Calculates the position relative to the new origin and sets the position and rotation of the object.
+        /// </summary>
+        /// <param name="calculationType"></param>
+        /// <param name="oldOrigin"></param>
+        /// <param name="newOrigin"></param>
+        /// <remarks>Only works for position and euler rotation.</remarks>
+        private void TransformRelativeToNewOrigin(
             CalculationType calculationType,
-            Origin oldOrigin, 
-            Origin newOrigin)
+            Transform oldOrigin,
+            Transform newOrigin)
         {
             if (calculationType != CalculationType.All && calculationType != this.calculationType)
                 return;
 
-            Vector3 directionStartToOldOrigin = oldOrigin.Position - StartPosition;
-            Vector3 eulerOldOriginToNewOrigin = newOrigin.Eulers - oldOrigin.Eulers;
-            Vector3 directionOldOriginToNewOrigin = newOrigin.Position - oldOrigin.Position;
-            Vector3 directionStartToOldOriginRotated = Quaternion.Euler(eulerOldOriginToNewOrigin) * -directionStartToOldOrigin;
+            transform.position = StartPosition;
+            transform.eulerAngles = StartEuler;
 
-            Vector3 result = StartPosition
-                + directionStartToOldOrigin
-                + directionOldOriginToNewOrigin
-                + directionStartToOldOriginRotated;
+            (Vector3 newPosition, Vector3 newEuler) = CalculateRelativeToNewOrigin(
+                transform,
+                oldOrigin,
+                newOrigin);
 
             SourceOrigin sourceOrigin = SourceOrigin.Instance;
             TrackPositionAndRotationSelector selector = sourceOrigin.TrackPositionAndRotationSelector;
 
-            result.x = selector.TrackXPosition ? result.x : StartPosition.x;
-            result.y = selector.TrackYPosition ? result.y : StartPosition.y;
-            result.z = selector.TrackZPosition ? result.z : StartPosition.z;
-            transform.position = result;
+            newPosition.x = selector.TrackXPosition ? newPosition.x : transform.position.x;
+            newPosition.y = selector.TrackYPosition ? newPosition.y : transform.position.y;
+            newPosition.z = selector.TrackZPosition ? newPosition.z : transform.position.z;
 
-            eulerOldOriginToNewOrigin.x = selector.TrackXRotation ? eulerOldOriginToNewOrigin.x : 0;
-            eulerOldOriginToNewOrigin.y = selector.TrackYRotation ? eulerOldOriginToNewOrigin.y : 0;
-            eulerOldOriginToNewOrigin.z = selector.TrackZRotation ? eulerOldOriginToNewOrigin.z : 0;
-            transform.eulerAngles = StartEuler + eulerOldOriginToNewOrigin;
-            
+            newEuler.x = selector.TrackXRotation ? newEuler.x : 0;
+            newEuler.y = selector.TrackYRotation ? newEuler.y : 0;
+            newEuler.z = selector.TrackZRotation ? newEuler.z : 0;
+
+            transform.position = newPosition;
+            transform.eulerAngles = StartEuler + newEuler;
+        }
+
+        /// <summary>
+        /// A method that calculates the position and rotation of the current object relative to the new origin.
+        /// </summary>
+        /// <param name="oldOrigin"></param>
+        /// <param name="newOrigin"></param>
+        /// <returns>Item 1: A Vector3 with the position, Item 2: A vector with the euler rotation.</returns>
+        /// <remarks>Only works for position and euler rotation.</remarks>
+        private (Vector3, Vector3) CalculateRelativeToNewOrigin(
+            Transform current,
+            Transform oldOrigin,
+            Transform newOrigin)
+        {
+            Vector3 newEuler = newOrigin.eulerAngles - oldOrigin.eulerAngles;
+            Vector3 directionOldToCurrentRotated = Quaternion.Euler(newEuler) * (current.position - oldOrigin.position);
+            Vector3 newPosition = newOrigin.position + directionOldToCurrentRotated;
+
+            return (newPosition, newEuler);
+        }
+
+        private void OnDrawGizmos()
+        {
+            if (calculationType != CalculationType.Networked)
+                return;
+
+            Gizmos.color = Color.red;
+
+            (Vector3 relativePosition, Vector3 relativeEuler) = RelativeToSource;
+            float yRotDifference = transform.eulerAngles.y + relativeEuler.y;
+            Gizmos.DrawSphere(relativePosition, 0.3f);
+            Gizmos.DrawLine(relativePosition, relativePosition + Quaternion.Euler(0, yRotDifference, 0) * Vector3.forward * 5f);
         }
     }
 }
