@@ -152,6 +152,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab537ea0f92a5cf428e9829c32b0a7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trackXPosition: 1
+  trackYPosition: 0
+  trackZPosition: 1
+  trackXRotation: 0
+  trackYRotation: 1
+  trackZRotation: 0
 --- !u!4 &127106655
 Transform:
   m_ObjectHideFlags: 0

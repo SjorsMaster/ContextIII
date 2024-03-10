@@ -21,12 +21,6 @@ namespace ContextIII
         [SyncVar] private Vector3 rightHandPosition;
         [SyncVar] private Quaternion rightHandRotation;
 
-        private void Start()
-        {
-            if (isLocalPlayer)
-                Instantiate(localTrackedDevicePrefab, transform);
-        }
-
         [ClientCallback]
         private void Update()
         {

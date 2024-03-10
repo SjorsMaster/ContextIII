@@ -5,6 +5,14 @@ namespace ContextIII
 {
     public class RelativeObjectsManager : Singleton<RelativeObjectsManager>
     {
+        [SerializeField] private bool trackXPosition = true;
+        [SerializeField] private bool trackYPosition = true;
+        [SerializeField] private bool trackZPosition = true;
+
+        [SerializeField] private bool trackXRotation = false;
+        [SerializeField] private bool trackYRotation = true;
+        [SerializeField] private bool trackZRotation = false;
+
         private readonly List<RelativeObject> relativeObjects = new();
 
         private Vector3 StartPosition;
@@ -18,7 +26,7 @@ namespace ContextIII
 
         private void Update()
         {
-            if (OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger, OVRInput.Controller.RTouch))
+            if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger, OVRInput.Controller.RTouch))
                 RecalculateAllRelativeTransforms();
         }
 
@@ -41,7 +49,26 @@ namespace ContextIII
             Transform leftController = localTrackedDevice.LeftAnchorTransform;
 
             Vector3 positionStartToLeftController = leftController.position - StartPosition;
+
+            if (!trackXPosition)
+                positionStartToLeftController.x = 0;
+
+            if (!trackYPosition)
+                positionStartToLeftController.y = 0;
+
+            if (!trackZPosition)
+                positionStartToLeftController.z = 0;
+
             Vector3 eulerFromStartToLeftController = leftController.eulerAngles - StartEulers;
+            
+            if (!trackXRotation)
+                eulerFromStartToLeftController.x = 0;
+
+            if (!trackYRotation)
+                eulerFromStartToLeftController.y = 0;
+
+            if (!trackZRotation)
+                eulerFromStartToLeftController.z = 0;
 
             transform.SetLocalPositionAndRotation(leftController.position, leftController.rotation);
 

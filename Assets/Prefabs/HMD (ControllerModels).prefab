@@ -569,7 +569,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockId: e47682b9-c270-40b1-b16d-90b627a5ce1b
-  instanceId: 9956a8d2-3920-4db2-ad9c-edf24833c42a
+  instanceId: 783172c6-1867-49f5-84d7-c085f7bed6a3
   version: 1
 --- !u!114 &6965237205612837421
 MonoBehaviour:
@@ -2688,7 +2688,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockId: 5817f7c0-f2a5-45f9-a5ca-64264e0166e8
-  instanceId: 8624bff0-fc27-4d34-a592-b885a3a0f1aa
+  instanceId: e4b4d579-89b3-4897-a5a7-3d33111e4bdd
   version: 1
 --- !u!114 &4849279816327758761
 MonoBehaviour:
@@ -6899,7 +6899,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 361938886085564213}
-  - {fileID: 2959667034651181303}
   - {fileID: 7361217524614984134}
   - {fileID: 4830828177080783873}
   - {fileID: 6286180120901222999}
@@ -8732,7 +8731,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockId: 5817f7c0-f2a5-45f9-a5ca-64264e0166e8
-  instanceId: f5dc5939-fe8e-4839-b46f-1dc73467003e
+  instanceId: 4c9ec8f6-468a-4c40-b428-6d344ff2b304
   version: 1
 --- !u!114 &629803925783288480
 MonoBehaviour:
@@ -9016,7 +9015,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockId: f0540b20-dfd6-420e-b20d-c270f88dc77e
-  instanceId: 00ea1029-8d79-44ed-a3cd-703354c23a6d
+  instanceId: 8d38004a-4fe8-4dda-8b07-cc9802737805
   version: 1
 --- !u!114 &3266156416531679043
 MonoBehaviour:
@@ -10776,52 +10775,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6350862434207206250}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &7916633782320551050
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2959667034651181303}
-  - component: {fileID: 3192660048886283489}
-  m_Layer: 0
-  m_Name: XR Interaction Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2959667034651181303
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7916633782320551050}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 603969637644375172}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3192660048886283489
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7916633782320551050}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83e4e6cca11330d4088d729ab4fc9d9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_StartingHoverFilters: []
-  m_StartingSelectFilters: []
 --- !u!1 &8036493440343782059
 GameObject:
   m_ObjectHideFlags: 0
