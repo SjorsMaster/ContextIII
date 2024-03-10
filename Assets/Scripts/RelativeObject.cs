@@ -4,7 +4,7 @@ namespace ContextIII
 {
     public class RelativeObject : MonoBehaviour
     {
-        [SerializeField] private CalculationType calculationType = CalculationType.NonNetworked;
+        [SerializeField] private PositionType positionType = PositionType.NonNetworked;
 
         public Vector3 StartPosition { get; private set; }
         public Vector3 StartEuler { get; private set; }
@@ -48,11 +48,11 @@ namespace ContextIII
         /// <param name="newOrigin"></param>
         /// <remarks>Only works for position and euler rotation.</remarks>
         private void TransformRelativeToNewOrigin(
-            CalculationType calculationType,
+            PositionType calculationType,
             Transform oldOrigin,
             Transform newOrigin)
         {
-            if (calculationType != CalculationType.All && calculationType != this.calculationType)
+            if (calculationType != PositionType.All && calculationType != this.positionType)
                 return;
 
             transform.position = StartPosition;
@@ -99,7 +99,7 @@ namespace ContextIII
 
         private void OnDrawGizmos()
         {
-            if (calculationType != CalculationType.Networked)
+            if (positionType != PositionType.Networked)
                 return;
 
             Gizmos.color = Color.red;

@@ -1,6 +1,6 @@
 ﻿namespace ContextIII
 {
-    public enum CalculationType
+    public enum PositionType
     {
         All = 0,
         NonNetworked = 1,

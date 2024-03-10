@@ -8,7 +8,7 @@ namespace ContextIII
     /// </summary>
     public class SourceOrigin : Singleton<SourceOrigin>
     {
-        public event Action<CalculationType, Transform, Transform> OnRecalculateRelativeTransforms;
+        public event Action<PositionType, Transform, Transform> OnRecalculateRelativeTransforms;
 
         [field: SerializeField] public TrackPositionAndRotationSelector TrackPositionAndRotationSelector { get; private set; }
         [field: SerializeField] public Transform RelativeOrigin { get; private set; }
@@ -36,7 +36,7 @@ namespace ContextIII
         {
             LocalTrackedDevice localTrackedDevice = LocalTrackedDevice.Instance;
             OnRecalculateRelativeTransforms?.Invoke(
-                CalculationType.NonNetworked,
+                PositionType.NonNetworked,
                 transform,
                 localTrackedDevice.LeftAnchorTransform);
 
