@@ -6,7 +6,7 @@ namespace ContextIII
     // Each local client sends its headset and hand data to the server, which then sends it to all remote clients
     public class ClientVRPositionSync2 : NetworkBehaviour
     {
-        [SerializeField] private TrackedDevice trackedDevicePrefab;
+        [SerializeField] private LocalTrackedDevice localTrackedDevicePrefab;
 
         [SerializeField] private Transform headObject;
         [SerializeField] private Transform leftHandObject;
@@ -21,12 +21,10 @@ namespace ContextIII
         [SyncVar] private Vector3 rightHandPosition;
         [SyncVar] private Quaternion rightHandRotation;
 
-        private TrackedDevice trackedDevice;
-
         private void Start()
         {
             if (isLocalPlayer)
-                trackedDevice = Instantiate(trackedDevicePrefab, transform);
+                Instantiate(localTrackedDevicePrefab, transform);
         }
 
         [ClientCallback]
@@ -35,12 +33,12 @@ namespace ContextIII
             if (isLocalPlayer)
             {
                 CmdSyncToServer(
-                    trackedDevice.TrackedHeadTransform.position,
-                    trackedDevice.TrackedHeadTransform.rotation,
-                    trackedDevice.TrackedLeftHandTransform.position,
-                    trackedDevice.TrackedLeftHandTransform.rotation,
-                    trackedDevice.TrackedRightHandTransform.position,
-                    trackedDevice.TrackedRightHandTransform.rotation);
+                    LocalTrackedDevice.Instance.CentreAnchorEyeTransform.position,
+                    LocalTrackedDevice.Instance.CentreAnchorEyeTransform.rotation,
+                    LocalTrackedDevice.Instance.LeftAnchorTransform.position,
+                    LocalTrackedDevice.Instance.LeftAnchorTransform.rotation,
+                    LocalTrackedDevice.Instance.RightAnchorTransform.position,
+                    LocalTrackedDevice.Instance.RightAnchorTransform.rotation);
                 UpdateVRObjectsLocally();
             }
             else
@@ -86,9 +84,9 @@ namespace ContextIII
 
         private void UpdateVRObjectsLocally()
         {
-            headObject.SetPositionAndRotation(trackedDevice.TrackedHeadTransform.position, trackedDevice.TrackedHeadTransform.rotation);
-            leftHandObject.SetPositionAndRotation(trackedDevice.TrackedLeftHandTransform.position, trackedDevice.TrackedLeftHandTransform.rotation);
-            rightHandObject.SetPositionAndRotation(trackedDevice.TrackedRightHandTransform.position, trackedDevice.TrackedRightHandTransform.rotation);
+            headObject.SetPositionAndRotation(LocalTrackedDevice.Instance.CentreAnchorEyeTransform.position, LocalTrackedDevice.Instance.CentreAnchorEyeTransform.rotation);
+            leftHandObject.SetPositionAndRotation(LocalTrackedDevice.Instance.LeftAnchorTransform.position, LocalTrackedDevice.Instance.LeftAnchorTransform.rotation);
+            rightHandObject.SetPositionAndRotation(LocalTrackedDevice.Instance.RightAnchorTransform.position, LocalTrackedDevice.Instance.RightAnchorTransform.rotation);
         }
     }
 }

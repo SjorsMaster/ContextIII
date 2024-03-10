@@ -11,44 +11,25 @@ namespace ContextIII
         [SerializeField] private bool autoConnectOnStartup;
         [SerializeField] private NetworkManager networkManager;
         [SerializeField] string networkAddress;
-        [SerializeField] private TMP_Text[] ipTextFields;
+        [SerializeField] private TMP_InputField ipInputField;
 
         private void Start()
         {
-            string[] networkAddressSplit = networkAddress.Split('.');
-            for (int i = 0; i < ipTextFields.Length; i++)
-                ipTextFields[i].text = networkAddressSplit[i];
-
             if (autoConnectOnStartup)
                 StartClient();
         }
 
         public void StartClient()
         {
-            string ipAddress = "";
-            for (int i = 0; i < ipTextFields.Length; i++)
-            {
-                ipAddress += ipTextFields[i].text;
-                if (i < ipTextFields.Length - 1)
-                    ipAddress += ".";
-            }
-            networkManager.networkAddress = ipAddress;
+            if (!string.IsNullOrEmpty(networkAddress))
+                networkManager.networkAddress = networkAddress;
+            else
+                networkManager.networkAddress = "localhost";
+
+            if (ipInputField != null && !string.IsNullOrEmpty(ipInputField.text))
+                networkManager.networkAddress = ipInputField.text;
 
             networkManager.StartClient();
-        }
-
-        public void IncreaseIpValue(TMP_Text textField)
-        {
-            int currentIpValue = int.Parse(textField.text);
-            currentIpValue++;
-            textField.text = currentIpValue.ToString();
-        }
-
-        public void DecreaseIpValue(TMP_Text textField)
-        {
-            int currentIpValue = int.Parse(textField.text);
-            currentIpValue--;
-            textField.text = currentIpValue.ToString();
         }
     }
 }

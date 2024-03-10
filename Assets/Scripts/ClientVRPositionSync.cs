@@ -16,7 +16,7 @@ namespace ContextIII
         [field: SerializeField] public GameObject LeftHandObject { get; private set; }
         [field: SerializeField] public GameObject RightHandObject { get; private set; }
 
-        [SerializeField] private TrackedDevice trackedDevicePrefab;
+        [SerializeField] private LocalTrackedDevice trackedDevicePrefab;
 
         // find out why this is serialized
         [SerializeField, SyncVar] private Vector3 headOffset;
@@ -41,7 +41,7 @@ namespace ContextIII
         public Transform leftHand;
         public Transform rightHand;
 
-        private TrackedDevice trackedDevice;
+        private LocalTrackedDevice trackedDevice;
 
         private void Awake()
         {
@@ -81,28 +81,28 @@ namespace ContextIII
                 return;
 
             //Synchronize player transforms with OVR Rig transforms
-            Synchronize(head, trackedDevice.TrackedHeadTransform);                // Head
-            Synchronize(leftHand, trackedDevice.TrackedLeftHandTransform);        // Left Hand
-            Synchronize(rightHand, trackedDevice.TrackedRightHandTransform);      // Right Hand
+            Synchronize(head, trackedDevice.CentreAnchorEyeTransform);                // Head
+            Synchronize(leftHand, trackedDevice.LeftAnchorTransform);        // Left Hand
+            Synchronize(rightHand, trackedDevice.RightAnchorTransform);      // Right Hand
 
             CalibrationSource source = CalibrationSource.Instance;
             if (source)
             {
                 Transform t = source.transform;
-                headOffset = t.InverseTransformPoint(trackedDevice.TrackedHeadTransform.position);
+                headOffset = t.InverseTransformPoint(trackedDevice.CentreAnchorEyeTransform.position);
                 headOffset.Scale(t.localScale);
-                headUp = t.InverseTransformDirection(trackedDevice.TrackedHeadTransform.up);
-                headForward = t.InverseTransformDirection(trackedDevice.TrackedHeadTransform.forward);
+                headUp = t.InverseTransformDirection(trackedDevice.CentreAnchorEyeTransform.up);
+                headForward = t.InverseTransformDirection(trackedDevice.CentreAnchorEyeTransform.forward);
 
-                leftHandOffset = t.InverseTransformPoint(trackedDevice.TrackedLeftHandTransform.position);
+                leftHandOffset = t.InverseTransformPoint(trackedDevice.LeftAnchorTransform.position);
                 leftHandOffset.Scale(t.localScale);
-                leftHandUp = t.InverseTransformDirection(trackedDevice.TrackedLeftHandTransform.up);
-                leftHandForward = t.InverseTransformDirection(trackedDevice.TrackedLeftHandTransform.forward);
+                leftHandUp = t.InverseTransformDirection(trackedDevice.LeftAnchorTransform.up);
+                leftHandForward = t.InverseTransformDirection(trackedDevice.LeftAnchorTransform.forward);
 
-                rightHandOffset = t.InverseTransformPoint(trackedDevice.TrackedRightHandTransform.position);
+                rightHandOffset = t.InverseTransformPoint(trackedDevice.RightAnchorTransform.position);
                 rightHandOffset.Scale(t.localScale);
-                rightHandUp = t.InverseTransformDirection(trackedDevice.TrackedRightHandTransform.up);
-                rightHandForward = t.InverseTransformDirection(trackedDevice.TrackedRightHandTransform.forward);
+                rightHandUp = t.InverseTransformDirection(trackedDevice.RightAnchorTransform.up);
+                rightHandForward = t.InverseTransformDirection(trackedDevice.RightAnchorTransform.forward);
             }
 
             CmdAddServersideOffset();

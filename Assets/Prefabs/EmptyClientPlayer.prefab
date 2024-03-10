@@ -4954,7 +4954,7 @@ MonoBehaviour:
   syncDirection: 1
   syncMode: 0
   syncInterval: 0
-  trackedDevicePrefab: {fileID: 6289330044818648879, guid: 070003f3fd7c8134c8561253bfc949fd,
+  localTrackedDevicePrefab: {fileID: 8412590900388889256, guid: 1e0ca55de733fa241915bd2d55144926,
     type: 3}
   headObject: {fileID: 2538814784174661277}
   leftHandObject: {fileID: 6982528532916963964}

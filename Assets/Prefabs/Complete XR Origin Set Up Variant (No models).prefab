@@ -207,12 +207,13 @@ MonoBehaviour:
   virtualGreenScreenApplyDepthCulling: 0
   virtualGreenScreenDepthTolerance: 0.2
   mrcActivationMode: 0
-  launchMultimodalHandsControllersOnStartup: 0
+  launchSimultaneousHandsControllersOnStartup: 0
   isInsightPassthroughEnabled: 1
   requestBodyTrackingPermissionOnStartup: 0
   requestFaceTrackingPermissionOnStartup: 0
   requestEyeTrackingPermissionOnStartup: 0
   requestScenePermissionOnStartup: 0
+  requestRecordAudioPermissionOnStartup: 0
   _localDimming: 1
   _trackingOriginType: 1
   usePositionTracking: 1
@@ -223,6 +224,9 @@ MonoBehaviour:
   LateControllerUpdate: 1
   LateLatching: 0
   controllerDrivenHandPosesType: 0
+  SimultaneousHandsAndControllersEnabled: 0
+  _readOnlyWideMotionModeHandPosesEnabled: 0
+  wideMotionModeHandPosesEnabled: 0
 --- !u!114 &4219766758922196840
 MonoBehaviour:
   m_ObjectHideFlags: 0
