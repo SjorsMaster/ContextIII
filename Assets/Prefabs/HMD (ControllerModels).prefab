@@ -3259,6 +3259,7 @@ GameObject:
   - component: {fileID: 6207223148743172978}
   - component: {fileID: 6209787112898809662}
   - component: {fileID: 474273513217930796}
+  - component: {fileID: 1321321025816991215}
   m_Layer: 0
   m_Name: CenterEyeAnchor
   m_TagString: MainCamera
@@ -3340,6 +3341,19 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &1321321025816991215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015763155515001957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60c9a220accf2d242bb500b53782d610, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  relativeType: 1
 --- !u!1 &2028531058646018770
 GameObject:
   m_ObjectHideFlags: 0
@@ -4635,6 +4649,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6412496306698505142}
+  - component: {fileID: 7143118542256035792}
   m_Layer: 0
   m_Name: LeftHandAnchor
   m_TagString: Untagged
@@ -4659,6 +4674,19 @@ Transform:
   - {fileID: 7542742604275211760}
   m_Father: {fileID: 3022510637353127674}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7143118542256035792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3038478511555786011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60c9a220accf2d242bb500b53782d610, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  relativeType: 1
 --- !u!1 &3146613643657706817
 GameObject:
   m_ObjectHideFlags: 0
@@ -6776,6 +6804,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4560983319123240942}
+  - component: {fileID: 1784264797175890589}
   m_Layer: 0
   m_Name: RightHandAnchor
   m_TagString: Untagged
@@ -6800,6 +6829,19 @@ Transform:
   - {fileID: 2068307421850334554}
   m_Father: {fileID: 3022510637353127674}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1784264797175890589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4950623160481955856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60c9a220accf2d242bb500b53782d610, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  relativeType: 1
 --- !u!1 &4956712166548374022
 GameObject:
   m_ObjectHideFlags: 0
@@ -6917,9 +6959,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <CameraRig>k__BackingField: {fileID: 6965237205612837421}
-  <CentreAnchorEyeTransform>k__BackingField: {fileID: 6207223148743172978}
-  <LeftAnchorTransform>k__BackingField: {fileID: 6412496306698505142}
-  <RightAnchorTransform>k__BackingField: {fileID: 4560983319123240942}
+  <CentreAnchorEyeRelative>k__BackingField: {fileID: 1321321025816991215}
+  <LeftAnchorRelative>k__BackingField: {fileID: 7143118542256035792}
+  <RightAnchorRelative>k__BackingField: {fileID: 1784264797175890589}
 --- !u!1 &5033818961783059652
 GameObject:
   m_ObjectHideFlags: 0

@@ -81,28 +81,28 @@ namespace ContextIII
                 return;
 
             //Synchronize player transforms with OVR Rig transforms
-            Synchronize(head, trackedDevice.CentreAnchorEyeTransform);                // Head
-            Synchronize(leftHand, trackedDevice.LeftAnchorTransform);        // Left Hand
-            Synchronize(rightHand, trackedDevice.RightAnchorTransform);      // Right Hand
+            Synchronize(head, trackedDevice.CentreAnchorEyeRelative.transform);       // Head
+            Synchronize(leftHand, trackedDevice.LeftAnchorRelative.transform);        // Left Hand
+            Synchronize(rightHand, trackedDevice.RightAnchorRelative.transform);      // Right Hand
 
             CalibrationSource source = CalibrationSource.Instance;
             if (source)
             {
                 Transform t = source.transform;
-                headOffset = t.InverseTransformPoint(trackedDevice.CentreAnchorEyeTransform.position);
+                headOffset = t.InverseTransformPoint(trackedDevice.CentreAnchorEyeRelative.transform.position);
                 headOffset.Scale(t.localScale);
-                headUp = t.InverseTransformDirection(trackedDevice.CentreAnchorEyeTransform.up);
-                headForward = t.InverseTransformDirection(trackedDevice.CentreAnchorEyeTransform.forward);
+                headUp = t.InverseTransformDirection(trackedDevice.CentreAnchorEyeRelative.transform.up);
+                headForward = t.InverseTransformDirection(trackedDevice.CentreAnchorEyeRelative.transform.forward);
 
-                leftHandOffset = t.InverseTransformPoint(trackedDevice.LeftAnchorTransform.position);
+                leftHandOffset = t.InverseTransformPoint(trackedDevice.LeftAnchorRelative.transform.position);
                 leftHandOffset.Scale(t.localScale);
-                leftHandUp = t.InverseTransformDirection(trackedDevice.LeftAnchorTransform.up);
-                leftHandForward = t.InverseTransformDirection(trackedDevice.LeftAnchorTransform.forward);
+                leftHandUp = t.InverseTransformDirection(trackedDevice.LeftAnchorRelative.transform.up);
+                leftHandForward = t.InverseTransformDirection(trackedDevice.LeftAnchorRelative.transform.forward);
 
-                rightHandOffset = t.InverseTransformPoint(trackedDevice.RightAnchorTransform.position);
+                rightHandOffset = t.InverseTransformPoint(trackedDevice.RightAnchorRelative.transform.position);
                 rightHandOffset.Scale(t.localScale);
-                rightHandUp = t.InverseTransformDirection(trackedDevice.RightAnchorTransform.up);
-                rightHandForward = t.InverseTransformDirection(trackedDevice.RightAnchorTransform.forward);
+                rightHandUp = t.InverseTransformDirection(trackedDevice.RightAnchorRelative.transform.up);
+                rightHandForward = t.InverseTransformDirection(trackedDevice.RightAnchorRelative.transform.forward);
             }
 
             CmdAddServersideOffset();

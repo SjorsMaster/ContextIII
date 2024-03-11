@@ -4,7 +4,7 @@ namespace ContextIII
 {
     public class RelativeObject : MonoBehaviour
     {
-        [SerializeField] private PositionType positionType = PositionType.NonNetworked;
+        [SerializeField] private RelativeType relativeType = RelativeType.Stationary;
 
         public Vector3 StartPosition { get; private set; }
         public Vector3 StartEuler { get; private set; }
@@ -43,16 +43,16 @@ namespace ContextIII
         /// <summary>
         /// Calculates the position relative to the new origin and sets the position and rotation of the object.
         /// </summary>
-        /// <param name="calculationType"></param>
+        /// <param name="relativeType"></param>
         /// <param name="oldOrigin"></param>
         /// <param name="newOrigin"></param>
         /// <remarks>Only works for position and euler rotation.</remarks>
         private void TransformRelativeToNewOrigin(
-            PositionType calculationType,
+            RelativeType relativeType,
             Transform oldOrigin,
             Transform newOrigin)
         {
-            if (calculationType != PositionType.All && calculationType != this.positionType)
+            if (relativeType != this.relativeType)
                 return;
 
             transform.position = StartPosition;
@@ -99,7 +99,10 @@ namespace ContextIII
 
         private void OnDrawGizmos()
         {
-            if (positionType != PositionType.Networked)
+            if (!Application.isPlaying)
+                return;
+
+            if (relativeType != RelativeType.Moving_SendToServer)
                 return;
 
             Gizmos.color = Color.red;

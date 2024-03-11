@@ -8,7 +8,7 @@ namespace ContextIII
     /// </summary>
     public class SourceOrigin : Singleton<SourceOrigin>
     {
-        public event Action<PositionType, Transform, Transform> OnRecalculateRelativeTransforms;
+        public event Action<RelativeType, Transform, Transform> OnRecalculateRelativeTransforms;
 
         [field: SerializeField] public TrackPositionAndRotationSelector TrackPositionAndRotationSelector { get; private set; }
         [field: SerializeField] public Transform RelativeOrigin { get; private set; }
@@ -22,26 +22,26 @@ namespace ContextIII
             StartEulers = transform.eulerAngles;
 
             LocalTrackedDevice localTrackedDevice = LocalTrackedDevice.Instance;
-            RelativeOrigin.position = localTrackedDevice.LeftAnchorTransform.position;
-            RelativeOrigin.eulerAngles = localTrackedDevice.LeftAnchorTransform.eulerAngles;
+            RelativeOrigin.position = localTrackedDevice.LeftAnchorRelative.transform.position;
+            RelativeOrigin.eulerAngles = localTrackedDevice.LeftAnchorRelative.transform.eulerAngles;
         }
 
         private void Update()
         {
             if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger, OVRInput.Controller.RTouch))
-                RecalculateAllRelativeTransforms();
+                RecalculateStationaryRelativeTransforms();
         }
 
-        public void RecalculateAllRelativeTransforms()
+        public void RecalculateStationaryRelativeTransforms()
         {
             LocalTrackedDevice localTrackedDevice = LocalTrackedDevice.Instance;
             OnRecalculateRelativeTransforms?.Invoke(
-                PositionType.NonNetworked,
+                RelativeType.Stationary,
                 transform,
-                localTrackedDevice.LeftAnchorTransform);
+                localTrackedDevice.LeftAnchorRelative.transform);
 
-            RelativeOrigin.position = localTrackedDevice.LeftAnchorTransform.position;
-            RelativeOrigin.eulerAngles = localTrackedDevice.LeftAnchorTransform.eulerAngles;
+            RelativeOrigin.position = localTrackedDevice.LeftAnchorRelative.transform.position;
+            RelativeOrigin.eulerAngles = localTrackedDevice.LeftAnchorRelative.transform.eulerAngles;
         }
     }
 }

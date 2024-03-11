@@ -5,8 +5,9 @@ namespace ContextIII
     public class LocalTrackedDevice : RegulatorSingleton<LocalTrackedDevice>
     {
         [field: SerializeField] public OVRCameraRig CameraRig { get; private set; }
-        [field: SerializeField] public Transform CentreAnchorEyeTransform { get; private set; }
-        [field: SerializeField] public Transform LeftAnchorTransform { get; private set; }
-        [field: SerializeField] public Transform RightAnchorTransform { get; private set; }
+
+        [field: SerializeField] public RelativeObject CentreAnchorEyeRelative { get; private set; }
+        [field: SerializeField] public RelativeObject LeftAnchorRelative { get; private set; }
+        [field: SerializeField] public RelativeObject RightAnchorRelative { get; private set; }
     }
 }
