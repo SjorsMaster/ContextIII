@@ -7,13 +7,20 @@ namespace ContextIII
     public class ServerManager : NetworkBehaviour
     {
         [SerializeField] private Camera serverCamera;
+        [SerializeField] private SourceOrigin sourceOrigin;
 
-        private void Start()
+        public override void OnStartServer()
         {
-            if (isServer)
-                serverCamera.gameObject.SetActive(true);
-            else
-                serverCamera.gameObject.SetActive(false);
+            base.OnStartServer();
+            serverCamera.gameObject.SetActive(true);
+            sourceOrigin.enabled = false;
+        }
+
+        public override void OnStartClient()
+        {
+            base.OnStartClient();
+            serverCamera.gameObject.SetActive(false);
+            sourceOrigin.enabled = true;
         }
     }
 }

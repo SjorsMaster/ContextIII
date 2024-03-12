@@ -27,7 +27,13 @@ namespace ContextIII
             StartPosition = transform.position;
             StartEuler = transform.eulerAngles;
 
-            SourceOrigin sourceOrigin = SourceOrigin.Instance;
+            SourceOrigin sourceOrigin = SourceOrigin.TryGetInstance();
+            if (!sourceOrigin)
+            {
+                enabled = false;
+                return;
+            }
+
             sourceOrigin.OnRecalculateRelativeTransforms += TransformRelativeToNewOrigin;
         }
 
@@ -35,6 +41,10 @@ namespace ContextIII
         {
             transform.position = StartPosition;
             transform.eulerAngles = StartEuler;
+
+            SourceOrigin sourceOrigin = SourceOrigin.TryGetInstance();
+            if (!sourceOrigin)
+                return;
 
             SourceOrigin soureOrigin = SourceOrigin.Instance;
             soureOrigin.OnRecalculateRelativeTransforms -= TransformRelativeToNewOrigin;
@@ -97,9 +107,28 @@ namespace ContextIII
             return (newPosition, newEuler);
         }
 
+        public void SetStartPosition(Vector3 newStartPosition)
+        {
+            StartPosition = newStartPosition;
+        }
+
+        public void SetStartEuler(Vector3 newStartEuler)
+        {
+            StartEuler = newStartEuler;
+        }
+
+        public void SetStartPositionAndEuler(Vector3 newStartPosition, Vector3 newStartEuler)
+        {
+            StartPosition = newStartPosition;
+            StartEuler = newStartEuler;
+        }
+
         private void OnDrawGizmos()
         {
             if (!Application.isPlaying)
+                return;
+
+            if (!enabled)
                 return;
 
             if (relativeType != RelativeType.Moving_SendToServer)

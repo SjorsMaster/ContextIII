@@ -16,6 +16,7 @@ public class Singleton<T> : MonoBehaviour where T : Component
                 instance = FindAnyObjectByType<T>();
                 if (instance == null)
                 {
+                    Debug.LogWarning("No instance of " + typeof(T).Name + " found in the scene. Creating a new one.");
                     var go = new GameObject(typeof(T).Name + "Auto-Generated");
                     instance = go.AddComponent<T>();
                 }

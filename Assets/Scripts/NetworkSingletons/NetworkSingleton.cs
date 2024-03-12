@@ -30,7 +30,7 @@ namespace ContextIII.NetworkSingletons
         }
         
         /// <summary>
-        /// Make sure to call base.Awake() in override if you need awake.
+        /// Make sure to call base.Start() in override if you need Start.
         /// </summary>
         protected virtual void Start()
         {

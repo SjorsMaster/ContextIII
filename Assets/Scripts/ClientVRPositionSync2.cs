@@ -3,49 +3,24 @@ using UnityEngine;
 
 namespace ContextIII
 {
-    public class ClientVRRelativePositionSync : ClientVRPositionSync2
-    {
-        protected override void Update()
-        {
-            if (isLocalPlayer)
-            {
-                LocalTrackedDevice device = LocalTrackedDevice.Instance;
-                (Vector3 relativeEyePostion, Vector3 relativeEyeEuler) = device.CentreAnchorEyeRelative.RelativeToSource;
-                (Vector3 relativeLeftPosition, Vector3 relativeLeftEuler) = device.LeftAnchorRelative.RelativeToSource;
-                (Vector3 relativeRightPostion, Vector3 relativeRightEuler) = device.RightAnchorRelative.RelativeToSource;
-                // Instead of sending the local client's headset and hand positions and rotations to the server,
-                // we should send the relative positions and rotations to the server
-                CmdSyncToServer(
-                    relativeEyePostion,
-                    Quaternion.Euler(relativeEyeEuler),
-                    relativeLeftPosition,
-                    Quaternion.Euler(relativeLeftEuler),
-                    relativeRightPostion,
-                    Quaternion.Euler(relativeRightEuler));
-                UpdateVRObjectsLocally();
-            }
-            else
-                RemoteClientReceiveData();
-        }
-    }
 
     // Each local client sends its headset and hand data to the server, which then sends it to all remote clients
     public class ClientVRPositionSync2 : NetworkBehaviour
     {
         [SerializeField] private LocalTrackedDevice localTrackedDevicePrefab;
 
-        [SerializeField] private Transform headObject;
-        [SerializeField] private Transform leftHandObject;
-        [SerializeField] private Transform rightHandObject;
+        [SerializeField] protected Transform headObject;
+        [SerializeField] protected Transform leftHandObject;
+        [SerializeField] protected Transform rightHandObject;
 
-        [SyncVar] private Vector3 headPosition;
-        [SyncVar] private Quaternion headRotation;
+        [SyncVar] protected Vector3 headPosition;
+        [SyncVar] protected Quaternion headRotation;
 
-        [SyncVar] private Vector3 leftHandPosition;
-        [SyncVar] private Quaternion leftHandRotation;
+        [SyncVar] protected Vector3 leftHandPosition;
+        [SyncVar] protected Quaternion leftHandRotation;
         
-        [SyncVar] private Vector3 rightHandPosition;
-        [SyncVar] private Quaternion rightHandRotation;
+        [SyncVar] protected Vector3 rightHandPosition;
+        [SyncVar] protected Quaternion rightHandRotation;
 
         [ClientCallback]
         protected virtual void Update()
@@ -96,7 +71,7 @@ namespace ContextIII
         /// Updates the remote client's headset and hand positions and rotations
         /// </summary>
         [ClientCallback]
-        protected void RemoteClientReceiveData()
+        protected virtual void RemoteClientReceiveData()
         {
             headObject.SetPositionAndRotation(headPosition, headRotation);
             leftHandObject.SetPositionAndRotation(leftHandPosition, leftHandRotation);

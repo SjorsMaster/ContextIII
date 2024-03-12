@@ -22,26 +22,63 @@ namespace ContextIII
             StartEulers = transform.eulerAngles;
 
             LocalTrackedDevice localTrackedDevice = LocalTrackedDevice.Instance;
-            RelativeOrigin.position = localTrackedDevice.LeftAnchorRelative.transform.position;
-            RelativeOrigin.eulerAngles = localTrackedDevice.LeftAnchorRelative.transform.eulerAngles;
+            RelativeOrigin.position = new Vector3(
+                TrackPositionAndRotationSelector.TrackXPosition ? localTrackedDevice.LeftAnchorRelative.transform.position.x : RelativeOrigin.position.x,
+                TrackPositionAndRotationSelector.TrackYPosition ? localTrackedDevice.LeftAnchorRelative.transform.position.y : RelativeOrigin.position.y,
+                TrackPositionAndRotationSelector.TrackZPosition ? localTrackedDevice.LeftAnchorRelative.transform.position.z : RelativeOrigin.position.z);
+            RelativeOrigin.eulerAngles = new Vector3(
+                TrackPositionAndRotationSelector.TrackXRotation ? localTrackedDevice.LeftAnchorRelative.transform.eulerAngles.x : RelativeOrigin.eulerAngles.x,
+                TrackPositionAndRotationSelector.TrackYRotation ? localTrackedDevice.LeftAnchorRelative.transform.eulerAngles.y : RelativeOrigin.eulerAngles.y,
+                TrackPositionAndRotationSelector.TrackZRotation ? localTrackedDevice.LeftAnchorRelative.transform.eulerAngles.z : RelativeOrigin.eulerAngles.z);
         }
 
         private void Update()
         {
             if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger, OVRInput.Controller.RTouch))
-                RecalculateStationaryRelativeTransforms();
+            {
+                Debug.LogWarning("Pressed the primary index trigger on the right touch controller.");
+                RecalculateRelativeTransformsToLeftController(RelativeType.Stationary, true);
+            }
+
+            if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger, OVRInput.Controller.LTouch))
+            {
+                Debug.LogWarning("Pressed the primary index trigger on the left touch controller.");
+                {
+                    foreach (RelativeObject v in FindObjectsByType<RelativeObject>(FindObjectsSortMode.None))
+                    {
+                        if (v.enabled)
+                            continue;
+
+                        v.enabled = true;
+                    }
+                }
+            }
         }
 
-        public void RecalculateStationaryRelativeTransforms()
+        public void RecalculateRelativeTransformsToLeftController(RelativeType targetRelativeType, bool SetRelativeOrigin = false)
         {
             LocalTrackedDevice localTrackedDevice = LocalTrackedDevice.Instance;
-            OnRecalculateRelativeTransforms?.Invoke(
-                RelativeType.Stationary,
-                transform,
-                localTrackedDevice.LeftAnchorRelative.transform);
+            if (SetRelativeOrigin)
+            {
+                RelativeOrigin.position = new Vector3(
+                    TrackPositionAndRotationSelector.TrackXPosition ? localTrackedDevice.LeftAnchorRelative.transform.position.x : RelativeOrigin.position.x,
+                    TrackPositionAndRotationSelector.TrackYPosition ? localTrackedDevice.LeftAnchorRelative.transform.position.y : RelativeOrigin.position.y,
+                    TrackPositionAndRotationSelector.TrackZPosition ? localTrackedDevice.LeftAnchorRelative.transform.position.z : RelativeOrigin.position.z);
+                RelativeOrigin.eulerAngles = new Vector3(
+                    TrackPositionAndRotationSelector.TrackXRotation ? localTrackedDevice.LeftAnchorRelative.transform.eulerAngles.x : RelativeOrigin.eulerAngles.x,
+                    TrackPositionAndRotationSelector.TrackYRotation ? localTrackedDevice.LeftAnchorRelative.transform.eulerAngles.y : RelativeOrigin.eulerAngles.y,
+                    TrackPositionAndRotationSelector.TrackZRotation ? localTrackedDevice.LeftAnchorRelative.transform.eulerAngles.z : RelativeOrigin.eulerAngles.z);
+            }
 
-            RelativeOrigin.position = localTrackedDevice.LeftAnchorRelative.transform.position;
-            RelativeOrigin.eulerAngles = localTrackedDevice.LeftAnchorRelative.transform.eulerAngles;
+            OnRecalculateRelativeTransforms?.Invoke(
+                targetRelativeType,
+                transform,
+                RelativeOrigin);
+        }
+
+        public void RecalculateRelativeTransformsToLeftControllerButton()
+        {
+            RecalculateRelativeTransformsToLeftController(RelativeType.Stationary, true);
         }
     }
 }

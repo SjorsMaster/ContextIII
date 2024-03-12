@@ -17,6 +17,10 @@ namespace ContextIII
         {
             if (autoConnectOnStartup)
                 StartClient();
+
+            if (!string.IsNullOrEmpty(networkAddress))
+                ipInputField.text = networkAddress;
+
         }
 
         public void StartClient()
