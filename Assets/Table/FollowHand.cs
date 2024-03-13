@@ -1,34 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FollowHand : MonoBehaviour
 {
-    [SerializeField] GameObject _hand, _paddle, _boundsA, _boundsB;
-    [SerializeField] float _speed;
-
-    Rigidbody _rigidbody;
-
-    void Start() => UpdateTarget(_paddle.GetComponent<Rigidbody>());
-    void UpdateTarget(GameObject target) => UpdateTarget(target.GetComponent<Rigidbody>());
-    void UpdateTarget(Rigidbody target) => _rigidbody = target;
+    [SerializeField] private Rigidbody _paddleRb;
+    [SerializeField] private Transform _hand;
+    [SerializeField] private Transform _boundsA, _boundsB;
 
     /// <summary>
     /// Lets you set the hand object to be tracked.
     /// </summary>
-    /// <param name="target">The hand or whatever needs to be tracked</param>
-    public void SetHand(GameObject target) => _hand = target;
+    /// <param name="newHand">The hand or whatever needs to be tracked</param>
+    public void SetHand(Transform newHand) => _hand = newHand;
 
     // Update is called once per frame
-    void Update(){
-        if(_rigidbody && _hand) _rigidbody.MovePosition(CheckBounds(_hand.transform.position));
+    void Update()
+    {
+        if (!_hand) 
+            return;
+
+        Vector3 handsToLocal = transform.InverseTransformPoint(_hand.position);
+        Vector3 targetPos = CheckBounds(handsToLocal);
+        _paddleRb.MovePosition(transform.TransformPoint(targetPos));
     }
 
-    Vector3 CheckBounds(Vector3 input){
-        float tmp1 = input.x > _boundsA.transform.position.x ? (input.x < _boundsB.transform.position.x ? input.x : _boundsB.transform.position.x) : _boundsA.transform.position.x;
-        float tmp2 = input.z > _boundsA.transform.position.z ? (input.z < _boundsB.transform.position.z ? input.z : _boundsB.transform.position.z) : _boundsA.transform.position.z;
-
-        //print($"{tmp1},{input.y},{tmp2}");
-        return new Vector3(tmp1, input.y, tmp2);
+    Vector3 CheckBounds(Vector3 input)
+    {
+        // Check if the input is within the bounds of their local positions
+        input.x = Mathf.Clamp(input.x, _boundsA.localPosition.x, _boundsB.localPosition.x);
+        input.z = Mathf.Clamp(input.z, _boundsA.localPosition.z, _boundsB.localPosition.z);
+        return input;
     }
 }
