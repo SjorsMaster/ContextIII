@@ -10,12 +10,18 @@ public class FollowHand : MonoBehaviour
     Rigidbody _rigidbody;
 
     void Start() => UpdateTarget(_paddle.GetComponent<Rigidbody>());
-    public void UpdateTarget(GameObject target) => UpdateTarget(target.GetComponent<Rigidbody>());
-    public void UpdateTarget(Rigidbody target) => _rigidbody = target;
+    void UpdateTarget(GameObject target) => UpdateTarget(target.GetComponent<Rigidbody>());
+    void UpdateTarget(Rigidbody target) => _rigidbody = target;
+
+    /// <summary>
+    /// Lets you set the hand object to be tracked.
+    /// </summary>
+    /// <param name="target">The hand or whatever needs to be tracked</param>
+    public void SetHand(GameObject target) => _hand = target;
 
     // Update is called once per frame
     void Update(){
-        if(_rigidbody) _rigidbody.MovePosition(CheckBounds(_hand.transform.position));
+        if(_rigidbody && _hand) _rigidbody.MovePosition(CheckBounds(_hand.transform.position));
     }
 
     Vector3 CheckBounds(Vector3 input){
