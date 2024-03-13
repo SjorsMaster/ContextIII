@@ -7,6 +7,7 @@ namespace ContextIII
     // Each local client sends its headset and hand data to the server, which then sends it to all remote clients
     public class ClientVRPositionSync2 : NetworkBehaviour
     {
+        [SerializeField] private GameObject RemoteClients;
         [SerializeField] private LocalTrackedDevice localTrackedDevicePrefab;
 
         [SerializeField] protected Transform headObject;
@@ -21,6 +22,12 @@ namespace ContextIII
         
         [SyncVar] protected Vector3 rightHandPosition;
         [SyncVar] protected Quaternion rightHandRotation;
+
+        protected virtual void Start()
+        {
+            if (isOwned)
+                RemoteClients.SetActive(false);
+        }
 
         [ClientCallback]
         protected virtual void Update()

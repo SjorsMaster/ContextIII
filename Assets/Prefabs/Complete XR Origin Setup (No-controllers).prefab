@@ -948,6 +948,7 @@ GameObject:
   - component: {fileID: 8851541047641953772}
   - component: {fileID: 8005863679887757582}
   - component: {fileID: 6530217094499893459}
+  - component: {fileID: 1933414110234361893}
   m_Layer: 7
   m_Name: CenterEyeAnchor
   m_TagString: MainCamera
@@ -1029,6 +1030,19 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &1933414110234361893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2731190943962268985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60c9a220accf2d242bb500b53782d610, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  relativeType: 1
 --- !u!1 &2831877193812367732
 GameObject:
   m_ObjectHideFlags: 0
@@ -1763,6 +1777,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3089079584738973117}
+  - component: {fileID: 4691642449567810611}
   m_Layer: 0
   m_Name: LeftHandAnchor
   m_TagString: Untagged
@@ -1787,6 +1802,19 @@ Transform:
   - {fileID: 7587408199137594452}
   m_Father: {fileID: 3735801343268301711}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4691642449567810611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5286484376040468588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60c9a220accf2d242bb500b53782d610, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  relativeType: 1
 --- !u!1 &5325748746954467882
 GameObject:
   m_ObjectHideFlags: 0
@@ -1848,7 +1876,7 @@ GameObject:
   - component: {fileID: 80436437415126449}
   - component: {fileID: 6289330044818648879}
   m_Layer: 0
-  m_Name: Complete XR Origin Set Up Variant (No models)
+  m_Name: Complete XR Origin Setup (No-controllers)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1885,9 +1913,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2a1ac25741f5e74ea1b6058ef3ece47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <TrackedHeadTransform>k__BackingField: {fileID: 8851541047641953772}
-  <TrackedLeftHandTransform>k__BackingField: {fileID: 1754087472725250024}
-  <TrackedRightHandTransform>k__BackingField: {fileID: 2163941578954501317}
+  <CameraRig>k__BackingField: {fileID: 5434963798353652098}
+  <CentreAnchorEyeRelative>k__BackingField: {fileID: 1933414110234361893}
+  <LeftAnchorRelative>k__BackingField: {fileID: 4691642449567810611}
+  <RightAnchorRelative>k__BackingField: {fileID: 3909288581548176157}
 --- !u!1 &5396920825848909633
 GameObject:
   m_ObjectHideFlags: 0
@@ -1928,6 +1957,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6360952127873391154}
+  - component: {fileID: 3909288581548176157}
   m_Layer: 0
   m_Name: RightHandAnchor
   m_TagString: Untagged
@@ -1952,6 +1982,19 @@ Transform:
   - {fileID: 7736707202180060996}
   m_Father: {fileID: 3735801343268301711}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3909288581548176157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5541012264047836555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60c9a220accf2d242bb500b53782d610, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  relativeType: 1
 --- !u!1 &5631339451423194639
 GameObject:
   m_ObjectHideFlags: 0
@@ -3299,7 +3342,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Unity.VRTemplate.Callout, Assembly-CSharp
-        m_MethodName: GazeHoverEnd
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
