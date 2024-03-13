@@ -4,7 +4,7 @@ using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace MacUtils.SceneSelector
+namespace ContextIII
 {
     /// <summary>
     /// Creates a window that allows the user to select a scene to open.
@@ -103,7 +103,7 @@ namespace MacUtils.SceneSelector
 
             Object sceneAsset = AssetDatabase.LoadAssetAtPath(scenePath, typeof(SceneAsset));
 
-            Button openButton = new(() =>
+            UnityEngine.UIElements.Button openButton = new(() =>
             {
                 EditorSceneManager.OpenScene(scenePath, OpenSceneMode.Single);
             })
