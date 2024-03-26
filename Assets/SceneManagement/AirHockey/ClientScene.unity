@@ -548,6 +548,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: Complete XR Origin Setup (+Controllers)
       objectReference: {fileID: 0}
+    - target: {fileID: 3551215777014125876, guid: 7a39e7df3d428434cb57bd13879da47a,
+        type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3551215777014125876, guid: 7a39e7df3d428434cb57bd13879da47a,
+        type: 3}
+      propertyPath: m_BackGroundColor.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3551215777014125876, guid: 7a39e7df3d428434cb57bd13879da47a,
+        type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3551215777014125876, guid: 7a39e7df3d428434cb57bd13879da47a,
+        type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3551215777014125876, guid: 7a39e7df3d428434cb57bd13879da47a,
+        type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7695045055325237334, guid: 7a39e7df3d428434cb57bd13879da47a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -656,7 +681,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   autoConnectOnStartup: 0
   networkManager: {fileID: 50690423}
-  networkAddress: 10.3.28.194
+  networkAddress: 192.168.2.3
   ipInputField: {fileID: 711920353}
 --- !u!114 &406122904
 MonoBehaviour:

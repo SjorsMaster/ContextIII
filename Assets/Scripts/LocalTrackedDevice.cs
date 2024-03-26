@@ -6,8 +6,8 @@ namespace ContextIII
     {
         [field: SerializeField] public OVRCameraRig CameraRig { get; private set; }
 
-        [field: SerializeField] public RelativeObject CentreAnchorEyeRelative { get; private set; }
-        [field: SerializeField] public RelativeObject LeftAnchorRelative { get; private set; }
-        [field: SerializeField] public RelativeObject RightAnchorRelative { get; private set; }
+        [field: SerializeField] public Transform CentreEyeAnchor { get; private set; }
+        [field: SerializeField] public Transform LeftHandAnchor { get; private set; }
+        [field: SerializeField] public Transform RightHandAnchor { get; private set; }
     }
 }

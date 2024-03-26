@@ -1,7 +1,9 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace ContextIII
 {
+
     public class RelativeObject : MonoBehaviour
     {
         [SerializeField] private RelativeType relativeType = RelativeType.Stationary;
@@ -131,7 +133,7 @@ namespace ContextIII
             if (!enabled)
                 return;
 
-            if (relativeType != RelativeType.Moving_SendToServer)
+            if (relativeType != RelativeType.Moving_ClientToServer)
                 return;
 
             Gizmos.color = Color.red;

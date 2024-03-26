@@ -36,12 +36,12 @@ namespace ContextIII
             {
                 LocalTrackedDevice device = LocalTrackedDevice.Instance;
                 CmdSyncToServer(
-                    device.CentreAnchorEyeRelative.transform.position,
-                    device.CentreAnchorEyeRelative.transform.rotation,
-                    device.LeftAnchorRelative.transform.position,
-                    device.LeftAnchorRelative.transform.rotation,
-                    device.RightAnchorRelative.transform.position,
-                    device.RightAnchorRelative.transform.rotation);
+                    device.CentreEyeAnchor.transform.position,
+                    device.CentreEyeAnchor.transform.rotation,
+                    device.LeftHandAnchor.transform.position,
+                    device.LeftHandAnchor.transform.rotation,
+                    device.RightHandAnchor.transform.position,
+                    device.RightHandAnchor.transform.rotation);
                 UpdateVRObjectsLocally();
             }
             else
@@ -88,9 +88,9 @@ namespace ContextIII
         protected void UpdateVRObjectsLocally()
         {
             LocalTrackedDevice device = LocalTrackedDevice.Instance;
-            headObject.SetPositionAndRotation(device.CentreAnchorEyeRelative.transform.position, device.CentreAnchorEyeRelative.transform.rotation);
-            leftHandObject.SetPositionAndRotation(device.LeftAnchorRelative.transform.position, device.LeftAnchorRelative.transform.rotation);
-            rightHandObject.SetPositionAndRotation(device.RightAnchorRelative.transform.position, device.RightAnchorRelative.transform.rotation);
+            headObject.SetPositionAndRotation(device.CentreEyeAnchor.transform.position, device.CentreEyeAnchor.transform.rotation);
+            leftHandObject.SetPositionAndRotation(device.LeftHandAnchor.transform.position, device.LeftHandAnchor.transform.rotation);
+            rightHandObject.SetPositionAndRotation(device.RightHandAnchor.transform.position, device.RightHandAnchor.transform.rotation);
         }
     }
 }
