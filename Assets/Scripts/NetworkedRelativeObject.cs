@@ -53,6 +53,7 @@ namespace ContextIII
 
         private void OnChangedRotationData(Quaternion oldRotation, Quaternion newRotation)
         {
+            // We assign euler angles to avoid gimbal lock.
             transform.eulerAngles = newRotation.eulerAngles + currentPivotRot.eulerAngles;
         }
 
