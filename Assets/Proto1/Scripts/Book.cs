@@ -7,7 +7,7 @@ public class Book : MonoBehaviour
     //temp solution til I see yvar lol
     public BookOrderer handler;
 
-    private void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
         handler.CheckList(this.gameObject);
     }
