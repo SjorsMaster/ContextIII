@@ -5,11 +5,13 @@ using UnityEngine;
 public class Book : MonoBehaviour
 {
     //temp solution til I see yvar lol
+    [SerializeField]
+    public int index;
     public BookOrderer handler;
 
     public void OnTriggerEnter(Collider other)
     {
-        handler.CheckList(this.gameObject);
+        handler.CheckList(index);
     }
 
     //make delegate that bookordered listens to

@@ -9,16 +9,15 @@ public class BookOrderer : MonoBehaviour
     public UnityEvent achieved;
 
     [SerializeField]
-    private GameObject[] orderList;
-    int orderIndex = 0;
+    int index = 0, goal = 4;
     
-    public void CheckList(GameObject passed){
-        if(passed == orderList[orderIndex])
-            orderIndex++;
+    public void CheckList(int identifier){
+        if(index == identifier)
+            index++;
         else
-            orderIndex = 0;
+            index = 0;
 
-        if(orderIndex>orderList.Length){
+        if(index == goal){
             achieved.Invoke();
             Destroy(this);
         }
