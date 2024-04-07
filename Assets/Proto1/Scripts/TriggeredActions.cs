@@ -6,9 +6,13 @@ using UnityEngine.Events;
 public class TriggeredActions : MonoBehaviour
 {
     
-    public UnityEvent triggering;
+    public UnityEvent entryBehaviour,exitBehaviour;
     public void OnTriggerEnter(Collider other)
     {
-            triggering.Invoke();
+            entryBehaviour.Invoke();
+    }
+    public void OnTriggerExit(Collider other)
+    {
+            exitBehaviour.Invoke();
     }
 }
