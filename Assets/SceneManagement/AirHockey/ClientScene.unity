@@ -323,7 +323,7 @@ MonoBehaviour:
   autoStartServerBuild: 0
   autoConnectClientBuild: 0
   offlineScene: Assets/SceneManagement/AirHockey/ClientScene.unity
-  onlineScene: Assets/SceneManagement/AirHockey/GameScene.unity
+  onlineScene: Assets/Proto1/TestScene.unity
   transport: {fileID: 50690422}
   networkAddress: localhost
   maxConnections: 100
@@ -681,7 +681,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   autoConnectOnStartup: 0
   networkManager: {fileID: 50690423}
-  networkAddress: 192.168.2.3
+  networkAddress: 10.2.4.110
   ipInputField: {fileID: 711920353}
 --- !u!114 &406122904
 MonoBehaviour:

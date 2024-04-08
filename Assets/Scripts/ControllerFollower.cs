@@ -15,8 +15,8 @@ public class ControllerFollower : NetworkBehaviour
         if (!trackedDevice) 
             return;
 
-        Head.SetPositionAndRotation(trackedDevice.CentreEyeAnchor.position, trackedDevice.CentreEyeAnchor.rotation);
-        LeftHand.SetPositionAndRotation(trackedDevice.LeftHandAnchor.position, trackedDevice.LeftHandAnchor.rotation);
-        RightHand.SetPositionAndRotation(trackedDevice.RightHandAnchor.position, trackedDevice.RightHandAnchor.rotation);
+        Head.SetPositionAndRotation(trackedDevice.CentreAnchorEyeRelative.transform.position, trackedDevice.CentreAnchorEyeRelative.transform.rotation);
+        LeftHand.SetPositionAndRotation(trackedDevice.LeftAnchorRelative.transform.position, trackedDevice.LeftAnchorRelative.transform.rotation);
+        RightHand.SetPositionAndRotation(trackedDevice.RightAnchorRelative.transform.position, trackedDevice.RightAnchorRelative.transform.rotation);
     }
 }

@@ -23,13 +23,13 @@ namespace ContextIII
 
             LocalTrackedDevice localTrackedDevice = LocalTrackedDevice.Instance;
             RelativeOrigin.position = new Vector3(
-                TrackPositionAndRotationSelector.TrackXPosition ? localTrackedDevice.LeftHandAnchor.transform.position.x : RelativeOrigin.position.x,
-                TrackPositionAndRotationSelector.TrackYPosition ? localTrackedDevice.LeftHandAnchor.transform.position.y : RelativeOrigin.position.y,
-                TrackPositionAndRotationSelector.TrackZPosition ? localTrackedDevice.LeftHandAnchor.transform.position.z : RelativeOrigin.position.z);
+                TrackPositionAndRotationSelector.TrackXPosition ? localTrackedDevice.LeftAnchorRelative.transform.position.x : RelativeOrigin.position.x,
+                TrackPositionAndRotationSelector.TrackYPosition ? localTrackedDevice.LeftAnchorRelative.transform.position.y : RelativeOrigin.position.y,
+                TrackPositionAndRotationSelector.TrackZPosition ? localTrackedDevice.LeftAnchorRelative.transform.position.z : RelativeOrigin.position.z);
             RelativeOrigin.eulerAngles = new Vector3(
-                TrackPositionAndRotationSelector.TrackXRotation ? localTrackedDevice.LeftHandAnchor.transform.eulerAngles.x : RelativeOrigin.eulerAngles.x,
-                TrackPositionAndRotationSelector.TrackYRotation ? localTrackedDevice.LeftHandAnchor.transform.eulerAngles.y : RelativeOrigin.eulerAngles.y,
-                TrackPositionAndRotationSelector.TrackZRotation ? localTrackedDevice.LeftHandAnchor.transform.eulerAngles.z : RelativeOrigin.eulerAngles.z);
+                TrackPositionAndRotationSelector.TrackXRotation ? localTrackedDevice.LeftAnchorRelative.transform.eulerAngles.x : RelativeOrigin.eulerAngles.x,
+                TrackPositionAndRotationSelector.TrackYRotation ? localTrackedDevice.LeftAnchorRelative.transform.eulerAngles.y : RelativeOrigin.eulerAngles.y,
+                TrackPositionAndRotationSelector.TrackZRotation ? localTrackedDevice.LeftAnchorRelative.transform.eulerAngles.z : RelativeOrigin.eulerAngles.z);
         }
 
         private void Update()
@@ -61,13 +61,13 @@ namespace ContextIII
             if (SetRelativeOrigin)
             {
                 RelativeOrigin.position = new Vector3(
-                    TrackPositionAndRotationSelector.TrackXPosition ? localTrackedDevice.LeftHandAnchor.transform.position.x : RelativeOrigin.position.x,
-                    TrackPositionAndRotationSelector.TrackYPosition ? localTrackedDevice.LeftHandAnchor.transform.position.y : RelativeOrigin.position.y,
-                    TrackPositionAndRotationSelector.TrackZPosition ? localTrackedDevice.LeftHandAnchor.transform.position.z : RelativeOrigin.position.z);
+                    TrackPositionAndRotationSelector.TrackXPosition ? localTrackedDevice.LeftAnchorRelative.transform.position.x : RelativeOrigin.position.x,
+                    TrackPositionAndRotationSelector.TrackYPosition ? localTrackedDevice.LeftAnchorRelative.transform.position.y : RelativeOrigin.position.y,
+                    TrackPositionAndRotationSelector.TrackZPosition ? localTrackedDevice.LeftAnchorRelative.transform.position.z : RelativeOrigin.position.z);
                 RelativeOrigin.eulerAngles = new Vector3(
-                    TrackPositionAndRotationSelector.TrackXRotation ? localTrackedDevice.LeftHandAnchor.transform.eulerAngles.x : RelativeOrigin.eulerAngles.x,
-                    TrackPositionAndRotationSelector.TrackYRotation ? localTrackedDevice.LeftHandAnchor.transform.eulerAngles.y : RelativeOrigin.eulerAngles.y,
-                    TrackPositionAndRotationSelector.TrackZRotation ? localTrackedDevice.LeftHandAnchor.transform.eulerAngles.z : RelativeOrigin.eulerAngles.z);
+                    TrackPositionAndRotationSelector.TrackXRotation ? localTrackedDevice.LeftAnchorRelative.transform.eulerAngles.x : RelativeOrigin.eulerAngles.x,
+                    TrackPositionAndRotationSelector.TrackYRotation ? localTrackedDevice.LeftAnchorRelative.transform.eulerAngles.y : RelativeOrigin.eulerAngles.y,
+                    TrackPositionAndRotationSelector.TrackZRotation ? localTrackedDevice.LeftAnchorRelative.transform.eulerAngles.z : RelativeOrigin.eulerAngles.z);
             }
 
             OnRecalculateRelativeTransforms?.Invoke(

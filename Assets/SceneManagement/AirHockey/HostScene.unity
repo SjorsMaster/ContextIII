@@ -176,7 +176,7 @@ MonoBehaviour:
   autoStartServerBuild: 0
   autoConnectClientBuild: 0
   offlineScene: Assets/SceneManagement/AirHockey/HostScene.unity
-  onlineScene: Assets/SceneManagement/AirHockey/GameScene.unity
+  onlineScene: Assets/Proto1/TestScene.unity
   transport: {fileID: 569194229}
   networkAddress: localhost
   maxConnections: 100

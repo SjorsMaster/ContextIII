@@ -7,7 +7,6 @@ namespace ContextIII
     // Each local client sends its headset and hand data to the server, which then sends it to all remote clients
     public class ClientVRPositionSync2 : NetworkBehaviour
     {
-        [SerializeField] private GameObject RemoteClients;
         [SerializeField] private LocalTrackedDevice localTrackedDevicePrefab;
 
         [SerializeField] protected Transform headObject;
@@ -23,12 +22,6 @@ namespace ContextIII
         [SyncVar] protected Vector3 rightHandPosition;
         [SyncVar] protected Quaternion rightHandRotation;
 
-        protected virtual void Start()
-        {
-            if (isOwned)
-                RemoteClients.SetActive(false);
-        }
-
         [ClientCallback]
         protected virtual void Update()
         {
@@ -36,12 +29,12 @@ namespace ContextIII
             {
                 LocalTrackedDevice device = LocalTrackedDevice.Instance;
                 CmdSyncToServer(
-                    device.CentreEyeAnchor.transform.position,
-                    device.CentreEyeAnchor.transform.rotation,
-                    device.LeftHandAnchor.transform.position,
-                    device.LeftHandAnchor.transform.rotation,
-                    device.RightHandAnchor.transform.position,
-                    device.RightHandAnchor.transform.rotation);
+                    device.CentreAnchorEyeRelative.transform.position,
+                    device.CentreAnchorEyeRelative.transform.rotation,
+                    device.LeftAnchorRelative.transform.position,
+                    device.LeftAnchorRelative.transform.rotation,
+                    device.RightAnchorRelative.transform.position,
+                    device.RightAnchorRelative.transform.rotation);
                 UpdateVRObjectsLocally();
             }
             else
@@ -88,9 +81,9 @@ namespace ContextIII
         protected void UpdateVRObjectsLocally()
         {
             LocalTrackedDevice device = LocalTrackedDevice.Instance;
-            headObject.SetPositionAndRotation(device.CentreEyeAnchor.transform.position, device.CentreEyeAnchor.transform.rotation);
-            leftHandObject.SetPositionAndRotation(device.LeftHandAnchor.transform.position, device.LeftHandAnchor.transform.rotation);
-            rightHandObject.SetPositionAndRotation(device.RightHandAnchor.transform.position, device.RightHandAnchor.transform.rotation);
+            headObject.SetPositionAndRotation(device.CentreAnchorEyeRelative.transform.position, device.CentreAnchorEyeRelative.transform.rotation);
+            leftHandObject.SetPositionAndRotation(device.LeftAnchorRelative.transform.position, device.LeftAnchorRelative.transform.rotation);
+            rightHandObject.SetPositionAndRotation(device.RightAnchorRelative.transform.position, device.RightAnchorRelative.transform.rotation);
         }
     }
 }
