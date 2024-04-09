@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Proto1/SideProject.unity
     guid: 41d2ded4edf5249379e46b5b92a3bf16
   m_configObjects:
