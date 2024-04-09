@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class RaycastDown : MonoBehaviour
 {
     public bool grounded { get; private set; }
+    public UnityEvent grounded, notGrounded;
     void FixedUpdate()
     {
         // Bit shift the index of the layer (8) to get a bit mask
@@ -19,11 +21,13 @@ public class RaycastDown : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.TransformDirection(-Vector3.up), out hit, Mathf.Infinity, layerMask))
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(-Vector3.up) * hit.distance, Color.yellow);
+            grounded?.Invoke();
             grounded = true;
         }
         else
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(-Vector3.up) * 1000, Color.white);
+            notGrounded?.Invoke();
             grounded = false;
         }
     }
