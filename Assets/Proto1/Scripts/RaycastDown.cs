@@ -5,7 +5,7 @@ public class RaycastDown : MonoBehaviour
 {
     public bool Grounded { get; private set; }
 
-    public UnityEvent onGrounded, onNotGrounded;
+    public UnityEvent onGround, onNotGround;
 
     void FixedUpdate()
     {
@@ -20,13 +20,13 @@ public class RaycastDown : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.TransformDirection(-Vector3.up), out RaycastHit hit, Mathf.Infinity, layerMask))
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(-Vector3.up) * hit.distance, Color.yellow);
-            onGrounded?.Invoke();
+            onGround?.Invoke();
             Grounded = true;
         }
         else
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(-Vector3.up) * 1000, Color.white);
-            onNotGrounded?.Invoke();
+            onNotGround?.Invoke();
             Grounded = false;
         }
     }
