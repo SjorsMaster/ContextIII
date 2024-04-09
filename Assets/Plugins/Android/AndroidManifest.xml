@@ -11,6 +11,17 @@
     </activity>
     <meta-data android:name="unityplayer.SkipPermissionsDialog" android:value="false" />
     <meta-data android:name="com.samsung.android.vr.application.mode" android:value="vr_only" />
-    <meta-data android:name="com.oculus.supportedDevices" android:value="quest|quest2|questpro" />
+    <meta-data android:name="com.oculus.supportedDevices" android:value="quest2|eureka" />
+    <meta-data android:name="com.oculus.ossplash.background" android:value="black" />
   </application>
+  <uses-feature android:name="android.hardware.vr.headtracking" android:version="1" android:required="true" />
+  <uses-feature android:name="oculus.software.overlay_keyboard" android:required="false" />
+  <uses-feature android:name="com.oculus.experimental.enabled" android:required="true" />
+  <uses-permission android:name="com.oculus.permission.USE_ANCHOR_API" />
+  <uses-permission android:name="com.oculus.permission.IMPORT_EXPORT_IOT_MAP_DATA" android:required="true" />
+  <uses-feature android:name="com.oculus.feature.PASSTHROUGH" android:required="true" />
+  <uses-feature android:name="com.oculus.feature.RENDER_MODEL" />
+  <uses-permission android:name="com.oculus.permission.RENDER_MODEL" />
+  <uses-feature android:name="com.oculus.feature.VIRTUAL_KEYBOARD" android:required="false" />
+  <uses-permission android:name="com.oculus.permission.USE_SCENE" />
 </manifest>

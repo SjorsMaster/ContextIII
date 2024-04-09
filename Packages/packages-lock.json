@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.mcyvar.sharedspaces-unityvr": {
+      "version": "https://github.com/McYvar/SharedSpaces-UnityVR.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "3e4fd0acd0704f7de106dbea9046b2c4aa6183b7"
+    },
     "com.meta.xr.mrutilitykit": {
       "version": "62.0.0",
       "depth": 1,

@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.mcyvar.sharedspaces-unityvr": "https://github.com/McYvar/SharedSpaces-UnityVR.git",
     "com.meta.xr.sdk.all": "62.0.0",
     "com.unity.ai.navigation": "1.1.4",
     "com.unity.collab-proxy": "2.2.0",

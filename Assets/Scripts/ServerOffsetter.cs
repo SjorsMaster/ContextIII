@@ -1,7 +1,7 @@
-﻿using ContextIII.NetworkSingletons;
-using Mirror;
+﻿using Mirror;
 using System.Collections.Generic;
 using UnityEngine;
+using SharedSpaces.NetworkSingletons;
 
 namespace ContextIII
 {
