@@ -2,22 +2,22 @@ using Mirror;
 using UnityEngine;
 using UnityEngine.Events;
 
-[RequireComponent(typeof(NetworkIdentity))]
-public class TriggeredActions : NetworkBehaviour
+//[RequireComponent(typeof(NetworkIdentity))]
+public class TriggeredActions : MonoBehaviour //NetworkBehaviour
 {
     public UnityEvent entryBehaviour, exitBehaviour;
 
     public void OnTriggerEnter(Collider other)
     {
-        //entryBehaviour.Invoke();
-        CmdTriggerEnter();
+        entryBehaviour.Invoke();
+        //CmdTriggerEnter();
     }
     public void OnTriggerExit(Collider other)
     {
-        //exitBehaviour.Invoke();
-        CmdTriggerExit();
+        exitBehaviour.Invoke();
+        //CmdTriggerExit();
     }
-
+/*
     [Command]
     public void CmdTriggerEnter()
     {
@@ -41,4 +41,5 @@ public class TriggeredActions : NetworkBehaviour
     {
         exitBehaviour.Invoke();
     }
+    */
 }
