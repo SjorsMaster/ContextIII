@@ -31,3 +31,8 @@ public class TriggeredActions : NetworkBehaviour
         exitBehaviour.Invoke();
     }
 }
+
+namespace ContextIII.Proto1
+{
+
+}
