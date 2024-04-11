@@ -7,16 +7,22 @@ public class TriggeredActions : NetworkBehaviour
 {
     public UnityEvent entryBehaviour, exitBehaviour;
 
-    [ServerCallback]
+    [ClientCallback]
     public void OnTriggerEnter(Collider other)
     {
-        RpcTriggerEnter();
+        CmdTriggerEnter();
     }
 
-    [ServerCallback]
+    [ClientCallback]
     public void OnTriggerExit(Collider other)
     {
-        RpcTriggerExit();
+        CmdTriggerExit();
+    }
+
+    [Command(requiresAuthority = false)]
+    public void CmdTriggerEnter()
+    {
+        RpcTriggerEnter();
     }
 
     [ClientRpc]
@@ -25,14 +31,15 @@ public class TriggeredActions : NetworkBehaviour
         entryBehaviour.Invoke();
     }
 
+    [Command(requiresAuthority = false)]
+    public void CmdTriggerExit()
+    {
+        RpcTriggerExit();
+    }
+
     [ClientRpc]
     public void RpcTriggerExit()
     {
         exitBehaviour.Invoke();
     }
-}
-
-namespace ContextIII.Proto1
-{
-
 }
