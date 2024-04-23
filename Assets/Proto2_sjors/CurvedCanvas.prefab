@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7401894497550994991}
   - component: {fileID: 7084098338455679963}
   - component: {fileID: 8787439122508626741}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: ConnectionToServer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,7 +159,7 @@ GameObject:
   - component: {fileID: 6098465229439140520}
   - component: {fileID: 9197176560203797492}
   - component: {fileID: 817384996958892882}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -292,7 +292,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1063634204662828090}
   - component: {fileID: 5321347187183328771}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: EditAnchorsMenuContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -349,7 +349,7 @@ GameObject:
   - component: {fileID: 4604058177553603797}
   - component: {fileID: 1028048660932552747}
   - component: {fileID: 8573573582291988353}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -481,7 +481,7 @@ GameObject:
   - component: {fileID: 4087263797033383251}
   - component: {fileID: 1526258996217300235}
   - component: {fileID: 542600294406348313}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -615,7 +615,7 @@ GameObject:
   - component: {fileID: 4543072043104843915}
   - component: {fileID: 7457315375758110307}
   - component: {fileID: 41524088955073673}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Play
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -692,7 +692,7 @@ GameObject:
   - component: {fileID: 8077568802100047256}
   - component: {fileID: 1064207727389319731}
   - component: {fileID: 2069155051115002925}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -825,7 +825,7 @@ GameObject:
   - component: {fileID: 6160529617807014530}
   - component: {fileID: 6681355002652295809}
   - component: {fileID: 4481212032982472426}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: IPInputfield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1010,7 +1010,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6344384161717561033}
   - component: {fileID: 7913067025060582188}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: MainMenuContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1062,7 +1062,7 @@ GameObject:
   - component: {fileID: 6528516673118876711}
   - component: {fileID: 3486948984180832379}
   - component: {fileID: 8437384242092263626}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1193,7 +1193,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8188424000157488021}
   - component: {fileID: 7629651201461120690}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: MainMenuSubContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1258,7 +1258,7 @@ GameObject:
   - component: {fileID: 6920489798476145949}
   - component: {fileID: 3689235500517549541}
   - component: {fileID: 1838375180832975900}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1391,7 +1391,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2458064365564423414}
   - component: {fileID: 2522825865210343239}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: SettingsMenuContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1441,7 +1441,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3948590621633132490}
   - component: {fileID: 6988670762806198987}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: JoinContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1507,7 +1507,7 @@ GameObject:
   - component: {fileID: 7039447606303502974}
   - component: {fileID: 5396408721754056744}
   - component: {fileID: 8215608567836236298}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: JoinButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1640,7 +1640,7 @@ GameObject:
   - component: {fileID: 7467070023342817114}
   - component: {fileID: 5231891240401846322}
   - component: {fileID: 7097850022751054296}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: ConnectionToServer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1787,7 +1787,7 @@ GameObject:
   - component: {fileID: 2368068061552367085}
   - component: {fileID: 4150051894682140130}
   - component: {fileID: 2119139096554858042}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1921,7 +1921,7 @@ GameObject:
   - component: {fileID: 2758797595777296445}
   - component: {fileID: 9010094257067283635}
   - component: {fileID: 3337383095764521417}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Disconnect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1998,7 +1998,7 @@ GameObject:
   - component: {fileID: 4660907312592274745}
   - component: {fileID: 6368570392714022401}
   - component: {fileID: 479233480449471791}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2130,7 +2130,7 @@ GameObject:
   - component: {fileID: 3592236289052538758}
   - component: {fileID: 460378533967072324}
   - component: {fileID: 258661375951320725}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2263,7 +2263,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8084858680169444261}
   - component: {fileID: 5432069989900494487}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Text Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2315,7 +2315,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6290125623166808761}
   - component: {fileID: 4884142432505057749}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: JoinMenuContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2366,7 +2366,7 @@ GameObject:
   - component: {fileID: 8450192368320176501}
   - component: {fileID: 5262868109818341619}
   - component: {fileID: 2595505431596249292}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Settings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2442,7 +2442,7 @@ GameObject:
   - component: {fileID: 6174773435285464694}
   - component: {fileID: 5470046415730056502}
   - component: {fileID: 1625187294799102282}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2577,7 +2577,7 @@ GameObject:
   - component: {fileID: 1947115699592644125}
   - component: {fileID: 1614679618273776735}
   - component: {fileID: 7362281330991325099}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Placeholder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2730,7 +2730,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4475328111163500411}
   - component: {fileID: 9203132970757767976}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: PlayMenuContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2781,7 +2781,7 @@ GameObject:
   - component: {fileID: 3662547010571914895}
   - component: {fileID: 694279174877304353}
   - component: {fileID: 298762851714856838}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: RequestAnchorEditMode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2854,6 +2854,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1830366799033679161, guid: 893a8e31e720e00439ac04eefbe68ffa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 3477039148880547737, guid: 893a8e31e720e00439ac04eefbe68ffa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2904,10 +2909,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6502339152060407533, guid: 893a8e31e720e00439ac04eefbe68ffa,
+        type: 3}
+      propertyPath: _renderingLayers.m_Bits
+      value: 8192
+      objectReference: {fileID: 0}
     - target: {fileID: 7539041697265762894, guid: 893a8e31e720e00439ac04eefbe68ffa,
         type: 3}
       propertyPath: m_Name
       value: CurvedCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8750522450746077698, guid: 893a8e31e720e00439ac04eefbe68ffa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
