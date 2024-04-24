@@ -16,6 +16,10 @@ public class Oog : MonoBehaviour
     //trigger exit
     //value becomes false
 
+    void OnEnable(){
+        target = null;
+    }
+
     public void OnTriggerEnter(Collider other)
     {
         //looking = true;
