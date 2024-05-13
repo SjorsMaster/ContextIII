@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class DraaiDeurBV : MonoBehaviour
 {
     public List<UnityEvent> entryBehaviour, exitBehaviour;
-    int tracker=0, cooldownS = 3;
+    int tracker=0, cooldownS = 9;
     bool canTrigger = true, canExit = false; //To avoid repeat calling when moving back an forth
 
     public void OnTriggerEnter(Collider other)
