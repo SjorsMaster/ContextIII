@@ -6824,7 +6824,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   track: 1
   trackSecInterval: 0.15
-  posCol: []
 --- !u!4 &790899145
 Transform:
   m_ObjectHideFlags: 0
@@ -10824,7 +10823,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   track: 1
   trackSecInterval: 0.15
-  posCol: []
 --- !u!4 &1300865235
 Transform:
   m_ObjectHideFlags: 0
@@ -11740,7 +11738,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   track: 1
   trackSecInterval: 0.15
-  posCol: []
 --- !u!4 &1396204502
 Transform:
   m_ObjectHideFlags: 0
@@ -12001,7 +11998,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   track: 1
   trackSecInterval: 0.15
-  posCol: []
 --- !u!4 &1411640765
 Transform:
   m_ObjectHideFlags: 0
@@ -13515,7 +13511,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   track: 1
   trackSecInterval: 0.15
-  posCol: []
 --- !u!4 &1530993815
 Transform:
   m_ObjectHideFlags: 0
@@ -13624,7 +13619,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   track: 1
   trackSecInterval: 0.15
-  posCol: []
 --- !u!4 &1564433529
 Transform:
   m_ObjectHideFlags: 0
