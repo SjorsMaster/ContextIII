@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - PersistentDoorFrame
+  - GoalA
+  - GoalB
+  - Handle
   layers:
   - Default
   - TransparentFX
@@ -19,7 +22,7 @@ TagManager:
   - Movable
   - AnimationTrigger
   - GrabInteract
-  - 
+  - Hide
   - 
   - 
   - 
