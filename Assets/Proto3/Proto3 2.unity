@@ -6806,7 +6806,7 @@ GameObject:
   m_Layer: 0
   m_Name: TrackMe (4)
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -6824,6 +6824,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   track: 1
   trackSecInterval: 0.15
+  posCol: []
 --- !u!4 &790899145
 Transform:
   m_ObjectHideFlags: 0
@@ -10805,7 +10806,7 @@ GameObject:
   m_Layer: 0
   m_Name: TrackMe (2)
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -10823,6 +10824,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   track: 1
   trackSecInterval: 0.15
+  posCol: []
 --- !u!4 &1300865235
 Transform:
   m_ObjectHideFlags: 0
@@ -11720,7 +11722,7 @@ GameObject:
   m_Layer: 0
   m_Name: TrackMe (5)
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -11738,6 +11740,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   track: 1
   trackSecInterval: 0.15
+  posCol: []
 --- !u!4 &1396204502
 Transform:
   m_ObjectHideFlags: 0
@@ -11980,7 +11983,7 @@ GameObject:
   m_Layer: 0
   m_Name: TrackMe (3)
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -11998,6 +12001,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   track: 1
   trackSecInterval: 0.15
+  posCol: []
 --- !u!4 &1411640765
 Transform:
   m_ObjectHideFlags: 0
@@ -13493,7 +13497,7 @@ GameObject:
   m_Layer: 0
   m_Name: TrackMe
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -13511,6 +13515,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   track: 1
   trackSecInterval: 0.15
+  posCol: []
 --- !u!4 &1530993815
 Transform:
   m_ObjectHideFlags: 0
@@ -13601,7 +13606,7 @@ GameObject:
   m_Layer: 0
   m_Name: TrackMe (1)
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -13619,6 +13624,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   track: 1
   trackSecInterval: 0.15
+  posCol: []
 --- !u!4 &1564433529
 Transform:
   m_ObjectHideFlags: 0

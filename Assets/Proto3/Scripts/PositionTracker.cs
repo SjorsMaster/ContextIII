@@ -8,7 +8,7 @@ public class PositionTracker : MonoBehaviour
 {
     [SerializeField] bool track;
     [SerializeField] float trackSecInterval = .25f;
-    private List<Vector3> posCol;
+    public List<Vector3> posCol;
 
     public delegate void sendPositions(List<Vector3> dataList);
     public static event sendPositions newPositionData;
