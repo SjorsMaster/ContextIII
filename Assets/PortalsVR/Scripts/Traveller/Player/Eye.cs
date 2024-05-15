@@ -24,6 +24,11 @@ namespace PortalsVR
 
         private void OnPreCull()
         {
+            if (World.worlds.ContainsKey(activeWorld) == false)
+            {
+                return;
+            }
+
 			World.worlds[activeWorld].SetVisible(false);
 
 			for (int i = 0; i < Portals.Count; i++)
