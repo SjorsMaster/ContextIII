@@ -6,7 +6,7 @@ using System.Linq;
 
 public class PositionTracker : MonoBehaviour
 {
-    [SerializeField] bool track;
+    [SerializeField] bool track = true;
     [SerializeField] float trackSecInterval = .25f;
     public List<Vector3> posCol;
 
@@ -30,7 +30,17 @@ public class PositionTracker : MonoBehaviour
         }
         //Make sure we don't save unnecessary data
         if(posCol.LastOrDefault() != transform.position)
-            posCol.Add (transform.position);
+            posCol.Add (new Vector3(transform.position.x, transform.position.y - 1.5f, transform.position.z));
     }
 
+    public void ToggleTrack()
+    {
+        track = !track;
+
+        if (track)
+        {
+            posCol.Clear();
+            InvokeRepeating("TrackPos", 0, trackSecInterval);
+        }
+    }
 }

@@ -18,17 +18,18 @@ public class PlaceComment : MonoBehaviour
         }
         timeSinceLastComment = Time.time;
 
-        TrackedAnchorObject rightHand = LocalPlayerManager.Instance.RightHand;
+        AnchoredObject rightHand = LocalPlayerManager.Instance.LeftHand;
 
-        InstantiableObjectData instantiableObjectData = new()
+        AnchoredObjectData data = new()
         {
+            IsInstantiated = true,
             ObjectID = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds(),
             PrefabName = "ChatBubble",
-            TargetAnchorKey = rightHand.RelativeOffsetData.AnchorKey,
-            OffsetPosition = rightHand.RelativeOffsetData.OffsetPosition,
-            OffsetRotation = rightHand.RelativeOffsetData.OffsetRotation
+            UUID = rightHand.UUID,
+            LocalPosition = rightHand.LocalPosition,
+            LocalRotation = rightHand.LocalRotation,
         };
 
-        NetworkAssetSpawnManager.Instance.RequestSpawn(instantiableObjectData);
+        NetworkAssetSpawnManager.Instance.RequestSpawn(data);
     }
 }

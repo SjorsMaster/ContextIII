@@ -11,6 +11,7 @@ public class RenderPath : MonoBehaviour
         //fetch renderer
         lineRenderer = GetComponent<LineRenderer>();
 
+        lineRenderer.material = Resources.Load("LineMat", typeof(Material)) as Material;
         //Make line pretty
         Gradient gradient = new Gradient();
         gradient.SetKeys(
@@ -20,7 +21,6 @@ public class RenderPath : MonoBehaviour
         lineRenderer.colorGradient = gradient;
 
         lineRenderer.SetWidth(sizeLine.x, sizeLine.y);
-        lineRenderer.material = new Material(Shader.Find("Legacy Shaders/Particles/Alpha Blended Premultiply"));
         
         //Fetch input and apply those positions
         List<Vector3> poscol = input;

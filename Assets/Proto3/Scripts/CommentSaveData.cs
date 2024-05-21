@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CommentSaveData : IPersistentData<PersistentDataProto3>
 {
-    public static Dictionary<long, CommentData> CommentSaveDataDict = new(); // key: CommentID, value: Comment
+    public static Dictionary<long, CommentData> CommentSaveDataDict = new(); // key: ObjectID, value: Comment
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     private static void Initialize()
@@ -34,7 +34,7 @@ public class CommentSaveData : IPersistentData<PersistentDataProto3>
 
         foreach (CommentData commentData in data.CommentData)
         {
-            CommentSaveDataDict.Add(commentData.CommentID, commentData);
+            CommentSaveDataDict.Add(commentData.ObjectID, commentData);
         }
     }
 }

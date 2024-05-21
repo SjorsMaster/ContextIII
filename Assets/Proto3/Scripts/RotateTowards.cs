@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class RotateTowards : MonoBehaviour
 {
-    private Animator anim;
+    [SerializeField] private Animator anim;
     private Transform target;
 
-    private readonly List<TrackedAnchorObject> playersInRange = new();
-
-    private void Awake()
-    {
-        anim = GetComponent<Animator>();
-    }
+    private readonly List<AnchoredObject> playersInRange = new();
 
     private void Start()
     {
@@ -29,7 +24,7 @@ public class RotateTowards : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        TrackedAnchorObject player = other.GetComponent<TrackedAnchorObject>();
+        AnchoredObject player = other.GetComponent<AnchoredObject>();
         if (player == null)
         {
             return;
@@ -48,7 +43,7 @@ public class RotateTowards : MonoBehaviour
 
     public void OnTriggerExit(Collider other)
     {
-        TrackedAnchorObject player = other.GetComponent<TrackedAnchorObject>();
+        AnchoredObject player = other.GetComponent<AnchoredObject>();
         if (player == null)
         {
             return;
@@ -75,7 +70,7 @@ public class RotateTowards : MonoBehaviour
     private void SearchClosestPlayer()
     {
         Transform closest = null;
-        foreach (TrackedAnchorObject p in playersInRange)
+        foreach (AnchoredObject p in playersInRange)
         {
             if (closest == null)
             {

@@ -1,79 +1,88 @@
 using Mirror;
+using Oculus.Interaction;
 using SharedSpaces;
+using SharedSpaces.Data;
 using TMPro;
 using UnityEngine;
 
-[RequireComponent(typeof(InstantiableAnchorObject))]
 public class Comment : NetworkBehaviour
 {
     [SerializeField] private TextMeshPro commentTMP;
-    [SerializeField] private CommentInputField commentInputFieldPrefab;
+    [SerializeField] private AnchoredObject anchoredObject;
 
-    [SyncVar(hook = nameof(SetCommentText))] private string commentText;
-
-    private InstantiableAnchorObject instantiableAnchorObject;
+    [SyncVar(hook = nameof(OnCommentTextUpdated))] private string commentText;
 
     private CommentData commentData;
 
     #region Event Handlers
-    public void SetCommentText(string oldText, string newText)
+    [Client]
+    private void OnCommentTextUpdated(string oldText, string newText)
     {
         commentTMP.text = newText;
-    }
 
-    [ClientCallback]
-    private void InstantiableAnchorObject_OnObjectIDUpdated(long newObjectID)
-    {
-        // At this point in time, the object is spawned in by the server. Thus we can load the comment data.
-        if (CommentSaveData.CommentSaveDataDict.TryGetValue(newObjectID, out CommentData commentData))
+        if (anchoredObject == null)
         {
-            CmdSetCommentText(commentData.CommentText);
+            return;
+        }
+
+        if (CommentSaveData.CommentSaveDataDict.ContainsKey(anchoredObject.ObjectID))
+        {
+            CommentSaveData.CommentSaveDataDict[anchoredObject.ObjectID] = new()
+            {
+                ObjectID = anchoredObject.ObjectID,
+                CommentText = newText,
+            };
         }
     }
 
     [Client]
-    private void CommentInputFIeld_OnEndEdit(string newText)
+    private void AnchoredObject_OnDataSet(AnchoredObjectData data)
     {
+        if (CommentSaveData.CommentSaveDataDict.TryGetValue(data.ObjectID, out CommentData commentData))
+        {
+            CmdSetCommentText(commentData.CommentText);
+        }
+        else
+        {
+            CommentSaveData.CommentSaveDataDict.Add(data.ObjectID, new()
+            {
+                ObjectID = data.ObjectID,
+                CommentText = commentText,
+            });
+        }
+    }
+
+    [Client]
+    public void CommentInputFIeld_OnEndEdit(string newText)
+    {
+        if (string.IsNullOrEmpty(newText))
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         CmdSetCommentText(newText);
     }
     #endregion
+
+    private void Awake()
+    {
+        anchoredObject = GetComponent<AnchoredObject>();
+
+        syncDirection = SyncDirection.ServerToClient;
+    }
 
     #region Client
     [ClientCallback]
     private void OnEnable()
     {
-        instantiableAnchorObject = GetComponent<InstantiableAnchorObject>();
-
-        instantiableAnchorObject.OnObjectIDUpdated += InstantiableAnchorObject_OnObjectIDUpdated;
+        anchoredObject.OnDataSet += AnchoredObject_OnDataSet;
     }
 
     [ClientCallback]
     private void OnDisable()
     {
-        instantiableAnchorObject.OnObjectIDUpdated -= InstantiableAnchorObject_OnObjectIDUpdated;
-    }
-
-    [ClientCallback]
-    private void OnTriggerEnter(Collider other)
-    {
-        if (!isLocalPlayer)
-        {
-            return;
-        }
-
-        if (other.GetComponent<TrackedAnchorObject>() == null)
-        {
-            return;
-        }
-
-        string name = other.GetComponent<TrackedAnchorObject>().name;
-        if (name != "RightHand" && name != "LeftHand")
-        {
-            return;
-        }
-
-        CommentInputField temp = Instantiate(commentInputFieldPrefab);
-        temp.OnEndEdit += CommentInputFIeld_OnEndEdit;
+        anchoredObject.OnDataSet -= AnchoredObject_OnDataSet;
     }
     #endregion
 

@@ -7,8 +7,6 @@ public class CommentInputField : MonoBehaviour
     public Action<string> OnEndEdit;
 
     public delegate string SomeDelegate(string text);
-    
-    SomeDelegate mDelegate;
 
     [SerializeField] private TMP_InputField commentInputField;
 
@@ -17,12 +15,11 @@ public class CommentInputField : MonoBehaviour
         commentInputField.onEndEdit.AddListener(EndEdit);
 
         commentInputField.Select();
+    }
 
-        mDelegate += (s) =>
-        {
-            Debug.Log(s);
-            return s;
-        };
+    public void ForceSelect()
+    {
+        commentInputField.Select();
     }
 
     private void EndEdit(string text)
