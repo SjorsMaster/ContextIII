@@ -73,7 +73,7 @@ public class GameMasterUI : NetworkBehaviour
         SwitchPanel(FinishedPanel);
         FinishedText.text = $"Player {winnerID} wins the game!";
 
-        CloseAfter(3);
+        StartCoroutine(CloseAfter(3));
     }
 
     private IEnumerator CloseAfter(float sec)
