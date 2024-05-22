@@ -62,7 +62,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _BlendOpAlpha: 3
-    - _BlendOpColor: 2
+    - _BlendOpColor: 1
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
