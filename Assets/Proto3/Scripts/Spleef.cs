@@ -87,9 +87,10 @@ public class Spleef : MiniGameBase
         SpawnSpleefField();
     }
 
-    [Command]
+    [Command(requiresAuthority = false)]
     public override void CmdSendResult(GameResult result)
     {
+        Debug.Log(result.LoserID);
         if (playerDict.ContainsKey(result.LoserID))
         {
             playerDict.Remove(result.LoserID);
@@ -98,19 +99,13 @@ public class Spleef : MiniGameBase
         if (playerDict.Count <= 1)
         {
             isFinished = true;
-            this.result = new GameResult
+            foreach (var key in playerDict.Keys)
             {
-                WinnerID = playerDict.Keys.First()
-            };
-
-            foreach (var spleefChecker in spleefCheckers)
-            {
-                Destroy(spleefChecker.gameObject);
+                this.result = new()
+                {
+                    WinnerID = key
+                };
             }
-
-            spleefCheckers.Clear();
-
-            Destroy(activeField);
         }
     }
 
@@ -127,6 +122,23 @@ public class Spleef : MiniGameBase
             averagePosition += player.transform.position;
         }
         averagePosition /= playerDict.Count;
+        averagePosition.y = 0;
         activeField.transform.position = averagePosition;
+    }
+
+    [Server]
+    public override void EndMiniGame()
+    {
+        if (activeField != null)
+        {
+            NetworkServer.Destroy(activeField);
+        }
+
+        foreach (var spleefChecker in spleefCheckers)
+        {
+            Destroy(spleefChecker.gameObject);
+        }
+
+        spleefCheckers.Clear();
     }
 }

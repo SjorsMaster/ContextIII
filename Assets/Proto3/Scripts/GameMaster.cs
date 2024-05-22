@@ -96,6 +96,7 @@ public class GameMaster : NetworkBehaviour
     private IEnumerator PostGameRoutine(GameResult result)
     {
         currentGame.RpcEndMiniGame();
+        currentGame.EndMiniGame();
         gameMasterUI.RpcPostGame(result);
         yield return new WaitForSeconds(3);
 

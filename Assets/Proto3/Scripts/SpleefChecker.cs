@@ -33,7 +33,7 @@ public class SpleefChecker : MonoBehaviour
         }
         else
         {
-            Debug.DrawRay(transform.position, transform.TransformDirection(-Vector3.up) * 1000, Color.white);
+            Debug.DrawRay(transform.position, transform.TransformDirection(-Vector3.up) * maxDistance, Color.white);
             OnPlayerFall?.Invoke(myMiniGamePlayer);
             Grounded = false;
         }

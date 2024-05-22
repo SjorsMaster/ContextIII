@@ -38,4 +38,8 @@ public class ButtonRace : MiniGameBase
         this.result = result;
         isFinished = true;
     }
+
+    public override void EndMiniGame()
+    {
+    }
 }

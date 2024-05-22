@@ -11,6 +11,9 @@ public interface IMiniGame
     [Server]
     void StartMiniGame();
 
+    [Server]
+    void EndMiniGame();
+
     [ClientRpc]
     void RpcStartMiniGame();
 

@@ -530,6 +530,12 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 4268257167998487719}
   m_SourcePrefab: {fileID: 100100000, guid: 0d5ee8585ce73484885421ead82f0b3c, type: 3}
+--- !u!4 &2929185243548176742 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5412334098777528944, guid: 0d5ee8585ce73484885421ead82f0b3c,
+    type: 3}
+  m_PrefabInstance: {fileID: 7186328122422135574}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6630157138823054414 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4591977892733161304, guid: 0d5ee8585ce73484885421ead82f0b3c,
@@ -551,6 +557,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
+  RightHandTransform: {fileID: 2929185243548176742}
   playerIDText: {fileID: 2750791613338222017}
   scoreText: {fileID: 9052316684320304289}
   PlayerID: 0

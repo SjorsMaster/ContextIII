@@ -17,7 +17,9 @@ public abstract class MiniGameBase : NetworkBehaviour, IMiniGame
     protected GameResult result;
 
     public abstract void StartMiniGame();
+    public abstract void EndMiniGame();
     public abstract void RpcStartMiniGame();
     public abstract void RpcEndMiniGame();
     public abstract void CmdSendResult(GameResult result);
+
 }
