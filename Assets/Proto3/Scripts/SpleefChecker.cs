@@ -25,15 +25,15 @@ public class SpleefChecker : MonoBehaviour
         layerMask = ~layerMask;
 
         // Does the ray intersect any objects excluding the player layer
-        if (Physics.SphereCast(transform.position, 0.3f, transform.TransformDirection(-Vector3.up), out RaycastHit hit, maxDistance, layerMask))
+        if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, maxDistance, layerMask))
         {
-            Debug.DrawRay(transform.position, transform.TransformDirection(-Vector3.up) * hit.distance, Color.yellow);
+            Debug.DrawRay(transform.position, Vector3.down * hit.distance, Color.yellow);
             Grounded = true;
             if(hit.transform.GetComponent<Animator>() != null) hit.transform.GetComponent<Animator>().SetTrigger("Fall");
         }
         else
         {
-            Debug.DrawRay(transform.position, transform.TransformDirection(-Vector3.up) * maxDistance, Color.white);
+            Debug.DrawRay(transform.position, Vector3.down * maxDistance, Color.white);
             OnPlayerFall?.Invoke(myMiniGamePlayer);
             Grounded = false;
         }

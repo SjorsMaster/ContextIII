@@ -90,7 +90,6 @@ public class Spleef : MiniGameBase
     [Command(requiresAuthority = false)]
     public override void CmdSendResult(GameResult result)
     {
-        Debug.Log(result.LoserID);
         if (playerDict.ContainsKey(result.LoserID))
         {
             playerDict.Remove(result.LoserID);
@@ -112,6 +111,11 @@ public class Spleef : MiniGameBase
     [Server]
     public void SpawnSpleefField()
     {
+        if (playerDict.Count == 0)
+        {
+            return;
+        }
+
         activeField = Instantiate(SpleefFieldPrefab);
         NetworkServer.Spawn(activeField);
 
@@ -121,6 +125,7 @@ public class Spleef : MiniGameBase
         {
             averagePosition += player.transform.position;
         }
+        
         averagePosition /= playerDict.Count;
         averagePosition.y = 0;
         activeField.transform.position = averagePosition;
