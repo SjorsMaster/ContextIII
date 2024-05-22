@@ -2480,6 +2480,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 390885466840040932, guid: 289131994131fa14abaf7b8b79771852,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 399113828515123596, guid: 289131994131fa14abaf7b8b79771852,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1413762207060961070, guid: 289131994131fa14abaf7b8b79771852,
         type: 3}
       propertyPath: m_Name
@@ -2488,6 +2498,16 @@ PrefabInstance:
     - target: {fileID: 3612500754649650016, guid: 289131994131fa14abaf7b8b79771852,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5081970317521766881, guid: 289131994131fa14abaf7b8b79771852,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7328539199143138628, guid: 289131994131fa14abaf7b8b79771852,
+        type: 3}
+      propertyPath: usePerEyeCameras
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8062958649059851410, guid: 289131994131fa14abaf7b8b79771852,
