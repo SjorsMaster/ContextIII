@@ -19,7 +19,10 @@ public class MiniGamePlayer : NetworkBehaviour
     {
         playerIDText.text = $"Player {newID}";
 
-        LocalPlayerID = newID;
+        if (isLocalPlayer)
+        {
+            LocalPlayerID = newID;
+        }
     }
 
     private void OnScoreUpdated(int oldScore, int newScore)

@@ -1558,9 +1558,9 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   title: Tile spleef!
-  description: Avoid walking into the gaps!
+  description: Avoid walking into the gaps! Stay inside the red area!
   maxDuration: 30
-  SpleefFieldPrefab: {fileID: 6166207719828101019, guid: ef39556bb75025146bcfc8bc685e9e2e,
+  SpleefFieldPrefab: {fileID: 7013490411812498897, guid: ef39556bb75025146bcfc8bc685e9e2e,
     type: 3}
   SpleefCheckerPrefab: {fileID: 2053067642472470858, guid: ba0a4b9909cd1e145a0e8e634323f203,
     type: 3}

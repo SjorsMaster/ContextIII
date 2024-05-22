@@ -6,13 +6,13 @@ using UnityEngine;
 
 public class Spleef : MiniGameBase
 {
-    [SerializeField] private GameObject SpleefFieldPrefab;
+    [SerializeField] private SpleefField SpleefFieldPrefab;
     [SerializeField] private SpleefChecker SpleefCheckerPrefab;
 
     private List<SpleefChecker> spleefCheckers = new(); // Local and server
     private Dictionary<int, MiniGamePlayer> playerDict = new(); // PlayerID, Player, server only
 
-    private GameObject activeField;
+    private SpleefField activeField; // Server only
 
     [ClientRpc]
     public override void RpcStartMiniGame()
@@ -25,7 +25,7 @@ public class Spleef : MiniGameBase
     {
         spleefCheckers.Clear();
 
-        VRDebugPanel.Instance.SendDebugMessage("Get on the floor!");
+        VRDebugPanel.Instance.SendDebugMessage("Get in the red area!");
         int timer = 5;
         while (timer > 0)
         {
@@ -65,12 +65,25 @@ public class Spleef : MiniGameBase
             Destroy(spleefChecker.gameObject);
         }
 
+        SpleefField[] fields = FindObjectsOfType<SpleefField>();
+        if (fields.Length == 0)
+        {
+            VRDebugPanel.Instance.SendDebugMessage("No field found!");
+        }
+        foreach (var field in fields)
+        {
+            Destroy(field.gameObject);
+        }
+
         spleefCheckers.Clear();
     }
 
     [Server]
     public override void StartMiniGame()
     {
+        isFinished = false;
+        result = new();
+
         playerDict.Clear();
         spleefCheckers.Clear();
 
@@ -117,7 +130,7 @@ public class Spleef : MiniGameBase
         }
 
         activeField = Instantiate(SpleefFieldPrefab);
-        NetworkServer.Spawn(activeField);
+        NetworkServer.Spawn(activeField.gameObject);
 
         // Spawn field somewhere inbetween active players
         Vector3 averagePosition = Vector3.zero;
@@ -136,8 +149,7 @@ public class Spleef : MiniGameBase
     {
         if (activeField != null)
         {
-            activeField.SetActive(false);
-            RpcTurnOffField();
+            NetworkServer.Destroy(activeField.gameObject);
         }
 
         foreach (var spleefChecker in spleefCheckers)
@@ -146,11 +158,5 @@ public class Spleef : MiniGameBase
         }
 
         spleefCheckers.Clear();
-    }
-
-    [ClientRpc]
-    private void RpcTurnOffField()
-    {
-        activeField.SetActive(false);
     }
 }

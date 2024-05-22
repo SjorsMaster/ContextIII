@@ -442,6 +442,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 472776329277738320, guid: 0d5ee8585ce73484885421ead82f0b3c,
+        type: 3}
+      propertyPath: positionSensitivity
+      value: 0.0001
+      objectReference: {fileID: 0}
+    - target: {fileID: 680423575110498429, guid: 0d5ee8585ce73484885421ead82f0b3c,
+        type: 3}
+      propertyPath: positionSensitivity
+      value: 0.0001
+      objectReference: {fileID: 0}
     - target: {fileID: 1916776997595529384, guid: 0d5ee8585ce73484885421ead82f0b3c,
         type: 3}
       propertyPath: sceneId
@@ -527,6 +537,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e5e18ac484e755546a34154ca406624c, type: 2}
+    - target: {fileID: 7129051293162410458, guid: 0d5ee8585ce73484885421ead82f0b3c,
+        type: 3}
+      propertyPath: positionSensitivity
+      value: 0.0001
+      objectReference: {fileID: 0}
     - target: {fileID: 8879502343030310249, guid: 0d5ee8585ce73484885421ead82f0b3c,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

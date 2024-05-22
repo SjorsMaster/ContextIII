@@ -9,6 +9,8 @@ public class SpleefChecker : MonoBehaviour
 
     public MiniGamePlayer myMiniGamePlayer;
 
+    RaycastHit hit;
+
     void FixedUpdate()
     {
         if (myMiniGamePlayer == null)
@@ -25,7 +27,7 @@ public class SpleefChecker : MonoBehaviour
         layerMask = ~layerMask;
 
         // Does the ray intersect any objects excluding the player layer
-        if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, maxDistance, layerMask))
+        if (Physics.SphereCast(transform.position, 0.05f, Vector3.down, out hit, maxDistance, layerMask))
         {
             Debug.DrawRay(transform.position, Vector3.down * hit.distance, Color.yellow);
             Grounded = true;

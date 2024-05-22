@@ -58,8 +58,6 @@ public class GameMaster : NetworkBehaviour
     {
         int randomGameIndex = Random.Range(0, miniGames.Count);
         currentGame = miniGames[randomGameIndex];
-        currentGame.StartMiniGame();
-        currentGame.RpcStartMiniGame();
         StartCoroutine(PreGameRoutine(currentGame));
     }
 
@@ -81,6 +79,9 @@ public class GameMaster : NetworkBehaviour
     private IEnumerator StartGameRoutine(int duration)
     {
         gameMasterUI.RpcStartGame();
+
+        currentGame.StartMiniGame();
+        currentGame.RpcStartMiniGame();
 
         timer = duration;
         while (timer > 0 && !currentGame.IsFinished)
