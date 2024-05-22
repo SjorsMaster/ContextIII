@@ -1,14 +1,22 @@
+using System;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class SpleefChecker : MonoBehaviour
 {
+    public event Action<MiniGamePlayer> OnPlayerFall;
     public bool Grounded { get; private set; }
     public float maxDistance = 3;
-    public UnityEvent onGround, onNotGround;
+
+    public MiniGamePlayer myMiniGamePlayer;
 
     void FixedUpdate()
     {
+        if (myMiniGamePlayer == null)
+        {
+            return;
+        }
+        transform.position = myMiniGamePlayer.transform.position;
+
         // Bit shift the index of the layer (8) to get a bit mask
         int layerMask = 1 << 8;
 
@@ -20,14 +28,13 @@ public class SpleefChecker : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.TransformDirection(-Vector3.up), out RaycastHit hit, maxDistance, layerMask))
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(-Vector3.up) * hit.distance, Color.yellow);
-            onGround?.Invoke();
             Grounded = true;
             if(hit.transform.GetComponent<Animator>() != null) hit.transform.GetComponent<Animator>().SetTrigger("Fall");
         }
         else
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(-Vector3.up) * 1000, Color.white);
-            onNotGround?.Invoke();
+            OnPlayerFall?.Invoke(myMiniGamePlayer);
             Grounded = false;
         }
     }
