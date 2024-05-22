@@ -502,10 +502,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3209032614915825243, guid: 0d5ee8585ce73484885421ead82f0b3c,
+        type: 3}
+      propertyPath: resetLocalPositionAndRotation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3750404347641877013, guid: 0d5ee8585ce73484885421ead82f0b3c,
+        type: 3}
+      propertyPath: resetLocalPositionAndRotation
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4417027401382897399, guid: 0d5ee8585ce73484885421ead82f0b3c,
         type: 3}
       propertyPath: m_Name
       value: NewPlayer Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 4597431470433657044, guid: 0d5ee8585ce73484885421ead82f0b3c,
+        type: 3}
+      propertyPath: resetLocalPositionAndRotation
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6014927874596098797, guid: 0d5ee8585ce73484885421ead82f0b3c,
         type: 3}

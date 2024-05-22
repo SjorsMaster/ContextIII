@@ -25,7 +25,7 @@ public class SpleefChecker : MonoBehaviour
         layerMask = ~layerMask;
 
         // Does the ray intersect any objects excluding the player layer
-        if (Physics.Raycast(transform.position, transform.TransformDirection(-Vector3.up), out RaycastHit hit, maxDistance, layerMask))
+        if (Physics.SphereCast(transform.position, 0.3f, transform.TransformDirection(-Vector3.up), out RaycastHit hit, maxDistance, layerMask))
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(-Vector3.up) * hit.distance, Color.yellow);
             Grounded = true;

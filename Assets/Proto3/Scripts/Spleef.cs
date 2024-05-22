@@ -131,7 +131,8 @@ public class Spleef : MiniGameBase
     {
         if (activeField != null)
         {
-            NetworkServer.Destroy(activeField);
+            activeField.SetActive(false);
+            RpcTurnOffField();
         }
 
         foreach (var spleefChecker in spleefCheckers)
@@ -140,5 +141,11 @@ public class Spleef : MiniGameBase
         }
 
         spleefCheckers.Clear();
+    }
+
+    [ClientRpc]
+    private void RpcTurnOffField()
+    {
+        activeField.SetActive(false);
     }
 }
