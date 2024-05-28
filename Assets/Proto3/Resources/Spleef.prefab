@@ -13174,7 +13174,7 @@ GameObject:
   - component: {fileID: 2329379755752828450}
   - component: {fileID: 4560000888686066837}
   - component: {fileID: 6565164373823229600}
-  - component: {fileID: 6012317429831589430}
+  - component: {fileID: 4749579859582543904}
   - component: {fileID: 7013490411812498897}
   m_Layer: 0
   m_Name: Spleef
@@ -13265,7 +13265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkEveryInterval: 1
   interval: 0.5
---- !u!114 &6012317429831589430
+--- !u!114 &4749579859582543904
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -13274,18 +13274,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 6166207719828101019}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63c2f6fc71426614aab85a1dc55fcb65, type: 3}
+  m_Script: {fileID: 11500000, guid: f877a1ff2e91ae74c91b1989aa8cb875, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  anchoredObjectType: 2
-  objectID: 0
-  resetLocalPositionAndRotation: 0
-  Visuals: {fileID: 2602561501587510366}
-  searchClosestAnchor: {fileID: 6565164373823229600}
   objectToParent: {fileID: 5887557608194230446}
+  Visuals: {fileID: 2602561501587510366}
+  anchoredSaveDataType: 2
+  objectID: 
+  networkTransformBase: {fileID: 4560000888686066837}
+  searchClosestAnchor: {fileID: 6565164373823229600}
 --- !u!114 &7013490411812498897
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,7 +1,10 @@
+using Meta.XR.MRUtilityKit;
 using Mirror;
 using Oculus.Interaction;
 using SharedSpaces;
 using SharedSpaces.Data;
+using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -25,43 +28,14 @@ public class Comment : NetworkBehaviour
             return;
         }
 
-        if (CommentSaveData.CommentSaveDataDict.ContainsKey(anchoredObject.ObjectID))
+        if (CommentSaveData.CommentSaveDataDict.ContainsKey(Guid.Parse(anchoredObject.ObjectID)))
         {
-            CommentSaveData.CommentSaveDataDict[anchoredObject.ObjectID] = new()
+            CommentSaveData.CommentSaveDataDict[Guid.Parse(anchoredObject.ObjectID)] = new()
             {
                 ObjectID = anchoredObject.ObjectID,
                 CommentText = newText,
             };
         }
-    }
-
-    [Client]
-    private void AnchoredObject_OnDataSet(AnchoredObjectData data)
-    {
-        if (CommentSaveData.CommentSaveDataDict.TryGetValue(data.ObjectID, out CommentData commentData))
-        {
-            CmdSetCommentText(commentData.CommentText);
-        }
-        else
-        {
-            CommentSaveData.CommentSaveDataDict.Add(data.ObjectID, new()
-            {
-                ObjectID = data.ObjectID,
-                CommentText = commentText,
-            });
-        }
-    }
-
-    [Client]
-    public void CommentInputFIeld_OnEndEdit(string newText)
-    {
-        if (string.IsNullOrEmpty(newText))
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        CmdSetCommentText(newText);
     }
     #endregion
 
@@ -76,21 +50,41 @@ public class Comment : NetworkBehaviour
     [ClientCallback]
     private void OnEnable()
     {
-        anchoredObject.OnDataSet += AnchoredObject_OnDataSet;
+        StartCoroutine(OnObjectIDSet());
     }
 
     [ClientCallback]
     private void OnDisable()
     {
-        anchoredObject.OnDataSet -= AnchoredObject_OnDataSet;
+        StopAllCoroutines();
+    }
+
+    private IEnumerator OnObjectIDSet()
+    {
+        yield return new WaitUntil(() => !string.IsNullOrEmpty(anchoredObject.ObjectID));
+
+
+        if (CommentSaveData.CommentSaveDataDict.TryGetValue(Guid.Parse(anchoredObject.ObjectID), out CommentData commentData))
+        {
+            CmdSetCommentText(commentData.CommentText);
+        }
+        else
+        {
+            CommentSaveData.CommentSaveDataDict.Add(Guid.Parse(anchoredObject.ObjectID), new()
+            {
+                ObjectID = anchoredObject.ObjectID,
+                CommentText = commentText,
+            });
+        }
     }
     #endregion
 
     #region Server
     [Command(requiresAuthority = false)]
-    private void CmdSetCommentText(string newText)
+    public void CmdSetCommentText(string newText)
     {
         commentText = newText;
+        commentTMP.text = newText;
     }
     #endregion
 }

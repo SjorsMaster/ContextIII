@@ -523,7 +523,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockId: e47682b9-c270-40b1-b16d-90b627a5ce1b
-  instanceId: ecc9a7b3-a829-4749-a98a-02ca1b7abc03
+  instanceId: 7fe55ceb-0f8c-4d60-b3ce-ee8049c00253
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: 
@@ -1112,7 +1112,6 @@ GameObject:
   - component: {fileID: 4802357215624073625}
   - component: {fileID: 5390716919133329444}
   - component: {fileID: 390885466840040932}
-  - component: {fileID: 7009517717562968909}
   m_Layer: 0
   m_Name: CenterEyeAnchor
   m_TagString: MainCamera
@@ -1240,21 +1239,6 @@ MonoBehaviour:
   eyes:
   - {fileID: 4514397924959454024}
   - {fileID: 147420248034208367}
---- !u!114 &7009517717562968909
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2929056108245950095}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3603f6cb1371e3a468643b2a588e600d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  track: 0
-  trackSecInterval: 0.25
-  posCol: []
 --- !u!1 &3230799362134263742
 GameObject:
   m_ObjectHideFlags: 0

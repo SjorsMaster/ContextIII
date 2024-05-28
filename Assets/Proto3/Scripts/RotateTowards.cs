@@ -70,8 +70,16 @@ public class RotateTowards : MonoBehaviour
     private void SearchClosestPlayer()
     {
         Transform closest = null;
-        foreach (AnchoredObject p in playersInRange)
+
+        for (int i = 0; i < playersInRange.Count; i++)
         {
+            AnchoredObject p = playersInRange[i];
+            if (p == null)
+            {
+                playersInRange.RemoveAt(i);
+                i--;
+                continue;
+            }
             if (closest == null)
             {
                 closest = p.transform;

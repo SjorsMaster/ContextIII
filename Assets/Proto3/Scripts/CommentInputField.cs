@@ -17,13 +17,13 @@ public class CommentInputField : MonoBehaviour
         commentInputField.Select();
     }
 
-    public void ForceSelect()
-    {
-        commentInputField.Select();
-    }
-
     private void EndEdit(string text)
     {
+        if (string.IsNullOrEmpty(text))
+        {
+            return;
+        }
+
         OnEndEdit?.Invoke(text);
 
         Destroy(gameObject);
