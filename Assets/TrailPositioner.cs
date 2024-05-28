@@ -6,6 +6,6 @@ public class TrailPositioner : MonoBehaviour
 
     private void Update()
     {
-        transform.position = Head.position;
+        transform.SetPositionAndRotation(Head.position, Quaternion.identity);
     }
 }

@@ -11,7 +11,7 @@ public class ButtonRace : MiniGameBase
     [SerializeField] private float buttonDespawnTime = 5f;
     [SerializeField] private float buttonSpawnRange = 5f;
 
-    private readonly Dictionary<MiniGamePlayer, int> Players = new(); // Key: Player, Value: Points
+    private readonly Dictionary<MiniGamePlayer, int> Players = new(); // Key: Player, Value: Points, server only
 
     private bool buttonPressed = false;
 
