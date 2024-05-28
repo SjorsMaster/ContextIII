@@ -1,7 +1,5 @@
 ﻿using SharedSpaces;
-using SharedSpaces.Data;
 using SharedSpaces.Managers;
-using SharedSpaces.SaveSystem;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -14,7 +12,13 @@ public class Proto3EventHandler : MonoBehaviour
 
     private float timeSinceLastComment = 0f;
 
+
     #region Comment Creation
+    // When the player opens the keyboard, their controllers are disabled.
+    // We save these values so we can create the comment at the correct position.
+    private string targetSaveUUID;
+    private Vector3 targetSavePosition;
+    private Quaternion targetSaveRotation;
     public void CreateEmptyComment()
     {
         if (Time.time - timeSinceLastComment < cooldown)
@@ -23,10 +27,14 @@ public class Proto3EventHandler : MonoBehaviour
         }
         timeSinceLastComment = Time.time;
 
-        AnchoredObject head = LocalPlayerManager.Instance.Head;
+        AnchoredObject target = LocalPlayerManager.Instance.LeftHand;
 
-        CommentInputField newComment = Instantiate(CommentInputFieldPrefab, head.transform.position + head.transform.forward, head.transform.rotation);
-        newComment.OnEndEdit += (text) => CreateComment(text, head.AnchorUUID, head.transform.localPosition + head.transform.forward, head.transform.localRotation);
+        targetSaveUUID = target.AnchorUUID;
+        targetSavePosition = target.transform.localPosition;
+        targetSaveRotation = target.transform.localRotation;
+
+        CommentInputField newComment = Instantiate(CommentInputFieldPrefab, target.transform.position + target.transform.forward, target.transform.rotation);
+        newComment.OnEndEdit += (text) => CreateComment(text, targetSaveUUID, targetSavePosition, targetSaveRotation);
     }
 
     private void CreateComment(

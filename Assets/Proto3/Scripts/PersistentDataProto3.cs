@@ -2,5 +2,5 @@
 
 public class PersistentDataProto3 : PersistentData
 {
-    public CommentData[] CommentData;
+    public CommentData[] CommentDatas;
 }
