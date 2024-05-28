@@ -455,8 +455,13 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   title: Button race!
-  description: Be the first to press the right button!
-  maxDuration: 5
+  description: Be the first to press the buttons!
+  maxDuration: 30
+  buttonPrefab: {fileID: 8471913022537744450, guid: f49d2d6f80698144bb0c5157f4bb1d93,
+    type: 3}
+  pointsToWin: 3
+  buttonDespawnTime: 5
+  buttonSpawnRange: 3
 --- !u!114 &551821154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1249,6 +1254,7 @@ MonoBehaviour:
   syncInterval: 0
   scoreToWin: 3
   miniGames:
+  - {fileID: 551821153}
   - {fileID: 1223236704}
   gameMasterUI: {fileID: 944703411}
 --- !u!114 &1081210162
@@ -2694,7 +2700,7 @@ PrefabInstance:
     - target: {fileID: 7458274086953430478, guid: 25a89d9f9a2c87b4ea7d1aa2537fa738,
         type: 3}
       propertyPath: spawnPrefabs.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7458274086953430478, guid: 25a89d9f9a2c87b4ea7d1aa2537fa738,
         type: 3}
@@ -2713,6 +2719,12 @@ PrefabInstance:
       propertyPath: spawnPrefabs.Array.data[2]
       value: 
       objectReference: {fileID: 2884878260341142124, guid: 1b60e7ee42412c04cb11e8bcb95c775c,
+        type: 3}
+    - target: {fileID: 7458274086953430478, guid: 25a89d9f9a2c87b4ea7d1aa2537fa738,
+        type: 3}
+      propertyPath: spawnPrefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 5098704360574681433, guid: f49d2d6f80698144bb0c5157f4bb1d93,
         type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

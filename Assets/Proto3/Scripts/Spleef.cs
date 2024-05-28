@@ -1,7 +1,6 @@
 ﻿using Mirror;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class Spleef : MiniGameBase
@@ -138,7 +137,7 @@ public class Spleef : MiniGameBase
         {
             averagePosition += player.transform.position;
         }
-        
+
         averagePosition /= playerDict.Count;
         averagePosition.y = 0;
         activeField.transform.position = averagePosition;
