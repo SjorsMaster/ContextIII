@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5527645125360422429}
   - component: {fileID: 3284011413488198160}
   - component: {fileID: 6241651593649640998}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: DontTouchMe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,24 +119,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c68fa68a610b744ed930834b53df77f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entryBehaviour:
+  OnEntryBehaviour:
     m_PersistentCalls:
       m_Calls: []
-  exitBehaviour:
+  OnExitBehaviour:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: LocalCondition, Assembly-CSharp
-        m_MethodName: LossGame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!95 &6241651593649640998
 Animator:
   serializedVersion: 5
@@ -167,7 +155,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2807487788672947597}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: DodgeWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}

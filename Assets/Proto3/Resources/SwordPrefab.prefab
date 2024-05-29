@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 8918804986147368849}
   - component: {fileID: 8594141735494419935}
   - component: {fileID: 7785435608762258542}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: SwordPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 5913362574008667782}
   - component: {fileID: 5703766032608032516}
   - component: {fileID: 5626297827484324650}
-  m_Layer: 14
+  m_Layer: 16
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -328,7 +328,7 @@ GameObject:
   - component: {fileID: 8627364303776150093}
   - component: {fileID: 8090308745850505748}
   - component: {fileID: 5770934332231064837}
-  m_Layer: 14
+  m_Layer: 16
   m_Name: Blade(Trigger)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -462,7 +462,7 @@ GameObject:
   - component: {fileID: 8123368995018362351}
   - component: {fileID: 678049999699111569}
   - component: {fileID: 2436432742916964027}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -527,7 +527,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9206442525737627721}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -565,7 +565,7 @@ GameObject:
   - component: {fileID: 7703005082309115381}
   - component: {fileID: 983685854134267819}
   - component: {fileID: 4071055131895135816}
-  m_Layer: 14
+  m_Layer: 16
   m_Name: Blade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -669,7 +669,7 @@ GameObject:
   - component: {fileID: 7137404816258572240}
   - component: {fileID: 8626642695738142419}
   - component: {fileID: 4844972304087300762}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: RayInteractable
   m_TagString: Untagged
   m_Icon: {fileID: 0}

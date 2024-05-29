@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7616490812346834012}
   - component: {fileID: 4548569990390968777}
   - component: {fileID: 7003667575149261195}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 8471913022537744450}
   - component: {fileID: 5646640918999688762}
   - component: {fileID: 8625167370255138880}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: ButtonPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -255,7 +255,7 @@ GameObject:
   - component: {fileID: 3290742454891729987}
   - component: {fileID: 2053444788804894443}
   - component: {fileID: 6642405987637595269}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Sensor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
