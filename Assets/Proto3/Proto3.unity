@@ -1254,6 +1254,8 @@ MonoBehaviour:
   syncInterval: 0
   scoreToWin: 3
   miniGames:
+  - {fileID: 551821153}
+  - {fileID: 1223236704}
   - {fileID: 1642192252}
   gameMasterUI: {fileID: 944703411}
 --- !u!114 &1081210162
