@@ -1,6 +1,6 @@
 ﻿using SharedSpaces.SaveSystem;
 
-public class PersistentDataProto3 : PersistentData
+public class SaveDataProto3 : SaveData
 {
     public CommentData[] CommentDatas;
 }

@@ -27,7 +27,7 @@ public class Proto3EventHandler : MonoBehaviour
         }
         timeSinceLastComment = Time.time;
 
-        AnchoredObject target = LocalPlayerManager.Instance.LeftHand;
+        AnchoredObject target = LocalPlayerManager.LeftHand;
 
         targetSaveUUID = target.AnchorUUID;
         targetSavePosition = target.transform.localPosition;
@@ -59,7 +59,7 @@ public class Proto3EventHandler : MonoBehaviour
         float timeout = 5f;
         float time = 0f;
 
-        while (!AnchoredObjectsManager.Instance.AnchoredObjects.ContainsKey(objectID))
+        while (!AnchoredObjectsManager.AnchoredObjects.ContainsKey(objectID))
         {
             if (time >= timeout)
             {
@@ -71,7 +71,7 @@ public class Proto3EventHandler : MonoBehaviour
             yield return null;
         }
 
-        var anchoredObject = AnchoredObjectsManager.Instance.AnchoredObjects[objectID];
+        var anchoredObject = AnchoredObjectsManager.AnchoredObjects[objectID];
         Comment comment = anchoredObject.GetComponent<Comment>();
         comment.CmdSetCommentText(text);
     }

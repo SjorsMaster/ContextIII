@@ -5,6 +5,7 @@ public class DontTouchTheWalls : MiniGameBase
 {
     [SerializeField] private GameObject PlayerDotPrefab;
     [SerializeField] private PathField[] pathfields;
+    [SerializeField] private float fieldSpawnRange = 5f;
 
     private Dictionary<int, MiniGamePlayer> players; // Key: PlayerID, value: MiniGamePlayer
 
@@ -19,8 +20,12 @@ public class DontTouchTheWalls : MiniGameBase
             averagePosition += player.transform.position;
         }
 
+        averagePosition /= players.Count;
+
         int random = Random.Range(0, pathfields.Length);
-        currentPath = Instantiate(pathfields[random]);
+        Vector2 circlePoint = Random.insideUnitCircle.normalized * fieldSpawnRange;
+        currentPath = Instantiate(pathfields[random], averagePosition + new Vector3(circlePoint.x, 0, circlePoint.y), Quaternion.identity);
+        currentPath.transform.LookAt(averagePosition);
 
     }
 

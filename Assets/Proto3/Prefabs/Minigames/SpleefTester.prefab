@@ -118,5 +118,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ace41ee6744f646ba90f2cde41db04db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitLayer:
+    serializedVersion: 2
+    m_Bits: 65536
   maxDistance: 3
   myMiniGamePlayer: {fileID: 0}

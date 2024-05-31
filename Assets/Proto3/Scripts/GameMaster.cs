@@ -19,6 +19,8 @@ public class GameMaster : NetworkBehaviour
 
     private IMiniGame currentGame; // Server only
 
+    private int currentGameIndex;
+
     #region Event Handlers
     private void OnTimerUpdated(int oldTime, int newTime)
     {
@@ -44,20 +46,27 @@ public class GameMaster : NetworkBehaviour
     [ClientRpc]
     private void RpcCloseCurrentMenu()
     {
-        MenuManager.Instance.CloseCurrentMenu();
+        MenuManager.CloseCurrentMenu();
     }
 
     [ClientRpc]
     private void RpcShowMenu()
     {
-        MenuManager.Instance.ShowMenu<MainMenu>();
+        MenuManager.ShowMenu<MainMenu>();
     }
 
     [Server]
     private void StartRandomGame()
     {
-        int randomGameIndex = Random.Range(0, miniGames.Count);
-        currentGame = miniGames[randomGameIndex];
+        if (currentGame == null)
+        {
+            currentGameIndex = Random.Range(0, miniGames.Count);
+        }
+        else
+        {
+            currentGameIndex = (currentGameIndex + 1) % miniGames.Count;
+        }
+        currentGame = miniGames[currentGameIndex];
         StartCoroutine(PreGameRoutine(currentGame));
     }
 
@@ -108,6 +117,7 @@ public class GameMaster : NetworkBehaviour
             if (winner.Score >= scoreToWin)
             {
                 isFinished = true;
+                currentGame = null;
                 gameMasterUI.RpcFinished(winner.PlayerID);
                 RpcShowMenu();
             }
