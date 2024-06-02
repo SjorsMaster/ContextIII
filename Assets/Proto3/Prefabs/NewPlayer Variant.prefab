@@ -648,9 +648,19 @@ PrefabInstance:
       propertyPath: positionSensitivity
       value: 0.0001
       objectReference: {fileID: 0}
+    - target: {fileID: 472776329277738320, guid: 0d5ee8585ce73484885421ead82f0b3c,
+        type: 3}
+      propertyPath: rotationSensitivity
+      value: 0.0001
+      objectReference: {fileID: 0}
     - target: {fileID: 680423575110498429, guid: 0d5ee8585ce73484885421ead82f0b3c,
         type: 3}
       propertyPath: positionSensitivity
+      value: 0.0001
+      objectReference: {fileID: 0}
+    - target: {fileID: 680423575110498429, guid: 0d5ee8585ce73484885421ead82f0b3c,
+        type: 3}
+      propertyPath: rotationSensitivity
       value: 0.0001
       objectReference: {fileID: 0}
     - target: {fileID: 1351837261736025472, guid: 0d5ee8585ce73484885421ead82f0b3c,
@@ -851,6 +861,11 @@ PrefabInstance:
     - target: {fileID: 7129051293162410458, guid: 0d5ee8585ce73484885421ead82f0b3c,
         type: 3}
       propertyPath: positionSensitivity
+      value: 0.0001
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129051293162410458, guid: 0d5ee8585ce73484885421ead82f0b3c,
+        type: 3}
+      propertyPath: rotationSensitivity
       value: 0.0001
       objectReference: {fileID: 0}
     - target: {fileID: 7737379742808533824, guid: 0d5ee8585ce73484885421ead82f0b3c,

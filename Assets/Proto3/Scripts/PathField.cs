@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class PathField : MonoBehaviour
+public class PathField : MonoBehaviour // Server sided class, disable on clients.
 {
     [SerializeField] private Transform startPoint;
 
@@ -12,7 +12,8 @@ public class PathField : MonoBehaviour
 
         if (playerDot != null)
         {
-            playerDot.transform.position = startPoint.position;
+            //playerDot.transform.position = startPoint.position;
+            Destroy(playerDot.gameObject);
         }
     }
 }

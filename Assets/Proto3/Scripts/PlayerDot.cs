@@ -1,12 +1,16 @@
 ﻿using Mirror;
 using Oculus.Interaction;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class PlayerDot : NetworkBehaviour
 {
+    [SerializeField] private NetworkTransformBase networkTransformBase;
     [SerializeField] private Grabbable grabbable;
 
-    private int ownerID = 0; // Server only.
+    private Vector3 respawnPoint;
+
+    public int OwnerID { get; private set;  } = -1; // Server only.
 
     #region Event Handlers
     private void Grabbable_WhenPointerEventRaised(PointerEvent pointerEvent)
@@ -37,18 +41,31 @@ public class PlayerDot : NetworkBehaviour
     [Command(requiresAuthority = false)]
     private void CmdSetMiniGamePlayerID(int playerID)
     {
-        ownerID = playerID;
+        OwnerID = playerID;
     }
 
     [Command(requiresAuthority = false)]
     private void CmdRespawn()
     {
-
+        Respawn();
     }
 
     [Server]
-    private void Respawn()
+    private async void Respawn()
     {
+        // Another class handles changing the Syncdirection to ServerToClient on unselecting the object, here we wait for it to be done.
+        while (networkTransformBase.syncDirection != SyncDirection.ServerToClient)
+        {
+            await Task.Yield();
+        }
 
+        transform.position = respawnPoint;
+        OwnerID = -1;
+    }
+
+    [Server]
+    public void SetRespawnPoint(Vector3 position)
+    {
+        respawnPoint = position;
     }
 }
