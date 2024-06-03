@@ -1,5 +1,4 @@
 ﻿using Mirror;
-using SharedSpaces.Managers;
 using SharedSpaces.NetorkMessages;
 using System.Collections.Generic;
 using UnityEngine;
@@ -37,6 +36,7 @@ public class DontTouchTheWalls : MiniGameBase
 
         PlayerDot playerDot = playerDotObject.GetComponent<PlayerDot>();
         playerDot.SpawnTransform = currentPath.StartPoint;
+        playerDot.OnGrabRelease += OnPlayerCollidedWithPath;
 
         NetworkServer.SendToAll(new MsgSetParentMessage()
         {
@@ -78,6 +78,7 @@ public class DontTouchTheWalls : MiniGameBase
 
             PlayerDot playerDot = playerDotObject.GetComponent<PlayerDot>();
             playerDot.SpawnTransform = currentPath.StartPoint;
+            playerDot.OnGrabRelease += OnPlayerCollidedWithPath;
 
             NetworkServer.SendToAll(new MsgSetParentMessage()
             {

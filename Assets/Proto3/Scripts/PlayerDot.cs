@@ -1,9 +1,12 @@
 ﻿using Mirror;
 using Oculus.Interaction;
+using System;
 using UnityEngine;
 
 public class PlayerDot : NetworkBehaviour
 {
+    public Action<PlayerDot> OnGrabRelease;
+
     [SerializeField] private NetworkTransformBase networkTransformBase;
     [SerializeField] private RayInteractable rayInteractable;
     [SerializeField] private LayerMask hitMask;
@@ -28,7 +31,7 @@ public class PlayerDot : NetworkBehaviour
             case PointerEventType.Unselect:
                 interactor = null;
                 CmdSetSyncDirectionToServerToClient();
-                CmdRespawn();
+                CmdOnGrabRelease();
                 break;
         }
     }
@@ -98,8 +101,8 @@ public class PlayerDot : NetworkBehaviour
     }
 
     [Command(requiresAuthority = false)]
-    private void CmdRespawn()
+    private void CmdOnGrabRelease()
     {
-        transform.position = SpawnTransform.position;
+        OnGrabRelease?.Invoke(this);
     }
 }
