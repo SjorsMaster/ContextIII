@@ -77,12 +77,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1436686600267128410}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.3838788, y: 0.5900358, z: -0.00000008940697}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.6919394, y: 0.2950179, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2461879617299819248}
+  m_Father: {fileID: 4052119801798619813}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2611770448464773054
 GameObject:
@@ -120,6 +120,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2461879617299819248}
+  - {fileID: 3383714050135906436}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5737422892870142715
@@ -220,7 +221,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   setParentOnAnchorSwitch: 1
-  resetLocalPositionAndRotationOnAnchorSwitch: 0
+  resetParentTransform: 0
   objectToParent: {fileID: 4052119801798619813}
   Visuals: {fileID: 7657163117473771458}
   anchoredSaveDataType: 2
@@ -682,7 +683,6 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 3383714050135906436}
   - {fileID: 1233440735600211983}
   - {fileID: 3573766942201579316}
   - {fileID: 5769488946177597345}

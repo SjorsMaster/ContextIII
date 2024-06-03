@@ -31,7 +31,7 @@ public class DontTouchTheWalls : MiniGameBase
     {
         NetworkServer.Destroy(dot.gameObject);
 
-        GameObject playerDotObject = Instantiate(PlayerDotPrefab.gameObject, currentPath.PlayerDotParent);
+        GameObject playerDotObject = Instantiate(PlayerDotPrefab.gameObject, currentPath.transform);
         playerDotObject.transform.SetPositionAndRotation(currentPath.StartPoint.position, currentPath.StartPoint.rotation);
         NetworkServer.Spawn(playerDotObject);
 
@@ -72,7 +72,7 @@ public class DontTouchTheWalls : MiniGameBase
 
         for (int i = 0; i < players.Count; i++)
         {
-            GameObject playerDotObject = Instantiate(PlayerDotPrefab.gameObject, currentPath.PlayerDotParent);
+            GameObject playerDotObject = Instantiate(PlayerDotPrefab.gameObject, currentPath.transform);
             playerDotObject.transform.SetPositionAndRotation(currentPath.StartPoint.position, currentPath.StartPoint.rotation);
             NetworkServer.Spawn(playerDotObject);
 

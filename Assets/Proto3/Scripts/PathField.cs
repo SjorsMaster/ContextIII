@@ -11,8 +11,6 @@ public class PathField : MonoBehaviour // Server sided class, disable on clients
     [SerializeField] private PathCollider pathCollider;
     [SerializeField] private Transform playerDotParent;
 
-    public Transform PlayerDotParent => playerDotParent;
-
     public Transform StartPoint => startPoint;
 
     private void OnEnable()
