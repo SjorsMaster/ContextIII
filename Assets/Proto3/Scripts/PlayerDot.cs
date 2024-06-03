@@ -8,7 +8,7 @@ public class PlayerDot : NetworkBehaviour
     [SerializeField] private NetworkTransformBase networkTransformBase;
     [SerializeField] private Grabbable grabbable;
 
-    private Vector3 respawnPoint;
+    private Vector3 respawnPoint; // Used when the player unselects the object, not when it hits the path.
 
     public int OwnerID { get; private set;  } = -1; // Server only.
 

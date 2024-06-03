@@ -1,19 +1,29 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class PathField : MonoBehaviour // Server sided class, disable on clients.
 {
+    public Action<PlayerDot> OnPlayerFinishedPath;
+    public Action<PlayerDot> OnPlayerCollidedWithPath;
+
     [SerializeField] private Transform startPoint;
+    [SerializeField] private PathFinish pathFinish;
+    [SerializeField] private PathCollider pathCollider;
+    [SerializeField] private Transform playerDotParent;
+
+    public Transform PlayerDotParent => playerDotParent;
 
     public Transform StartPoint => startPoint;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnEnable()
     {
-        PlayerDot playerDot = other.GetComponent<PlayerDot>();
+        pathFinish.OnPlayerFinishedPath += OnPlayerFinishedPath;
+        pathCollider.OnPlayerCollidedWithPath += OnPlayerCollidedWithPath;
+    }
 
-        if (playerDot != null)
-        {
-            //playerDot.transform.position = startPoint.position;
-            Destroy(playerDot.gameObject);
-        }
+    private void OnDisable()
+    {
+        pathFinish.OnPlayerFinishedPath -= OnPlayerFinishedPath;
+        pathCollider.OnPlayerCollidedWithPath -= OnPlayerCollidedWithPath;
     }
 }
