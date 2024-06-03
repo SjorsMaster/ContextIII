@@ -1,6 +1,6 @@
 ﻿using Mirror;
+using SharedSpaces.Managers;
 using SharedSpaces.NetorkMessages;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -31,9 +31,12 @@ public class DontTouchTheWalls : MiniGameBase
     {
         NetworkServer.Destroy(dot.gameObject);
 
-        PlayerDot playerDot = Instantiate(PlayerDotPrefab, currentPath.StartPoint.position, Quaternion.identity, currentPath.PlayerDotParent);
-        NetworkServer.Spawn(playerDot.gameObject);
-        playerDot.SetRespawnPoint(currentPath.StartPoint.position);
+        GameObject playerDotObject = Instantiate(PlayerDotPrefab.gameObject, currentPath.PlayerDotParent);
+        playerDotObject.transform.SetPositionAndRotation(currentPath.StartPoint.position, currentPath.StartPoint.rotation);
+        NetworkServer.Spawn(playerDotObject);
+
+        PlayerDot playerDot = playerDotObject.GetComponent<PlayerDot>();
+        playerDot.SpawnTransform = currentPath.StartPoint;
 
         NetworkServer.SendToAll(new MsgSetParentMessage()
         {
@@ -49,11 +52,6 @@ public class DontTouchTheWalls : MiniGameBase
         result = new();
         players.Clear();
 
-        StartCoroutine(StartRoutine());
-    }
-    
-    private IEnumerator StartRoutine()
-    {
         Vector3 averagePosition = Vector3.zero;
         foreach (var player in FindObjectsOfType<MiniGamePlayer>())
         {
@@ -62,23 +60,24 @@ public class DontTouchTheWalls : MiniGameBase
         }
 
         averagePosition /= players.Count;
+        averagePosition.y = 0;
 
         int random = Random.Range(0, pathfields.Length);
         Vector2 circlePoint = Random.insideUnitCircle.normalized * fieldSpawnRange;
-        currentPath = Instantiate(pathfields[random], averagePosition + new Vector3(circlePoint.x, 0, circlePoint.y), Quaternion.identity);
-        currentPath.transform.LookAt(averagePosition);
-        NetworkServer.Spawn(currentPath.gameObject);
+        GameObject pathObject = Instantiate(pathfields[random].gameObject, averagePosition + new Vector3(circlePoint.x, 0, circlePoint.y), Quaternion.identity);
+        pathObject.transform.LookAt(averagePosition);
+        NetworkServer.Spawn(pathObject);
 
-        yield return null;
+        currentPath = pathObject.GetComponent<PathField>();
 
         for (int i = 0; i < players.Count; i++)
         {
             GameObject playerDotObject = Instantiate(PlayerDotPrefab.gameObject, currentPath.PlayerDotParent);
-            playerDotObject.transform.SetLocalPositionAndRotation(currentPath.StartPoint.localPosition, Quaternion.identity);
+            playerDotObject.transform.SetPositionAndRotation(currentPath.StartPoint.position, currentPath.StartPoint.rotation);
             NetworkServer.Spawn(playerDotObject);
 
             PlayerDot playerDot = playerDotObject.GetComponent<PlayerDot>();
-            playerDot.SetRespawnPoint(currentPath.StartPoint.position);
+            playerDot.SpawnTransform = currentPath.StartPoint;
 
             NetworkServer.SendToAll(new MsgSetParentMessage()
             {

@@ -5,13 +5,13 @@ public class PathCollider : MonoBehaviour // Server sided class, disable on clie
 {
     public Action<PlayerDot> OnPlayerCollidedWithPath;
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        PlayerDot playerDot = collision.gameObject.GetComponent<PlayerDot>();
+        PlayerDotRef playerDotRef = other.GetComponent<PlayerDotRef>();
 
-        if (playerDot != null)
+        if (playerDotRef != null)
         {
-            Destroy(playerDot.gameObject);
+            OnPlayerCollidedWithPath?.Invoke(playerDotRef.PlayerDot);
         }
     }
 }

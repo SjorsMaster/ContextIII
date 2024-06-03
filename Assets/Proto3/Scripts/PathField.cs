@@ -17,13 +17,23 @@ public class PathField : MonoBehaviour // Server sided class, disable on clients
 
     private void OnEnable()
     {
-        pathFinish.OnPlayerFinishedPath += OnPlayerFinishedPath;
-        pathCollider.OnPlayerCollidedWithPath += OnPlayerCollidedWithPath;
+        pathFinish.OnPlayerFinishedPath += InvokeOnPlayerFinishedPath;
+        pathCollider.OnPlayerCollidedWithPath += InvokeOnPlayerCollidedWithPath;
     }
 
     private void OnDisable()
     {
-        pathFinish.OnPlayerFinishedPath -= OnPlayerFinishedPath;
-        pathCollider.OnPlayerCollidedWithPath -= OnPlayerCollidedWithPath;
+        pathFinish.OnPlayerFinishedPath -= InvokeOnPlayerFinishedPath;
+        pathCollider.OnPlayerCollidedWithPath -= InvokeOnPlayerCollidedWithPath;
+    }
+
+    private void InvokeOnPlayerFinishedPath(PlayerDot playerDot)
+    {
+        OnPlayerFinishedPath?.Invoke(playerDot);
+    }
+
+    private void InvokeOnPlayerCollidedWithPath(PlayerDot playerDot)
+    {
+        OnPlayerCollidedWithPath?.Invoke(playerDot);
     }
 }

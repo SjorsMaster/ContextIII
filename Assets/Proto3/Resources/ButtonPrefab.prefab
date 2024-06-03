@@ -222,6 +222,8 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
+  setParentOnAnchorSwitch: 1
+  resetLocalPositionAndRotationOnAnchorSwitch: 0
   objectToParent: {fileID: 6465399906856337308}
   Visuals: {fileID: 2984969897279561792}
   anchoredSaveDataType: 2

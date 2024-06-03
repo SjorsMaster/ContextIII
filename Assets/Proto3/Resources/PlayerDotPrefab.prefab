@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8132785907166724506}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,8 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 755906774254125251}
   - component: {fileID: 4889566707893795389}
-  - component: {fileID: 8679790088908108534}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: RayInteractable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,23 +80,11 @@ MonoBehaviour:
   _maxInteractors: -1
   _maxSelectingInteractors: -1
   _data: {fileID: 0}
-  _pointableElement: {fileID: 1526428009030382786}
+  _pointableElement: {fileID: 0}
   _surface: {fileID: 7927808263348171371}
   _selectSurface: {fileID: 0}
-  _movementProvider: {fileID: 8679790088908108534}
+  _movementProvider: {fileID: 0}
   _tiebreakerScore: 0
---- !u!114 &8679790088908108534
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5574394541778309745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 953054d108799b942815afb3405983ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6072950771984408516
 GameObject:
   m_ObjectHideFlags: 0
@@ -111,7 +98,8 @@ GameObject:
   - component: {fileID: 6871493815782936012}
   - component: {fileID: 9017581965111812540}
   - component: {fileID: 7927808263348171371}
-  m_Layer: 0
+  - component: {fileID: 5112149158635950333}
+  m_Layer: 18
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -217,6 +205,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _collider: {fileID: 9017581965111812540}
+--- !u!114 &5112149158635950333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6072950771984408516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c2e15c2e56ad134ab499f04c8dd3479, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerDot: {fileID: 893232897688447225}
 --- !u!1 &6952724214053106090
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,12 +231,9 @@ GameObject:
   - component: {fileID: 842231150052200056}
   - component: {fileID: 955362804573420927}
   - component: {fileID: 6473275560522586655}
-  - component: {fileID: 8309852017812780090}
-  - component: {fileID: 1526428009030382786}
   - component: {fileID: 893232897688447225}
-  - component: {fileID: 4873953284785675214}
   - component: {fileID: 3207577928387374881}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: PlayerDotPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -340,55 +338,14 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  objectToParent: {fileID: 3925720317169985545}
+  setParentOnAnchorSwitch: 0
+  resetLocalPositionAndRotationOnAnchorSwitch: 0
+  objectToParent: {fileID: 0}
   Visuals: {fileID: 746234098152454359}
   anchoredSaveDataType: 2
   objectID: 
   networkTransformBase: {fileID: 842231150052200056}
   searchClosestAnchor: {fileID: 955362804573420927}
---- !u!114 &8309852017812780090
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6952724214053106090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94ea4fff895071f408819ef996415ed9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncDirection: 0
-  syncMode: 0
-  syncInterval: 0
-  networkTransformBase: {fileID: 842231150052200056}
-  rayCollider: {fileID: 9017581965111812540}
-  grabbable: {fileID: 1526428009030382786}
-  canBeStolen: 0
-  isThrowable: 0
-  rb: {fileID: 0}
---- !u!114 &1526428009030382786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6952724214053106090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43f86b14a27b52f4f9298c33015b5c26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _transferOnSecondSelection: 0
-  _addNewPointsToFront: 0
-  _forwardElement: {fileID: 0}
-  _oneGrabTransformer: {fileID: 4873953284785675214}
-  _twoGrabTransformer: {fileID: 4873953284785675214}
-  _targetTransform: {fileID: 3925720317169985545}
-  _maxGrabPoints: -1
-  _rigidbody: {fileID: 0}
-  _kinematicWhileSelected: 1
-  _throwWhenUnselected: 1
 --- !u!114 &893232897688447225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -405,69 +362,11 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   networkTransformBase: {fileID: 842231150052200056}
-  grabbable: {fileID: 1526428009030382786}
---- !u!114 &4873953284785675214
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6952724214053106090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbb7085c111fcb44493d57d4e336d3fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _positionConstraints:
-    ConstraintsAreRelative: 0
-    XAxis:
-      ConstrainAxis: 0
-      AxisRange:
-        Min: 0
-        Max: 0
-    YAxis:
-      ConstrainAxis: 0
-      AxisRange:
-        Min: 0
-        Max: 0
-    ZAxis:
-      ConstrainAxis: 1
-      AxisRange:
-        Min: 0
-        Max: 0
-  _rotationConstraints:
-    XAxis:
-      ConstrainAxis: 1
-      AxisRange:
-        Min: 0
-        Max: 0
-    YAxis:
-      ConstrainAxis: 1
-      AxisRange:
-        Min: 0
-        Max: 0
-    ZAxis:
-      ConstrainAxis: 1
-      AxisRange:
-        Min: 0
-        Max: 0
-  _scaleConstraints:
-    ConstraintsAreRelative: 1
-    XAxis:
-      ConstrainAxis: 1
-      AxisRange:
-        Min: 1
-        Max: 1
-    YAxis:
-      ConstrainAxis: 1
-      AxisRange:
-        Min: 1
-        Max: 1
-    ZAxis:
-      ConstrainAxis: 1
-      AxisRange:
-        Min: 1
-        Max: 1
+  rayInteractable: {fileID: 4889566707893795389}
+  hitMask:
+    serializedVersion: 2
+    m_Bits: 131072
+  rb: {fileID: 3207577928387374881}
 --- !u!54 &3207577928387374881
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -490,8 +389,8 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1

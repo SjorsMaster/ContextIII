@@ -1,27 +1,35 @@
 ﻿using Mirror;
 using Oculus.Interaction;
-using System.Threading.Tasks;
 using UnityEngine;
 
 public class PlayerDot : NetworkBehaviour
 {
     [SerializeField] private NetworkTransformBase networkTransformBase;
-    [SerializeField] private Grabbable grabbable;
+    [SerializeField] private RayInteractable rayInteractable;
+    [SerializeField] private LayerMask hitMask;
 
-    private Vector3 respawnPoint; // Used when the player unselects the object, not when it hits the path.
+    public Transform SpawnTransform;
 
-    public int OwnerID { get; private set;  } = -1; // Server only.
+    public int OwnerID { get; private set; } = -1; // Server only.
+
+    private RayInteractor interactor = null;
 
     #region Event Handlers
     private void Grabbable_WhenPointerEventRaised(PointerEvent pointerEvent)
     {
-        if (pointerEvent.Type == PointerEventType.Select)
+        switch (pointerEvent.Type)
         {
-            CmdSetMiniGamePlayerID(MiniGamePlayer.LocalPlayerID);
-        }
-        else if (pointerEvent.Type == PointerEventType.Unselect)
-        {
-            CmdRespawn();
+            case PointerEventType.Select:
+                CmdSetMiniGamePlayerID(MiniGamePlayer.LocalPlayerID);
+                interactor = (RayInteractor)pointerEvent.Data;
+                CmdSetSyncDirectionToClientToServer();
+                break;
+
+            case PointerEventType.Unselect:
+                interactor = null;
+                CmdSetSyncDirectionToServerToClient();
+                CmdRespawn();
+                break;
         }
     }
     #endregion
@@ -29,13 +37,27 @@ public class PlayerDot : NetworkBehaviour
     [ClientCallback]
     private void OnEnable()
     {
-        grabbable.WhenPointerEventRaised += Grabbable_WhenPointerEventRaised;
+        rayInteractable.WhenPointerEventRaised += Grabbable_WhenPointerEventRaised;
     }
 
     [ClientCallback]
     private void OnDisable()
     {
-        grabbable.WhenPointerEventRaised -= Grabbable_WhenPointerEventRaised;
+        rayInteractable.WhenPointerEventRaised -= Grabbable_WhenPointerEventRaised;
+    }
+
+    [ClientCallback]
+    private void Update()
+    {
+        if (interactor == null)
+        {
+            return;
+        }
+
+        if (Physics.Raycast(interactor.Origin, interactor.Forward, out RaycastHit hit, Mathf.Infinity, hitMask))
+        {
+            transform.position = hit.point;
+        }
     }
 
     [Command(requiresAuthority = false)]
@@ -45,27 +67,39 @@ public class PlayerDot : NetworkBehaviour
     }
 
     [Command(requiresAuthority = false)]
+    private void CmdSetSyncDirectionToClientToServer(NetworkConnectionToClient sender = null)
+    {
+        networkTransformBase.netIdentity.AssignClientAuthority(sender);
+        networkTransformBase.syncDirection = SyncDirection.ClientToServer;
+
+        RpcSetSyncDirectionToClientToServer();
+    }
+
+    [ClientRpc]
+    private void RpcSetSyncDirectionToClientToServer()
+    {
+        networkTransformBase.syncDirection = SyncDirection.ClientToServer;
+    }
+
+
+    [Command(requiresAuthority = false)]
+    private void CmdSetSyncDirectionToServerToClient()
+    {
+        networkTransformBase.netIdentity.RemoveClientAuthority();
+        networkTransformBase.syncDirection = SyncDirection.ServerToClient;
+
+        RpcSetSyncDirectionToServerToClient();
+    }
+
+    [ClientRpc]
+    private void RpcSetSyncDirectionToServerToClient()
+    {
+        networkTransformBase.syncDirection = SyncDirection.ServerToClient;
+    }
+
+    [Command(requiresAuthority = false)]
     private void CmdRespawn()
     {
-        Respawn();
-    }
-
-    [Server]
-    private async void Respawn()
-    {
-        // Another class handles changing the Syncdirection to ServerToClient on unselecting the object, here we wait for it to be done.
-        while (networkTransformBase.syncDirection != SyncDirection.ServerToClient)
-        {
-            await Task.Yield();
-        }
-
-        transform.position = respawnPoint;
-        OwnerID = -1;
-    }
-
-    [Server]
-    public void SetRespawnPoint(Vector3 position)
-    {
-        respawnPoint = position;
+        transform.position = SpawnTransform.position;
     }
 }

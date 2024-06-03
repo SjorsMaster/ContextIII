@@ -7,11 +7,11 @@ public class PathFinish : MonoBehaviour // Server sided class, disable on client
 
     private void OnTriggerEnter(Collider other)
     {
-        PlayerDot playerDot = other.GetComponent<PlayerDot>();
+        PlayerDotRef playerDotRef = other.GetComponent<PlayerDotRef>();
 
-        if (playerDot != null)
+        if (playerDotRef != null)
         {
-            OnPlayerFinishedPath?.Invoke(playerDot);
+            OnPlayerFinishedPath?.Invoke(playerDotRef.PlayerDot);
         }
     }
 }
