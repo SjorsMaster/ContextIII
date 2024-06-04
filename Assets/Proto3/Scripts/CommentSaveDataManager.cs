@@ -1,6 +1,6 @@
 ﻿using SharedSpaces.SaveSystem;
 
-public class SaveDataManagerProto3 : SaveDataManager<SaveDataProto3>
+public class CommentSaveDataManager : BaseSaveDataManager<CommentSaveData>
 {
     public override string FileNameSuffix { get; set; } = "Proto3";
 }

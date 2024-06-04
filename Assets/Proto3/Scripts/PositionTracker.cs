@@ -1,46 +1,56 @@
+using SharedSpaces;
+using SharedSpaces.Data;
+using SharedSpaces.Managers;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
-using System.Linq;
 
 public class PositionTracker : MonoBehaviour
 {
-    [SerializeField] bool track = true;
-    [SerializeField] float trackSecInterval = .25f;
-    public List<Vector3> posCol;
+    [SerializeField] private float interval = .25f;
+    [SerializeField] private AnchoredObject anchoredObject;
 
-    public delegate void sendPositions(List<Vector3> dataList);
-    public static event sendPositions newPositionData;
+    public List<AnchoredPosition> PositionData { get; private set; } = new();
 
-    //start tracking based on interval
-    void Start()
+    private bool track;
+
+    private void Awake()
     {
-        InvokeRepeating ("TrackPos", 0, trackSecInterval); 
+        TrackingSaveDataHandler.PositionTrackers.Add(this);
     }
 
-    // Because of InvokeRepeating, tis is called every 5 seconds.
-    void TrackPos()
+    public void StartTracking()
     {
-        if (!track)
+        track = true;
+        PositionData.Clear();
+        StartCoroutine(TrackPositions());
+    }
+
+    public void StopTracking()
+    {
+        track = false;
+    }
+
+    private IEnumerator TrackPositions()
+    {
+        ServerManager manager = ServerManager.TryGetInstance();
+        if (manager == null)
         {
-            //Done, send out data and stop tracking
-            CancelInvoke("TrackPos");
-            newPositionData.Invoke(posCol);
+            Debug.LogError("ServerManager not found.");
+            yield break;
         }
-        //Make sure we don't save unnecessary data
-        if(posCol.LastOrDefault() != transform.position)
-            posCol.Add (new Vector3(transform.position.x, transform.position.y - 1.5f, transform.position.z));
-    }
 
-    public void ToggleTrack()
-    {
-        track = !track;
-
-        if (track)
+        while (track)
         {
-            posCol.Clear();
-            InvokeRepeating("TrackPos", 0, trackSecInterval);
+            if (manager.ReferenceAnchors.TryGetValue(anchoredObject.AnchorUUID, out ReferenceAnchorData data))
+            {
+                PositionData.Add(new()
+                {
+                    AnchorUUID = anchoredObject.AnchorUUID,
+                    RelativePosition = data.SpatialAnchor.transform.InverseTransformPoint(transform.position)
+                });
+            }
+            yield return new WaitForSeconds(interval);
         }
     }
 }

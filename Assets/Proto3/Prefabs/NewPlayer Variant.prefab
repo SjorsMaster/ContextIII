@@ -222,6 +222,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6235119678142700864}
   - component: {fileID: 3564553382209407795}
+  - component: {fileID: 6564321951613262079}
   m_Layer: 15
   m_Name: Trail
   m_TagString: Untagged
@@ -357,6 +358,20 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!114 &6564321951613262079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3476011282868913785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbf80aef0e06f492286a682abd7494e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interval: 0.25
+  anchoredObject: {fileID: 8013088594840042619}
 --- !u!1 &4974044729448300743
 GameObject:
   m_ObjectHideFlags: 0
@@ -750,7 +765,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2913163648846410164, guid: 0d5ee8585ce73484885421ead82f0b3c,
         type: 3}
+      propertyPath: gameObjectsToDisableOnServer.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2913163648846410164, guid: 0d5ee8585ce73484885421ead82f0b3c,
+        type: 3}
+      propertyPath: gameObjectsToDisableOnRemotes.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2913163648846410164, guid: 0d5ee8585ce73484885421ead82f0b3c,
+        type: 3}
       propertyPath: gameObjectsToDisableOnLocal.Array.data[3]
+      value: 
+      objectReference: {fileID: 280017762384047443}
+    - target: {fileID: 2913163648846410164, guid: 0d5ee8585ce73484885421ead82f0b3c,
+        type: 3}
+      propertyPath: gameObjectsToDisableOnServer.Array.data[0]
+      value: 
+      objectReference: {fileID: 280017762384047443}
+    - target: {fileID: 2913163648846410164, guid: 0d5ee8585ce73484885421ead82f0b3c,
+        type: 3}
+      propertyPath: gameObjectsToDisableOnRemotes.Array.data[0]
       value: 
       objectReference: {fileID: 280017762384047443}
     - target: {fileID: 2935256773268125959, guid: 0d5ee8585ce73484885421ead82f0b3c,
@@ -1051,6 +1086,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 4268257167998487719}
+--- !u!114 &8013088594840042619 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 904874728415803245, guid: 0d5ee8585ce73484885421ead82f0b3c,
+    type: 3}
+  m_PrefabInstance: {fileID: 7186328122422135574}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6630157138823054414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f877a1ff2e91ae74c91b1989aa8cb875, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &8428468082276373409 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1679024945886271671, guid: 0d5ee8585ce73484885421ead82f0b3c,

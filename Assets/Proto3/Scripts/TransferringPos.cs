@@ -1,20 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+//using System.Collections.Generic;
+//using UnityEngine;
 
-public class TransferringPos : MonoBehaviour
-{
-    //Subscribe to items to see if we get new data
-    void Start (){
-        PositionTracker.newPositionData += processData;
-    }
+//public class TransferringPos : MonoBehaviour
+//{
+//    #region Event Handlers
+//    public void PositionTracker_NewPositionData(List<Vector3> input)
+//    {
+//        GameObject obj = new GameObject("PathRenderer");
+//        obj.AddComponent<RenderPath>();
+//        obj.GetComponent<RenderPath>().RenderLine(input);
+//    }
+//    #endregion
 
-    //Process newfound data
-    public void processData(List<Vector3> input){
-        GameObject obj = new GameObject("PathRenderer");
-        obj.AddComponent<RenderPath>();
-        obj.GetComponent<RenderPath>().RenderLine(input);
-    }
-
-    
-}
+//    private void Awake()
+//    {
+//    }
+//}

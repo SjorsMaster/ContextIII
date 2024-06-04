@@ -28,9 +28,9 @@ public class Comment : NetworkBehaviour
             return;
         }
 
-        if (CommentSaveData.CommentSaveDataDict.ContainsKey(Guid.Parse(anchoredObject.ObjectID)))
+        if (CommentSaveDataHandler.CommentSaveDataDict.ContainsKey(Guid.Parse(anchoredObject.ObjectID)))
         {
-            CommentSaveData.CommentSaveDataDict[Guid.Parse(anchoredObject.ObjectID)] = new()
+            CommentSaveDataHandler.CommentSaveDataDict[Guid.Parse(anchoredObject.ObjectID)] = new()
             {
                 ObjectID = anchoredObject.ObjectID,
                 CommentText = newText,
@@ -64,13 +64,13 @@ public class Comment : NetworkBehaviour
         yield return new WaitUntil(() => !string.IsNullOrEmpty(anchoredObject.ObjectID));
 
 
-        if (CommentSaveData.CommentSaveDataDict.TryGetValue(Guid.Parse(anchoredObject.ObjectID), out CommentData commentData))
+        if (CommentSaveDataHandler.CommentSaveDataDict.TryGetValue(Guid.Parse(anchoredObject.ObjectID), out CommentData commentData))
         {
             CmdSetCommentText(commentData.CommentText);
         }
         else
         {
-            CommentSaveData.CommentSaveDataDict.Add(Guid.Parse(anchoredObject.ObjectID), new()
+            CommentSaveDataHandler.CommentSaveDataDict.Add(Guid.Parse(anchoredObject.ObjectID), new()
             {
                 ObjectID = anchoredObject.ObjectID,
                 CommentText = commentText,
