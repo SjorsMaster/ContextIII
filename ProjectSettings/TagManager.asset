@@ -8,6 +8,7 @@ TagManager:
   - GoalA
   - GoalB
   - Handle
+  - Hand
   layers:
   - Default
   - TransparentFX
@@ -24,10 +25,10 @@ TagManager:
   - GrabInteract
   - Hide
   - Bubble
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - GameElement
+  - PathRaycast
+  - PlayerDot
   - 
   - 
   - 
