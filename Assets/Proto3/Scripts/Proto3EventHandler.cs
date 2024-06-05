@@ -12,7 +12,6 @@ public class Proto3EventHandler : MonoBehaviour
 
     private float timeSinceLastComment = 0f;
 
-
     #region Comment Creation
     // When the player opens the keyboard, their controllers are disabled.
     // We save these values so we can create the comment at the correct position.
@@ -27,7 +26,7 @@ public class Proto3EventHandler : MonoBehaviour
         }
         timeSinceLastComment = Time.time;
 
-        AnchoredObject target = LocalPlayerManager.LeftHand;
+        AnchoredObject target = LocalPlayerManager.Head;
 
         targetSaveUUID = target.AnchorUUID;
         targetSavePosition = target.transform.localPosition;
