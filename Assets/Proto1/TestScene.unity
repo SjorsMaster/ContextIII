@@ -85908,6 +85908,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CustomNetworkManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8948465313468325076, guid: e997dacd9873c1c419d8c0e70f0a977d,
+        type: 3}
+      propertyPath: port
+      value: 7771
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
