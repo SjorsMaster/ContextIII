@@ -85846,12 +85846,12 @@ PrefabInstance:
     - target: {fileID: 387035083841647767, guid: e997dacd9873c1c419d8c0e70f0a977d,
         type: 3}
       propertyPath: onlineScene
-      value: Assets/Proto1/TestScene.unity
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 387035083841647767, guid: e997dacd9873c1c419d8c0e70f0a977d,
         type: 3}
       propertyPath: offlineScene
-      value: Assets/Proto1/TestScene.unity
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2850892735193413137, guid: e997dacd9873c1c419d8c0e70f0a977d,
         type: 3}

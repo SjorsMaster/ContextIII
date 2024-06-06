@@ -1456,8 +1456,8 @@ MonoBehaviour:
   sendRate: 60
   autoStartServerBuild: 0
   autoConnectClientBuild: 0
-  offlineScene: Assets/Proto3/Proto3.unity
-  onlineScene: Assets/Proto3/Proto3.unity
+  offlineScene: 
+  onlineScene: 
   transport: {fileID: 1061458249}
   networkAddress: localhost
   maxConnections: 100
