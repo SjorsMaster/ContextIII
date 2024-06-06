@@ -23,7 +23,7 @@ public class PlayerDot : NetworkBehaviour
         switch (pointerEvent.Type)
         {
             case PointerEventType.Select:
-                CmdSetMiniGamePlayerID(MiniGamePlayer.LocalPlayerID);
+                CmdSetMiniGamePlayerID(MiniGamePlayer.LocalPlayer.PlayerID);
                 interactor = (RayInteractor)pointerEvent.Data;
                 CmdSetSyncDirectionToClientToServer();
                 break;

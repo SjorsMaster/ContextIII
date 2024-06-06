@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MiniGamePlayer : NetworkBehaviour
 {
-    public static int LocalPlayerID = 0;
+    public static MiniGamePlayer LocalPlayer;
 
     [SerializeField] public Transform RightHandTransform;
 
@@ -18,11 +18,6 @@ public class MiniGamePlayer : NetworkBehaviour
     private void OnPlayerIDUpdated(int oldID, int newID)
     {
         playerIDText.text = $"Player {newID}";
-
-        if (isLocalPlayer)
-        {
-            LocalPlayerID = newID;
-        }
     }
 
     private void OnScoreUpdated(int oldScore, int newScore)
@@ -34,5 +29,12 @@ public class MiniGamePlayer : NetworkBehaviour
     private void Awake()
     {
         syncDirection = SyncDirection.ServerToClient;
+    }
+
+    public override void OnStartLocalPlayer()
+    {
+        base.OnStartLocalPlayer();
+
+        LocalPlayer = this;
     }
 }

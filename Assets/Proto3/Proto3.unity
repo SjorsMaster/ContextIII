@@ -279,6 +279,18 @@ MonoBehaviour:
   CommentInputFieldPrefab: {fileID: 2121166876264002537, guid: c63956768269a2345b46d408540e3ea3,
     type: 3}
   cooldown: 3
+--- !u!114 &224829897 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7455953467827616401, guid: 258d40faa5b546f44ba4236361c0f33f,
+    type: 3}
+  m_PrefabInstance: {fileID: 5491335865668650955}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &238145609
 GameObject:
   m_ObjectHideFlags: 0
@@ -994,6 +1006,12 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!64 &631777502 stripped
+MeshCollider:
+  m_CorrespondingSourceObject: {fileID: 7935412818471637166, guid: 258d40faa5b546f44ba4236361c0f33f,
+    type: 3}
+  m_PrefabInstance: {fileID: 5491335865668650955}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &660579479
 GameObject:
   m_ObjectHideFlags: 0
@@ -1434,7 +1452,7 @@ MonoBehaviour:
   disconnectInactiveConnections: 0
   disconnectInactiveTimeout: 60
   authenticator: {fileID: 0}
-  playerPrefab: {fileID: 6842824216128466401, guid: f5d2f1f62ee340741a5fd3ddd8dedb4f,
+  playerPrefab: {fileID: 8286713046420401571, guid: 2f36e409d128c15489f4564dbb0eaa06,
     type: 3}
   autoCreatePlayer: 1
   playerSpawnMethod: 0
@@ -1451,6 +1469,8 @@ MonoBehaviour:
   - {fileID: 6166207719828101019, guid: ef39556bb75025146bcfc8bc685e9e2e, type: 3}
   - {fileID: 228458086804016150, guid: a565a802b68da204c9ada438414b0e11, type: 3}
   - {fileID: 2884878260341142124, guid: fd8d11119b0c5be42ba0ab64009c1cb7, type: 3}
+  - {fileID: 5919705797565899514, guid: bdbe85001baa09c4b9f40e5c85fbb987, type: 3}
+  - {fileID: 7290142328880336506, guid: c5fc3001654fdc04481440aa621a6574, type: 3}
   exceptionsDisconnect: 1
   snapshotSettings:
     bufferTimeMultiplier: 2
@@ -1560,6 +1580,9 @@ MonoBehaviour:
   scoreToWin: 3
   miniGames:
   - {fileID: 4861508061270818576}
+  - {fileID: 1223236704}
+  - {fileID: 1642192252}
+  - {fileID: 551821153}
   gameMasterUI: {fileID: 944703411}
 --- !u!114 &1081210162
 MonoBehaviour:
@@ -2825,6 +2848,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1135702802370484482, guid: 289131994131fa14abaf7b8b79771852,
+        type: 3}
+      propertyPath: showOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1135702802370484482, guid: 289131994131fa14abaf7b8b79771852,
+        type: 3}
+      propertyPath: debugMessagePrefab
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1413762207060961070, guid: 289131994131fa14abaf7b8b79771852,
         type: 3}
       propertyPath: m_Name
@@ -3187,6 +3220,12 @@ PrefabInstance:
       objectReference: {fileID: 1061458246}
     - target: {fileID: 2209512451614821620, guid: 258d40faa5b546f44ba4236361c0f33f,
         type: 3}
+      propertyPath: anchorPrefab
+      value: 
+      objectReference: {fileID: 7065480608087108760, guid: ba37ce6b2b0a714408484faf04ff54a6,
+        type: 3}
+    - target: {fileID: 2209512451614821620, guid: 258d40faa5b546f44ba4236361c0f33f,
+        type: 3}
       propertyPath: LeftHandCanvas
       value: 
       objectReference: {fileID: 1743016504}
@@ -3195,6 +3234,11 @@ PrefabInstance:
       propertyPath: RightHandCanvas
       value: 
       objectReference: {fileID: 750277702}
+    - target: {fileID: 2209512451614821620, guid: 258d40faa5b546f44ba4236361c0f33f,
+        type: 3}
+      propertyPath: interactionCollider
+      value: 
+      objectReference: {fileID: 631777502}
     - target: {fileID: 2209512451614821620, guid: 258d40faa5b546f44ba4236361c0f33f,
         type: 3}
       propertyPath: OnLPrimaryPress.m_PersistentCalls.m_Calls.Array.size
@@ -3460,6 +3504,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 4315982792387256753, guid: 258d40faa5b546f44ba4236361c0f33f,
+        type: 3}
+      propertyPath: interactionCollider
+      value: 
+      objectReference: {fileID: 631777502}
     - target: {fileID: 4415172952893467181, guid: 258d40faa5b546f44ba4236361c0f33f,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -3479,6 +3528,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4692044652554542598, guid: 258d40faa5b546f44ba4236361c0f33f,
+        type: 3}
+      propertyPath: connectionQualityText
+      value: 
+      objectReference: {fileID: 224829897}
+    - target: {fileID: 4986669535758903070, guid: 258d40faa5b546f44ba4236361c0f33f,
+        type: 3}
+      propertyPath: interactionCollider
+      value: 
+      objectReference: {fileID: 631777502}
+    - target: {fileID: 4986669535758903070, guid: 258d40faa5b546f44ba4236361c0f33f,
+        type: 3}
+      propertyPath: <StartVisible>k__BackingField
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5015886741838156455, guid: 258d40faa5b546f44ba4236361c0f33f,
         type: 3}
@@ -3577,8 +3641,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6115599359352044474, guid: 258d40faa5b546f44ba4236361c0f33f,
         type: 3}
+      propertyPath: interactionCollider
+      value: 
+      objectReference: {fileID: 631777502}
+    - target: {fileID: 6115599359352044474, guid: 258d40faa5b546f44ba4236361c0f33f,
+        type: 3}
+      propertyPath: OnLPrimaryPress.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6115599359352044474, guid: 258d40faa5b546f44ba4236361c0f33f,
+        type: 3}
       propertyPath: OnRPrimaryPress.m_PersistentCalls.m_Calls.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6115599359352044474, guid: 258d40faa5b546f44ba4236361c0f33f,
+        type: 3}
+      propertyPath: OnLPrimaryPress.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6115599359352044474, guid: 258d40faa5b546f44ba4236361c0f33f,
         type: 3}
@@ -3597,8 +3676,18 @@ PrefabInstance:
       objectReference: {fileID: 173674002}
     - target: {fileID: 6115599359352044474, guid: 258d40faa5b546f44ba4236361c0f33f,
         type: 3}
+      propertyPath: OnLPrimaryPress.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6115599359352044474, guid: 258d40faa5b546f44ba4236361c0f33f,
+        type: 3}
       propertyPath: OnRPrimaryPress.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6115599359352044474, guid: 258d40faa5b546f44ba4236361c0f33f,
+        type: 3}
+      propertyPath: OnLPrimaryPress.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SpawnInstantiableObject
       objectReference: {fileID: 0}
     - target: {fileID: 6115599359352044474, guid: 258d40faa5b546f44ba4236361c0f33f,
         type: 3}
@@ -3607,8 +3696,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6115599359352044474, guid: 258d40faa5b546f44ba4236361c0f33f,
         type: 3}
+      propertyPath: OnLPrimaryPress.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SharedSpaces.EventHandlers, SharedSpaces
+      objectReference: {fileID: 0}
+    - target: {fileID: 6115599359352044474, guid: 258d40faa5b546f44ba4236361c0f33f,
+        type: 3}
       propertyPath: OnRPrimaryPress.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: Proto3EventHandler, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6115599359352044474, guid: 258d40faa5b546f44ba4236361c0f33f,
+        type: 3}
+      propertyPath: OnLPrimaryPress.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: ThrowCube
+      objectReference: {fileID: 0}
+    - target: {fileID: 6115599359352044474, guid: 258d40faa5b546f44ba4236361c0f33f,
+        type: 3}
+      propertyPath: OnLPrimaryPress.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6115599359352044474, guid: 258d40faa5b546f44ba4236361c0f33f,
         type: 3}

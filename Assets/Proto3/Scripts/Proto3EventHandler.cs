@@ -26,7 +26,7 @@ public class Proto3EventHandler : MonoBehaviour
         }
         timeSinceLastComment = Time.time;
 
-        AnchoredObject target = LocalPlayerManager.Head;
+        AnchoredObject target = LocalPlayerManager.RightHand;
 
         targetSaveUUID = target.AnchorUUID;
         targetSavePosition = target.transform.localPosition;

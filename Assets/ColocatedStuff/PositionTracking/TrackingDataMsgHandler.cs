@@ -7,17 +7,16 @@ using UnityEngine;
 
 public class TrackingDataMsgHandler : NetworkBehaviour
 {
-    private readonly List<RenderPath> activeRenders = new();
+    private readonly Dictionary<uint, RenderPath> activeRenders = new();
 
     #region Event Handlers
     private void OnTrackingDataReceived(PositionSaveData data)
     {
-        foreach (var render in activeRenders)
+        if (activeRenders.TryGetValue(data.ID, out RenderPath render))
         {
             Destroy(render.gameObject);
+            activeRenders.Remove(data.ID);
         }
-
-        activeRenders.Clear();
 
         List<Vector3> linePositions = new();
         foreach (var pos in data.AnchoredPositions)
@@ -41,7 +40,7 @@ public class TrackingDataMsgHandler : NetworkBehaviour
         GameObject obj = new($"PathRenderer({data.ID})");
         RenderPath path = obj.AddComponent<RenderPath>();
         path.RenderLine(linePositions);
-        activeRenders.Add(path);
+        activeRenders.Add(data.ID, path);
     }
     #endregion
 

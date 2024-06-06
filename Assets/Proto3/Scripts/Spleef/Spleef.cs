@@ -47,7 +47,7 @@ public class Spleef : MiniGameBase
     [Client]
     private void SpleefChecker_OnPlayerFall(MiniGamePlayer player)
     {
-        if (player.PlayerID == MiniGamePlayer.LocalPlayerID)
+        if (player.PlayerID == MiniGamePlayer.LocalPlayer.PlayerID)
         {
             CmdSendResult(new GameResult
             {
