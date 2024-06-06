@@ -25,6 +25,11 @@ public class World : MonoBehaviour
 		SetVisible(false);
 	}
 
+    private void OnDestroy()
+    {
+        worlds.Remove(gameObject.name);
+    }
+
     public void SetVisible( bool visible )
     {
         foreach( KeyValuePair<Renderer,int> pair in rendererLayers )
