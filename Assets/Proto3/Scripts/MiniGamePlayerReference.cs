@@ -3,12 +3,14 @@ using UnityEngine;
 
 public class MiniGamePlayerReference : NetworkBehaviour
 {
-    public MiniGamePlayer Player { get; private set; }
+    [SerializeField] private MiniGamePlayer player;
+
+    public MiniGamePlayer Player => player;
 
     public override void OnStartLocalPlayer()
     {
         base.OnStartLocalPlayer();
-        Player = NetworkClient.spawned[NetworkClient.localPlayer.netId].GetComponent<MiniGamePlayer>();
+        player = NetworkClient.spawned[NetworkClient.localPlayer.netId].GetComponent<MiniGamePlayer>();
 
         CmdAddReference(NetworkClient.localPlayer.netId);
     }
@@ -16,7 +18,7 @@ public class MiniGamePlayerReference : NetworkBehaviour
     [Command]
     private void CmdAddReference(uint netId)
     {
-        Player = NetworkServer.spawned[netId].GetComponent<MiniGamePlayer>();
+        player = NetworkServer.spawned[netId].GetComponent<MiniGamePlayer>();
 
         RpcAddReference(netId);
     }
@@ -29,6 +31,6 @@ public class MiniGamePlayerReference : NetworkBehaviour
             return;
         }
 
-        Player = NetworkClient.spawned[netId].GetComponent<MiniGamePlayer>();
+        player = NetworkClient.spawned[netId].GetComponent<MiniGamePlayer>();
     }
 }
