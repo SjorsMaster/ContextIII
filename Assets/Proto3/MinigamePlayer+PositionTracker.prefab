@@ -657,6 +657,21 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 6626116969431513676}
+    - target: {fileID: 3735647398446787934, guid: aa5968192c304cd48a128d4576747f37,
+        type: 3}
+      propertyPath: followXRot
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3735647398446787934, guid: aa5968192c304cd48a128d4576747f37,
+        type: 3}
+      propertyPath: followZPos
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3735647398446787934, guid: aa5968192c304cd48a128d4576747f37,
+        type: 3}
+      propertyPath: followZRot
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5727757773412371645, guid: aa5968192c304cd48a128d4576747f37,
         type: 3}
       propertyPath: m_Name
@@ -671,6 +686,12 @@ PrefabInstance:
       addedObject: {fileID: 5037553559456420510}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa5968192c304cd48a128d4576747f37, type: 3}
+--- !u!1 &1905348029421920047 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5727757773412371645, guid: aa5968192c304cd48a128d4576747f37,
+    type: 3}
+  m_PrefabInstance: {fileID: 6128328894385034130}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9174099501379222754 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3052526075157344112, guid: aa5968192c304cd48a128d4576747f37,
@@ -688,6 +709,16 @@ PrefabInstance:
     - target: {fileID: 295906122444618807, guid: 8064a92755afc5043847c258ee0183c5,
         type: 3}
       propertyPath: gameObjectsToDisableOnLocal.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 295906122444618807, guid: 8064a92755afc5043847c258ee0183c5,
+        type: 3}
+      propertyPath: behavioursToDisableOnRemotes.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 295906122444618807, guid: 8064a92755afc5043847c258ee0183c5,
+        type: 3}
+      propertyPath: gameObjectsToDisableOnRemotes.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 295906122444618807, guid: 8064a92755afc5043847c258ee0183c5,
@@ -695,6 +726,16 @@ PrefabInstance:
       propertyPath: gameObjectsToDisableOnLocal.Array.data[0]
       value: 
       objectReference: {fileID: 3276170594565944034}
+    - target: {fileID: 295906122444618807, guid: 8064a92755afc5043847c258ee0183c5,
+        type: 3}
+      propertyPath: gameObjectsToDisableOnLocal.Array.data[1]
+      value: 
+      objectReference: {fileID: 1905348029421920047}
+    - target: {fileID: 295906122444618807, guid: 8064a92755afc5043847c258ee0183c5,
+        type: 3}
+      propertyPath: gameObjectsToDisableOnRemotes.Array.data[0]
+      value: 
+      objectReference: {fileID: 1905348029421920047}
     - target: {fileID: 377452581761984389, guid: 8064a92755afc5043847c258ee0183c5,
         type: 3}
       propertyPath: m_Name
