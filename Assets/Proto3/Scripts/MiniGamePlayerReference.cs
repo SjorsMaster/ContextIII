@@ -16,7 +16,8 @@ public class MiniGamePlayerReference : NetworkBehaviour
             return;
         }
 
-        player = NetworkClient.spawned[NetworkClient.localPlayer.netId].GetComponent<MiniGamePlayer>();
+        NetworkIdentity identity = NetworkClient.spawned[NetworkClient.localPlayer.netId];
+        player = identity.gameObject.GetComponent<MiniGamePlayer>();
 
         CmdAddReference(NetworkClient.localPlayer.netId);
     }
