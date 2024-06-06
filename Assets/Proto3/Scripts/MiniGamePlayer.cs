@@ -6,8 +6,6 @@ public class MiniGamePlayer : NetworkBehaviour
 {
     public static MiniGamePlayer LocalPlayer;
 
-    [SerializeField] public Transform RightHandTransform;
-
     [SerializeField] private TextMeshProUGUI playerIDText;
     [SerializeField] private TextMeshProUGUI scoreText;
 
