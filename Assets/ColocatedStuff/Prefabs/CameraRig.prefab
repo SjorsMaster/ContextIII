@@ -523,7 +523,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockId: e47682b9-c270-40b1-b16d-90b627a5ce1b
-  instanceId: 7fe55ceb-0f8c-4d60-b3ce-ee8049c00253
+  instanceId: 8b65b1ce-96e7-4437-9846-95f97d17b105
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: 
@@ -3442,16 +3442,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: VRDebugCanvas_Left
       objectReference: {fileID: 0}
-    - target: {fileID: 2869752373786454215, guid: 431883d3bcc10e04fb3886c437224f60,
+    - target: {fileID: 6753683613983780162, guid: 431883d3bcc10e04fb3886c437224f60,
         type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -0.005821228
-      objectReference: {fileID: 0}
-    - target: {fileID: 3410350523192631841, guid: 431883d3bcc10e04fb3886c437224f60,
+      propertyPath: debugMessagePrefab
+      value: 
+      objectReference: {fileID: 7803761537068108125, guid: fd92e19e3dcceeb4799f8164b2e20ef5,
         type: 3}
-      propertyPath: m_PresetInfoIsWorld
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
