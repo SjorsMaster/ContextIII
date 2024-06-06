@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3774b04bcda1f8469f6201bf70dc982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 5232578684331934193}
   detachOnStart: 1
   followXPos: 1
   followYPos: 1
@@ -1055,7 +1055,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d949518ec1a4e6e43b81d85f70211782, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 4268257167998487719}
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
 --- !u!4 &5232578684331934193 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3109504427468114663, guid: 0d5ee8585ce73484885421ead82f0b3c,
@@ -1100,7 +1102,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d949518ec1a4e6e43b81d85f70211782, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 4268257167998487719}
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
 --- !u!1 &7350028980990644743 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 412777765244836113, guid: 0d5ee8585ce73484885421ead82f0b3c,
@@ -1119,7 +1123,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d949518ec1a4e6e43b81d85f70211782, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 4268257167998487719}
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
 --- !u!114 &8013088594840042619 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 904874728415803245, guid: 0d5ee8585ce73484885421ead82f0b3c,
