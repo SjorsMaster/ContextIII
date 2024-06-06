@@ -7,9 +7,15 @@ public class MiniGamePlayerReference : NetworkBehaviour
 
     public MiniGamePlayer Player => player;
 
-    public override void OnStartLocalPlayer()
+    public override void OnStartAuthority()
     {
-        base.OnStartLocalPlayer();
+        base.OnStartAuthority();
+
+        if (isServer)
+        {
+            return;
+        }
+
         player = NetworkClient.spawned[NetworkClient.localPlayer.netId].GetComponent<MiniGamePlayer>();
 
         CmdAddReference(NetworkClient.localPlayer.netId);
