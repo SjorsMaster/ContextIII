@@ -14,9 +14,9 @@ public class WorldsAnchorManager : MonoBehaviour
     private bool isBusy;
 
     #region Event Handlers
-    private void SSA_OnDebugMessage(string obj)
+    private void SSA_OnDebugMessage(string msg)
     {
-        VRDebugPanel.Instance.SendDebugMessage(obj);
+        VRDebugPanel.Instance.SendDebugMessage(msg);
     }
     #endregion
 
@@ -125,7 +125,9 @@ public class WorldsAnchorManager : MonoBehaviour
             await Task.Yield();
         }
 
-        spatialAnchor.gameObject.transform.SetParent(World.worlds[targetWorld].transform);
+        World world = World.worlds[targetWorld];
+        spatialAnchor.gameObject.transform.SetParent(world.transform);
+        world.Add(spatialAnchor.gameObject, false);
 
         VRDebugPanel.Instance.SendDebugMessage("Anchor was successfully parented to the world!");
     }
