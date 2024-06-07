@@ -522,7 +522,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockId: e47682b9-c270-40b1-b16d-90b627a5ce1b
-  instanceId: 113cee70-55be-406f-97c7-ed7e64795225
+  instanceId: 7b1cb941-dc3b-412d-8608-ab1cc170d25c
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: 
@@ -1162,7 +1162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 906cf3fd207e5450784f73a2d4b57b4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 8225145926964315879}
   migrateUponTeleport: 0
   deformPortal: 1
   isPlayer: 1
