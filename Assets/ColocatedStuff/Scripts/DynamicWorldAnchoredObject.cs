@@ -30,6 +30,11 @@ public class DynamicWorldAnchoredObject : DynamicAnchoredObject
 
         if (string.IsNullOrEmpty(newValue) && worldsAnchorManager.ReferenceWorld.TryGetValue(newValue, out string targetWorld))
         {
+            if (targetWorld == currentWorld)
+            {
+                return;
+            }
+
             World.worlds[currentWorld].Migrate(gameObject, World.worlds[targetWorld], false);
 
             currentWorld = targetWorld;
