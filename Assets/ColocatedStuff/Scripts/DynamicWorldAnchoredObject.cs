@@ -26,29 +26,32 @@ public class DynamicWorldAnchoredObject : DynamicAnchoredObject
             throw new System.Exception("Failed to cache WorldsAnchorManager.");
         }
 
-        if (!worldsAnchorManager.ReferenceWorld.TryGetValue(oldValue, out string oldWorld))
-        {
-            throw new System.Exception("Failed to get old world.");
-        }
-
         if (!worldsAnchorManager.ReferenceWorld.TryGetValue(newValue, out string targetWorld))
         {
             throw new System.Exception("Failed to get target world.");
         }
 
-        if (targetWorld == oldWorld)
+        if (worldsAnchorManager.ReferenceWorld.TryGetValue(oldValue, out string oldWorld))
         {
-            return;
+            if (targetWorld == oldWorld)
+            {
+                return;
+            }
+
+            World.worlds[oldWorld].Migrate(gameObject, World.worlds[targetWorld], false);
+        }
+        else
+        {
+            World.worlds[targetWorld].Add(gameObject, false);
         }
 
-        World.worlds[oldWorld].Migrate(gameObject, World.worlds[targetWorld], false);
     }
     #endregion
 
     [ClientCallback]
     private void Start()
     {
-        World.worlds[portalTraveller.activeWorld].Add(gameObject);
+        World.worlds[portalTraveller.activeWorld].Add(gameObject, false);
     }
 
     [ServerCallback]
