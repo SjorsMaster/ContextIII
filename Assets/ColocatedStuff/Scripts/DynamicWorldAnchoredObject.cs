@@ -22,6 +22,7 @@ public class DynamicWorldAnchoredObject : DynamicAnchoredObject
 
     protected override void OnAnchorUUIDUpdated(string oldValue, string newValue)
     {
+        base.OnAnchorUUIDUpdated(oldValue, newValue);
         if (!Cache())
         {
             throw new System.Exception("Failed to cache WorldsAnchorManager.");
