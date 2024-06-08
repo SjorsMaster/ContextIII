@@ -148,7 +148,7 @@ public class WorldsAnchorManager : NetworkSingleton<WorldsAnchorManager>
         {
             if (Time.time - time > timeout)
             {
-                VRDebugPanel.Instance.SendDebugMessage("Anchor was unable to the world on the server in time!");
+                VRDebugPanel.Instance.SendDebugMessage("Anchor was unable to parent to the world on the server in time!");
                 Destroy(spatialAnchor.gameObject);
                 return;
             }
