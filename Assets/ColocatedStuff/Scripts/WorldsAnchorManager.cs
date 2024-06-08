@@ -2,14 +2,17 @@ using Mirror;
 using SharedSpaces;
 using SharedSpaces.Managers;
 using SharedSpaces.NetorkMessages;
+using SharedSpaces.Singletons;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
-public class WorldsAnchorManager : MonoBehaviour
+public class WorldsAnchorManager : NetworkSingleton<WorldsAnchorManager>
 {
     [SerializeField] private GameObject anchorPrefab;
+
+    public readonly SyncDictionary<string, string> ReferenceWorld = new(); // Key: anchor uuid, Value: world name.
 
     private bool isBusy;
 
@@ -18,7 +21,36 @@ public class WorldsAnchorManager : MonoBehaviour
     {
         VRDebugPanel.Instance.SendDebugMessage(msg);
     }
+
+    private void OnParentToWorld(NetworkConnectionToClient sender, MsgParentToWorld msg)
+    {
+        ServerManager manager = ServerManager.TryGetInstance();
+        if (manager == null)
+        {
+            return;
+        }
+
+        if (World.worlds.TryGetValue(msg.TargetWorld, out World world))
+        {
+            if (ReferenceWorld.TryAdd(msg.AnchorUUID, msg.TargetWorld))
+            {
+                manager.ReferenceAnchors[msg.AnchorUUID].SpatialAnchor.gameObject.transform.SetParent(world.transform);
+            }
+        }
+    }
     #endregion
+
+    public override void OnStartServer()
+    {
+        base.OnStartServer();
+        NetworkServer.RegisterHandler<MsgParentToWorld>(OnParentToWorld);
+    }
+
+    public override void OnStopServer()
+    {
+        base.OnStopServer();
+        NetworkServer.UnregisterHandler<MsgParentToWorld>();
+    }
 
     private void OnEnable()
     {
@@ -63,8 +95,7 @@ public class WorldsAnchorManager : MonoBehaviour
     private async void SSA_OnAnchorCreated(SpatialAnchor spatialAnchor, string targetWorld)
     {
         ServerManager serverManager = ServerManager.TryGetInstance();
-        WorldMsgHandler worldMsgHandler = WorldMsgHandler.TryGetInstance();
-        if (serverManager == null || worldMsgHandler == null)
+        if (serverManager == null)
         {
             VRDebugPanel.Instance.SendDebugMessage("Server manager not found!");
             return;
@@ -113,7 +144,7 @@ public class WorldsAnchorManager : MonoBehaviour
         });
 
         time = Time.time;
-        while (!worldMsgHandler.ReferenceWorld.ContainsKey(uuid))
+        while (!ReferenceWorld.ContainsKey(uuid))
         {
             if (Time.time - time > timeout)
             {
