@@ -1,7 +1,8 @@
 ﻿using Mirror;
 using PortalsVR;
 using SharedSpaces;
-using System.Collections;
+using SharedSpaces.Managers;
+using System;
 using UnityEngine;
 
 public class DynamicWorldAnchoredObject : DynamicAnchoredObject
@@ -9,17 +10,29 @@ public class DynamicWorldAnchoredObject : DynamicAnchoredObject
     [SerializeField] private SearchClosestWorldAnchor searchClosestWorldAnchor;
     [SerializeField] private PortalTraveller portalTraveller;
 
-    private string previousWorld;
+    private WorldsAnchorManager worldsAnchorManager;
+
+    private string currentWorld; // Client only.
 
     #region Event Handlers
     public void PortalTraveller_OnWorldChanged(string newWorld)
     {
-        if (!string.IsNullOrEmpty(previousWorld))
+        searchClosestWorldAnchor.ForceCheck();
+    }
+
+    protected override void OnAnchorUUIDUpdated(string oldValue, string newValue)
+    {
+        if (!Cache())
         {
-            World.worlds[previousWorld].Migrate(gameObject, World.worlds[newWorld], false);
+            throw new System.Exception("Failed to cache WorldsAnchorManager.");
         }
 
-        searchClosestWorldAnchor.ForceCheck();
+        if (string.IsNullOrEmpty(newValue) && worldsAnchorManager.ReferenceWorld.TryGetValue(newValue, out string targetWorld))
+        {
+            World.worlds[currentWorld].Migrate(gameObject, World.worlds[targetWorld], false);
+
+            currentWorld = targetWorld;
+        }
     }
     #endregion
 
@@ -27,17 +40,40 @@ public class DynamicWorldAnchoredObject : DynamicAnchoredObject
     private void Start()
     {
         World.worlds[portalTraveller.activeWorld].Add(gameObject);
+
+        currentWorld = portalTraveller.activeWorld;
     }
 
-    protected override void ClientOnEnable()
+    [ServerCallback]
+    protected override void ServerOnEnable()
     {
-        base.ClientOnEnable();
+        base.ServerOnEnable();
         portalTraveller.onWorldChanged += PortalTraveller_OnWorldChanged;
     }
 
-    protected override void ClientOnDisable()
+    [ServerCallback]
+    protected override void ServerOnDisable()
     {
-        base.ClientOnDisable();
+        base.ServerOnDisable();
         portalTraveller.onWorldChanged -= PortalTraveller_OnWorldChanged;
+    }
+
+    [ClientCallback]
+    protected override void ClientOnEnable()
+    {
+        base.ClientOnEnable();
+
+        searchClosestWorldAnchor.enabled = false;
+        portalTraveller.enabled = false;
+    }
+
+    private bool Cache()
+    {
+        if (worldsAnchorManager == null)
+        {
+            return worldsAnchorManager = WorldsAnchorManager.TryGetInstance();
+        }
+
+        return true;
     }
 }

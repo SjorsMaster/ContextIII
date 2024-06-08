@@ -8,6 +8,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 849522584210202917, guid: df7fb9b57d9958448a4cdb0b07e23e13,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1203309971898658509, guid: df7fb9b57d9958448a4cdb0b07e23e13,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -58,15 +63,85 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3060792544249083115, guid: df7fb9b57d9958448a4cdb0b07e23e13,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3192529408087382852, guid: df7fb9b57d9958448a4cdb0b07e23e13,
         type: 3}
       propertyPath: _assetId
       value: 899814849
       objectReference: {fileID: 0}
+    - target: {fileID: 3517254980758003691, guid: df7fb9b57d9958448a4cdb0b07e23e13,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3517254980758003693, guid: df7fb9b57d9958448a4cdb0b07e23e13,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3517254980758003695, guid: df7fb9b57d9958448a4cdb0b07e23e13,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3517254980758003697, guid: df7fb9b57d9958448a4cdb0b07e23e13,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3517254980758003699, guid: df7fb9b57d9958448a4cdb0b07e23e13,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3517254980758003701, guid: df7fb9b57d9958448a4cdb0b07e23e13,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3517254980758003703, guid: df7fb9b57d9958448a4cdb0b07e23e13,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3517254980758003705, guid: df7fb9b57d9958448a4cdb0b07e23e13,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3517254980758003707, guid: df7fb9b57d9958448a4cdb0b07e23e13,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3517254980758003709, guid: df7fb9b57d9958448a4cdb0b07e23e13,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3517254980758003711, guid: df7fb9b57d9958448a4cdb0b07e23e13,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4025952612890011726, guid: df7fb9b57d9958448a4cdb0b07e23e13,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6779331498696977836, guid: df7fb9b57d9958448a4cdb0b07e23e13,
         type: 3}
       propertyPath: m_Name
       value: WorldsTravelerRightHand
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779331498696977836, guid: df7fb9b57d9958448a4cdb0b07e23e13,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8236365965808279266, guid: df7fb9b57d9958448a4cdb0b07e23e13, type: 3}
@@ -86,6 +161,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 5520417561989136968}
+    - targetCorrespondingSourceObject: {fileID: 6779331498696977836, guid: df7fb9b57d9958448a4cdb0b07e23e13,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8433851737622080711}
   m_SourcePrefab: {fileID: 100100000, guid: df7fb9b57d9958448a4cdb0b07e23e13, type: 3}
 --- !u!1 &2352437725148072968 stripped
 GameObject:
@@ -151,6 +230,18 @@ MonoBehaviour:
   isPlayer: 1
   activeWorld: World 1
   eyes: []
+--- !u!114 &8433851737622080711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2352437725148072968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 877bc55cced09714da8af3414c9fc89f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3201684640041004388 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5971250315321216192, guid: df7fb9b57d9958448a4cdb0b07e23e13,

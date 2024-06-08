@@ -13,10 +13,85 @@ PrefabInstance:
       propertyPath: _assetId
       value: 3355888426
       objectReference: {fileID: 0}
+    - target: {fileID: 4751547648786508268, guid: aa2c5306d0f7f694f9378b05c3bcaa9e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957173783829964363, guid: aa2c5306d0f7f694f9378b05c3bcaa9e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957173783829964365, guid: aa2c5306d0f7f694f9378b05c3bcaa9e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957173783829964367, guid: aa2c5306d0f7f694f9378b05c3bcaa9e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957173783829964369, guid: aa2c5306d0f7f694f9378b05c3bcaa9e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957173783829964371, guid: aa2c5306d0f7f694f9378b05c3bcaa9e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957173783829964373, guid: aa2c5306d0f7f694f9378b05c3bcaa9e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957173783829964375, guid: aa2c5306d0f7f694f9378b05c3bcaa9e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957173783829964377, guid: aa2c5306d0f7f694f9378b05c3bcaa9e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957173783829964379, guid: aa2c5306d0f7f694f9378b05c3bcaa9e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957173783829964381, guid: aa2c5306d0f7f694f9378b05c3bcaa9e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957173783829964383, guid: aa2c5306d0f7f694f9378b05c3bcaa9e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6128637495931156304, guid: aa2c5306d0f7f694f9378b05c3bcaa9e,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6282162686762820146, guid: aa2c5306d0f7f694f9378b05c3bcaa9e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 7218997343692543132, guid: aa2c5306d0f7f694f9378b05c3bcaa9e,
         type: 3}
       propertyPath: m_Name
       value: WorldsTravelerLeftHand
+      objectReference: {fileID: 0}
+    - target: {fileID: 7218997343692543132, guid: aa2c5306d0f7f694f9378b05c3bcaa9e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8857268236270580864, guid: aa2c5306d0f7f694f9378b05c3bcaa9e,
         type: 3}
@@ -86,6 +161,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 6384324760732339789}
+    - targetCorrespondingSourceObject: {fileID: 7218997343692543132, guid: aa2c5306d0f7f694f9378b05c3bcaa9e,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4404443167014813344}
   m_SourcePrefab: {fileID: 100100000, guid: aa2c5306d0f7f694f9378b05c3bcaa9e, type: 3}
 --- !u!114 &3180784306872220782 stripped
 MonoBehaviour:
@@ -169,6 +248,18 @@ MonoBehaviour:
   isPlayer: 1
   activeWorld: World 1
   eyes: []
+--- !u!114 &4404443167014813344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7677096828162589411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 877bc55cced09714da8af3414c9fc89f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &8380873165527753471 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8857268236270580864, guid: aa2c5306d0f7f694f9378b05c3bcaa9e,

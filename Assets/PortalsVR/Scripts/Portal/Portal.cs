@@ -101,7 +101,7 @@ namespace PortalsVR
 
                     // Non-player objects become globally visible when inside a portal
                     //  TODO: This can cause issues if the object is travelling between portals outside of the player's world
-					if (!traveller.isPlayer)
+					if (!traveller.isPlayer && traveller.GetComponent<PortalTravelManagedByServer>() == null)
 						parentWorld.Remove(other.gameObject);
 				} 
             }
@@ -115,7 +115,7 @@ namespace PortalsVR
                 trackedTravellers.Remove(traveller);
                 traveller.InPortal = false;
 
-                if ( !traveller.isPlayer )
+                if (!traveller.isPlayer && traveller.GetComponent<PortalTravelManagedByServer>() == null)
                 {
                     //if ( parentWorld != linkedPortal.parentWorld )
 					parentWorld.Add(traveller.gameObject);
