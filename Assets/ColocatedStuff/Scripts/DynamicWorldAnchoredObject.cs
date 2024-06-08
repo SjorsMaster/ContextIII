@@ -12,8 +12,6 @@ public class DynamicWorldAnchoredObject : DynamicAnchoredObject
 
     private WorldsAnchorManager worldsAnchorManager;
 
-    private string currentWorld; // Client only.
-
     #region Event Handlers
     public void PortalTraveller_OnWorldChanged(string newWorld)
     {
@@ -28,17 +26,22 @@ public class DynamicWorldAnchoredObject : DynamicAnchoredObject
             throw new System.Exception("Failed to cache WorldsAnchorManager.");
         }
 
-        if (string.IsNullOrEmpty(newValue) && worldsAnchorManager.ReferenceWorld.TryGetValue(newValue, out string targetWorld))
+        if (!worldsAnchorManager.ReferenceWorld.TryGetValue(oldValue, out string oldWorld))
         {
-            if (targetWorld == currentWorld)
-            {
-                return;
-            }
-
-            World.worlds[currentWorld].Migrate(gameObject, World.worlds[targetWorld], false);
-
-            currentWorld = targetWorld;
+            throw new System.Exception("Failed to get old world.");
         }
+
+        if (!worldsAnchorManager.ReferenceWorld.TryGetValue(newValue, out string targetWorld))
+        {
+            throw new System.Exception("Failed to get target world.");
+        }
+
+        if (targetWorld == oldWorld)
+        {
+            return;
+        }
+
+        World.worlds[oldWorld].Migrate(gameObject, World.worlds[targetWorld], false);
     }
     #endregion
 
@@ -46,8 +49,6 @@ public class DynamicWorldAnchoredObject : DynamicAnchoredObject
     private void Start()
     {
         World.worlds[portalTraveller.activeWorld].Add(gameObject);
-
-        currentWorld = portalTraveller.activeWorld;
     }
 
     [ServerCallback]
