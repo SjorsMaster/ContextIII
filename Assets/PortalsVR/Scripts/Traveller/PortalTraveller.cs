@@ -1,11 +1,9 @@
 ﻿using UnityEngine;
-using UnityEngine.Events;
 
 namespace PortalsVR
 {
-
-	public delegate void WorldEvent(string world);
-	public class PortalTraveller : MonoBehaviour
+    public delegate void WorldEvent(string world);
+    public class PortalTraveller : MonoBehaviour
     {
         public event WorldEvent onWorldChanged;
 
@@ -24,7 +22,7 @@ namespace PortalsVR
         public Vector3 PreviousOffsetFromPortal { get; set; }
         public bool InPortal { get; set; }
         #endregion
-        
+
         //[HideInInspector]
         public string activeWorld = "World 1";
 
@@ -36,12 +34,12 @@ namespace PortalsVR
             if (target == null) target = transform;
 
             rBody = GetComponent<Rigidbody>();
-		}
+        }
 
         public void Start()
         {
             onWorldChanged?.Invoke(activeWorld);
-		}
+        }
 
         #region Methods
         public virtual void Teleport(Portal fromPortal, Portal toPortal, Vector3 pos, Quaternion m)
@@ -56,26 +54,37 @@ namespace PortalsVR
             float relativeScale = toPortal.transform.localScale.magnitude / fromPortal.transform.localScale.magnitude;
             transform.localScale *= relativeScale;
 
-			// Transform the velocities to keep the momentum correct
-			if (rBody) {
+            // Transform the velocities to keep the momentum correct
+            if (rBody)
+            {
                 rBody.velocity = toPortal.transform.TransformDirection(fromPortal.transform.InverseTransformDirection(rBody.velocity));
                 rBody.angularVelocity = toPortal.transform.TransformDirection(fromPortal.transform.InverseTransformDirection(rBody.angularVelocity));
-			}
+            }
 
-			Physics.SyncTransforms();
-            
-			activeWorld = toPortal.parentWorld.name;
-			onWorldChanged?.Invoke(activeWorld);
-			foreach ( Eye eye in eyes )
+            Physics.SyncTransforms();
+
+            activeWorld = toPortal.parentWorld.name;
+            onWorldChanged?.Invoke(activeWorld);
+            foreach (Eye eye in eyes)
             {
                 eye.activeWorld = activeWorld;
-			}
+            }
+        }
+
+        public void ForcedTeleport(string targetWorld)
+        {
+            activeWorld = targetWorld;
+            onWorldChanged?.Invoke(activeWorld);
+            foreach (Eye eye in eyes)
+            {
+                eye.activeWorld = activeWorld;
+            }
         }
         #endregion
 
         private void LateUpdate()
         {
-            if ( isPlayer )
+            if (isPlayer)
             {
                 Shader.SetGlobalVector("_CenterEyePosition", transform.position);
             }

@@ -106,6 +106,7 @@ public class WorldsAnchorManager : NetworkSingleton<WorldsAnchorManager>
 
         foreach (var id in serverManager.JoinedOculusIDs)
         {
+            VRDebugPanel.Instance.SendDebugMessage($"Adding user {id} to the anchor sharing list...");
             spaceUsers.Add(new OVRSpaceUser(id));
         }
 

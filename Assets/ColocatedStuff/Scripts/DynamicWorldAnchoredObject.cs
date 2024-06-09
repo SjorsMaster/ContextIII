@@ -1,12 +1,13 @@
 ﻿using Mirror;
 using PortalsVR;
 using SharedSpaces;
-using SharedSpaces.Managers;
 using System;
 using UnityEngine;
 
 public class DynamicWorldAnchoredObject : DynamicAnchoredObject
 {
+    public Action<string> OnWorldChanged;
+
     [SerializeField] private SearchClosestWorldAnchor searchClosestWorldAnchor;
     [SerializeField] private PortalTraveller portalTraveller;
 
@@ -45,6 +46,7 @@ public class DynamicWorldAnchoredObject : DynamicAnchoredObject
             World.worlds[targetWorld].Add(gameObject, false);
         }
 
+        OnWorldChanged?.Invoke(targetWorld);
     }
     #endregion
 
