@@ -10,9 +10,12 @@ using UnityEngine;
 
 public class WorldsAnchorManager : NetworkSingleton<WorldsAnchorManager>
 {
+    [SerializeField] private Transform global;
     [SerializeField] private GameObject anchorPrefab;
 
     public readonly SyncDictionary<string, string> ReferenceWorld = new(); // Key: anchor uuid, Value: world name.
+
+    public bool IsBusy => isBusy;
 
     private bool isBusy;
 
@@ -35,6 +38,13 @@ public class WorldsAnchorManager : NetworkSingleton<WorldsAnchorManager>
             if (ReferenceWorld.TryAdd(msg.AnchorUUID, msg.TargetWorld))
             {
                 manager.ReferenceAnchors[msg.AnchorUUID].SpatialAnchor.gameObject.transform.SetParent(world.transform);
+            }
+        }
+        else if (msg.TargetWorld == "Global")
+        {
+            if (ReferenceWorld.TryAdd(msg.AnchorUUID, msg.TargetWorld))
+            {
+                manager.ReferenceAnchors[msg.AnchorUUID].SpatialAnchor.gameObject.transform.SetParent(global);
             }
         }
     }
@@ -64,7 +74,7 @@ public class WorldsAnchorManager : NetworkSingleton<WorldsAnchorManager>
 
     public async void PlaceAnchorInWorld(string worldName)
     {
-        if (!World.worlds.ContainsKey(worldName))
+        if (!World.worlds.ContainsKey(worldName) && worldName != "Global")
         {
             throw new Exception("World not found!");
         }
@@ -155,6 +165,13 @@ public class WorldsAnchorManager : NetworkSingleton<WorldsAnchorManager>
             }
 
             await Task.Yield();
+        }
+
+        if (targetWorld == "Global")
+        {
+            spatialAnchor.gameObject.transform.SetParent(global);
+            VRDebugPanel.Instance.SendDebugMessage("Anchor was successfully parented to Global!");
+            return;
         }
 
         World world = World.worlds[targetWorld];

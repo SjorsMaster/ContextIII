@@ -1,7 +1,7 @@
 ﻿using Mirror;
 using PortalsVR;
 using SharedSpaces;
-using System;
+using SharedSpaces.Managers;
 using UnityEngine;
 
 public class DynamicWorldAnchoredObject : DynamicAnchoredObject
@@ -38,6 +38,11 @@ public class DynamicWorldAnchoredObject : DynamicAnchoredObject
             throw new System.Exception("Failed to get target world.");
         }
 
+        if (targetWorld == "Global")
+        {
+            return;
+        }
+
         if (worldsAnchorManager.ReferenceWorld.TryGetValue(oldValue, out string oldWorld))
         {
             if (targetWorld == oldWorld)
@@ -62,21 +67,31 @@ public class DynamicWorldAnchoredObject : DynamicAnchoredObject
             return;
         }
 
-        World.worlds[portalTraveller.activeWorld].Add(gameObject, false);
+        if (portalTraveller != null)
+        {
+            World.worlds[portalTraveller.activeWorld].Add(gameObject, false);
+        }
     }
 
     [ServerCallback]
     protected override void ServerOnEnable()
     {
         base.ServerOnEnable();
-        portalTraveller.onWorldChanged += PortalTraveller_OnWorldChanged;
+        if (portalTraveller != null)
+        {
+            portalTraveller.onWorldChanged += PortalTraveller_OnWorldChanged;
+        }
     }
 
     [ServerCallback]
     protected override void ServerOnDisable()
     {
         base.ServerOnDisable();
-        portalTraveller.onWorldChanged -= PortalTraveller_OnWorldChanged;
+
+        if (portalTraveller != null)
+        {
+            portalTraveller.onWorldChanged -= PortalTraveller_OnWorldChanged;
+        }
     }
 
     [ClientCallback]
@@ -85,7 +100,11 @@ public class DynamicWorldAnchoredObject : DynamicAnchoredObject
         base.ClientOnEnable();
 
         searchClosestWorldAnchor.enabled = false;
-        portalTraveller.enabled = false;
+
+        if (portalTraveller != null)
+        {
+            portalTraveller.enabled = false;
+        }
     }
 
     private bool Cache()

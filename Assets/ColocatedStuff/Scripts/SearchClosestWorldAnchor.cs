@@ -33,7 +33,14 @@ public class SearchClosestWorldAnchor : SearchClosestAnchor
                 continue;
             }
 
-            if (worldName != portalTraveller.activeWorld)
+            if (portalTraveller == null)
+            {
+                if (worldName != "Global")
+                {
+                    continue;
+                }
+            }
+            else if (worldName != portalTraveller.activeWorld)
             {
                 continue;
             }

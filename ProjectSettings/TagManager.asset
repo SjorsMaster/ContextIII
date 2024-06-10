@@ -9,6 +9,7 @@ TagManager:
   - GoalB
   - Handle
   - Hand
+  - Puck
   layers:
   - Default
   - TransparentFX
@@ -29,7 +30,7 @@ TagManager:
   - GameElement
   - PathRaycast
   - PlayerDot
-  - 
+  - DontTouchPuck
   - 
   - 
   - 

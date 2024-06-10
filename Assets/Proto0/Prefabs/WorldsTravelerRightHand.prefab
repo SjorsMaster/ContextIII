@@ -143,6 +143,16 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 7677627623939523407, guid: df7fb9b57d9958448a4cdb0b07e23e13,
+        type: 3}
+      propertyPath: behavioursToDisableOnServer.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7677627623939523407, guid: df7fb9b57d9958448a4cdb0b07e23e13,
+        type: 3}
+      propertyPath: behavioursToDisableOnRemotes.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8236365965808279266, guid: df7fb9b57d9958448a4cdb0b07e23e13, type: 3}
     - {fileID: 323232210606294628, guid: df7fb9b57d9958448a4cdb0b07e23e13, type: 3}
@@ -165,6 +175,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 8433851737622080711}
+    - targetCorrespondingSourceObject: {fileID: 6779331498696977836, guid: df7fb9b57d9958448a4cdb0b07e23e13,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1525138133955440408}
   m_SourcePrefab: {fileID: 100100000, guid: df7fb9b57d9958448a4cdb0b07e23e13, type: 3}
 --- !u!1 &2352437725148072968 stripped
 GameObject:
@@ -210,6 +224,7 @@ MonoBehaviour:
   objectID: 
   networkTransformBase: {fileID: 3201684640041004388}
   searchClosestAnchor: {fileID: 6601426519018611476}
+  doMigration: 1
   searchClosestWorldAnchor: {fileID: 6601426519018611476}
   portalTraveller: {fileID: 5520417561989136968}
 --- !u!114 &5520417561989136968
@@ -242,6 +257,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 877bc55cced09714da8af3414c9fc89f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1525138133955440408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2352437725148072968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bd4e7175875dec4ab8bd518e3efc419, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerComponentType: 2
 --- !u!114 &3201684640041004388 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5971250315321216192, guid: df7fb9b57d9958448a4cdb0b07e23e13,

@@ -161,6 +161,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2501142965427593213}
+    - targetCorrespondingSourceObject: {fileID: 8286713046420401571, guid: 2f36e409d128c15489f4564dbb0eaa06,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3672398549212533448}
   m_SourcePrefab: {fileID: 100100000, guid: 2f36e409d128c15489f4564dbb0eaa06, type: 3}
 --- !u!1 &5260000791918381497 stripped
 GameObject:
@@ -256,6 +260,19 @@ MonoBehaviour:
   syncInterval: 0
   networkedPortalTraveller: {fileID: 1648961885021378337}
   dynamicWorldAnchoredObject: {fileID: 864058548109045989}
+--- !u!114 &3672398549212533448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5260000791918381497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bd4e7175875dec4ab8bd518e3efc419, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerComponentType: 0
 --- !u!4 &6920806674836823638 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6626116969431513676, guid: 2f36e409d128c15489f4564dbb0eaa06,

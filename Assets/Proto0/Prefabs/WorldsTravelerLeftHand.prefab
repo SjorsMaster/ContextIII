@@ -18,6 +18,16 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 5193536713299315390, guid: aa2c5306d0f7f694f9378b05c3bcaa9e,
+        type: 3}
+      propertyPath: behavioursToDisableOnServer.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5193536713299315390, guid: aa2c5306d0f7f694f9378b05c3bcaa9e,
+        type: 3}
+      propertyPath: behavioursToDisableOnRemotes.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5957173783829964363, guid: aa2c5306d0f7f694f9378b05c3bcaa9e,
         type: 3}
       propertyPath: m_Layer
@@ -165,6 +175,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 4404443167014813344}
+    - targetCorrespondingSourceObject: {fileID: 7218997343692543132, guid: aa2c5306d0f7f694f9378b05c3bcaa9e,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2778131173565373991}
   m_SourcePrefab: {fileID: 100100000, guid: aa2c5306d0f7f694f9378b05c3bcaa9e, type: 3}
 --- !u!114 &3180784306872220782 stripped
 MonoBehaviour:
@@ -228,6 +242,7 @@ MonoBehaviour:
   objectID: 
   networkTransformBase: {fileID: 3180784306872220782}
   searchClosestAnchor: {fileID: 5408783884323986792}
+  doMigration: 1
   searchClosestWorldAnchor: {fileID: 5408783884323986792}
   portalTraveller: {fileID: 6384324760732339789}
 --- !u!114 &6384324760732339789
@@ -260,6 +275,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 877bc55cced09714da8af3414c9fc89f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2778131173565373991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7677096828162589411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bd4e7175875dec4ab8bd518e3efc419, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerComponentType: 1
 --- !u!4 &8380873165527753471 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8857268236270580864, guid: aa2c5306d0f7f694f9378b05c3bcaa9e,
