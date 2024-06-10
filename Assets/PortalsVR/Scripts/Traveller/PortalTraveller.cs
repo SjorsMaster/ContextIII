@@ -55,7 +55,7 @@ namespace PortalsVR
             transform.localScale *= relativeScale;
 
             // Transform the velocities to keep the momentum correct
-            if (rBody)
+            if (rBody && !rBody.isKinematic)
             {
                 rBody.velocity = toPortal.transform.TransformDirection(fromPortal.transform.InverseTransformDirection(rBody.velocity));
                 rBody.angularVelocity = toPortal.transform.TransformDirection(fromPortal.transform.InverseTransformDirection(rBody.angularVelocity));

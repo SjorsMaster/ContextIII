@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class DynamicWorldAnchoredObject : DynamicAnchoredObject
 {
-    public Action<string> OnWorldChanged;
+    [SerializeField] private bool doMigration = true;
 
     [SerializeField] private SearchClosestWorldAnchor searchClosestWorldAnchor;
     [SerializeField] private PortalTraveller portalTraveller;
@@ -22,6 +22,12 @@ public class DynamicWorldAnchoredObject : DynamicAnchoredObject
     protected override void OnAnchorUUIDUpdated(string oldValue, string newValue)
     {
         base.OnAnchorUUIDUpdated(oldValue, newValue);
+
+        if (!doMigration)
+        {
+            return;
+        }
+
         if (!Cache())
         {
             throw new System.Exception("Failed to cache WorldsAnchorManager.");
@@ -45,14 +51,17 @@ public class DynamicWorldAnchoredObject : DynamicAnchoredObject
         {
             World.worlds[targetWorld].Add(gameObject, false);
         }
-
-        OnWorldChanged?.Invoke(targetWorld);
     }
     #endregion
 
     [ClientCallback]
     private void Start()
     {
+        if (!doMigration)
+        {
+            return;
+        }
+
         World.worlds[portalTraveller.activeWorld].Add(gameObject, false);
     }
 
