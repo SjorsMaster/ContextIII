@@ -116,4 +116,41 @@ public class DynamicWorldAnchoredObject : DynamicAnchoredObject
 
         return true;
     }
+
+    public void CorrectToWorld()
+    {
+        if (!doMigration)
+        {
+            return;
+        }
+
+        if (!Cache())
+        {
+            throw new System.Exception("Failed to cache WorldsAnchorManager.");
+        }
+
+        if (!worldsAnchorManager.ReferenceWorld.TryGetValue(AnchorUUID, out string targetWorld))
+        {
+            throw new System.Exception("Failed to get target world.");
+        }
+
+        if (targetWorld == "Global")
+        {
+            return;
+        }
+
+        if (worldsAnchorManager.ReferenceWorld.TryGetValue(AnchorUUID, out string oldWorld))
+        {
+            if (targetWorld == oldWorld)
+            {
+                return;
+            }
+
+            World.worlds[oldWorld].Migrate(gameObject, World.worlds[targetWorld], false);
+        }
+        else
+        {
+            World.worlds[targetWorld].Add(gameObject, false);
+        }
+    }
 }

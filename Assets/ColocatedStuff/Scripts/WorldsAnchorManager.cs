@@ -201,6 +201,11 @@ public class WorldsAnchorManager : NetworkSingleton<WorldsAnchorManager>
                 VRDebugPanel.Instance.SendDebugMessage("Anchor was successfully parented to the world!");
             }
         }
+
+        foreach (var obj in FindObjectsOfType<DynamicWorldAnchoredObject>())
+        {
+            obj.CorrectToWorld();
+        }
     }
 }
 
