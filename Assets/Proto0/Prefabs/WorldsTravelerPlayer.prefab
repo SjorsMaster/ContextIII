@@ -118,8 +118,13 @@ PrefabInstance:
     - target: {fileID: 8225806642465027601, guid: 2f36e409d128c15489f4564dbb0eaa06,
         type: 3}
       propertyPath: behavioursToDisableOnRemotes.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8225806642465027601, guid: 2f36e409d128c15489f4564dbb0eaa06,
+        type: 3}
+      propertyPath: behavioursToDisableOnRemotes.Array.data[0]
+      value: 
+      objectReference: {fileID: 3564595304620757659}
     - target: {fileID: 8275894092589432256, guid: 2f36e409d128c15489f4564dbb0eaa06,
         type: 3}
       propertyPath: m_Layer
@@ -176,6 +181,18 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 3672398549212533448}
   m_SourcePrefab: {fileID: 100100000, guid: 2f36e409d128c15489f4564dbb0eaa06, type: 3}
+--- !u!114 &3564595304620757659 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 759115804994713217, guid: 2f36e409d128c15489f4564dbb0eaa06,
+    type: 3}
+  m_PrefabInstance: {fileID: 4323199758323295258}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5260000791918381497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7917b9a7f8ec6f499ad9a76b61b8c23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5260000791918381497 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8286713046420401571, guid: 2f36e409d128c15489f4564dbb0eaa06,

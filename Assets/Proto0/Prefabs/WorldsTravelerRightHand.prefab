@@ -151,8 +151,14 @@ PrefabInstance:
     - target: {fileID: 7677627623939523407, guid: df7fb9b57d9958448a4cdb0b07e23e13,
         type: 3}
       propertyPath: behavioursToDisableOnRemotes.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7677627623939523407, guid: df7fb9b57d9958448a4cdb0b07e23e13,
+        type: 3}
+      propertyPath: behavioursToDisableOnRemotes.Array.data[0]
+      value: 
+      objectReference: {fileID: 3564595304620757659, guid: 6d72a7faa921db74e92c2b5a3d90b7c2,
+        type: 3}
     m_RemovedComponents:
     - {fileID: 8236365965808279266, guid: df7fb9b57d9958448a4cdb0b07e23e13, type: 3}
     - {fileID: 323232210606294628, guid: df7fb9b57d9958448a4cdb0b07e23e13, type: 3}

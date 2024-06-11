@@ -274,6 +274,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 295906122444618807, guid: 8064a92755afc5043847c258ee0183c5,
         type: 3}
+      propertyPath: behavioursToDisableOnRemotes.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 295906122444618807, guid: 8064a92755afc5043847c258ee0183c5,
+        type: 3}
       propertyPath: gameObjectsToDisableOnRemotes.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -287,6 +292,22 @@ PrefabInstance:
       propertyPath: gameObjectsToDisableOnLocal.Array.data[1]
       value: 
       objectReference: {fileID: 1905348029421920047}
+    - target: {fileID: 295906122444618807, guid: 8064a92755afc5043847c258ee0183c5,
+        type: 3}
+      propertyPath: behavioursToDisableOnRemotes.Array.data[1]
+      value: 
+      objectReference: {fileID: 759115804994713217, guid: 8f5cc37353bc1e74aa7c1a82af658916,
+        type: 3}
+    - target: {fileID: 295906122444618807, guid: 8064a92755afc5043847c258ee0183c5,
+        type: 3}
+      propertyPath: behavioursToDisableOnRemotes.Array.data[2]
+      value: 
+      objectReference: {fileID: 759115804994713217}
+    - target: {fileID: 295906122444618807, guid: 8064a92755afc5043847c258ee0183c5,
+        type: 3}
+      propertyPath: behavioursToDisableOnRemotes.Array.data[3]
+      value: 
+      objectReference: {fileID: 759115804994713217}
     - target: {fileID: 295906122444618807, guid: 8064a92755afc5043847c258ee0183c5,
         type: 3}
       propertyPath: gameObjectsToDisableOnRemotes.Array.data[0]
@@ -423,6 +444,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7069c98071ef02040b601d8de5c5a45a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &759115804994713217 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8985878962661604519, guid: 8064a92755afc5043847c258ee0183c5,
+    type: 3}
+  m_PrefabInstance: {fileID: 8519872078185335334}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7917b9a7f8ec6f499ad9a76b61b8c23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3276170594565944034 stripped

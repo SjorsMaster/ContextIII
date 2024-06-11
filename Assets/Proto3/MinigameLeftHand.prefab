@@ -116,7 +116,7 @@ PrefabInstance:
     - target: {fileID: 4373288590785630858, guid: 236df684c33a70e43a7274c2cfaad1a4,
         type: 3}
       propertyPath: behavioursToDisableOnRemotes.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4373288590785630858, guid: 236df684c33a70e43a7274c2cfaad1a4,
         type: 3}
@@ -215,6 +215,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
+  player: {fileID: 0}
 --- !u!1 &8644907632592101258 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3842361837881340376, guid: 236df684c33a70e43a7274c2cfaad1a4,

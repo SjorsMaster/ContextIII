@@ -33,6 +33,11 @@ PrefabInstance:
       propertyPath: gameObjectsToDisableOnLocal.Array.data[0]
       value: 
       objectReference: {fileID: 928235567108180888}
+    - target: {fileID: 2630399596443782437, guid: 70c5c4bc04e67b247aa016217a960c91,
+        type: 3}
+      propertyPath: behavioursToDisableOnRemotes.Array.data[0]
+      value: 
+      objectReference: {fileID: 6284890952639649206}
     - target: {fileID: 4341493058620493960, guid: 70c5c4bc04e67b247aa016217a960c91,
         type: 3}
       propertyPath: Visuals
@@ -151,6 +156,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7069c98071ef02040b601d8de5c5a45a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6284890952639649206 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2453268934667745290, guid: 70c5c4bc04e67b247aa016217a960c91,
+    type: 3}
+  m_PrefabInstance: {fileID: 8445278567976676796}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7290142328880336506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7917b9a7f8ec6f499ad9a76b61b8c23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7290142328880336506 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1159784441766978502, guid: 70c5c4bc04e67b247aa016217a960c91,
@@ -172,6 +189,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
+  player: {fileID: 0}
 --- !u!114 &7629356432989204246 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2077077916173304490, guid: 70c5c4bc04e67b247aa016217a960c91,
