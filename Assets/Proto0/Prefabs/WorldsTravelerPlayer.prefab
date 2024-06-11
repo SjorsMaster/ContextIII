@@ -30,11 +30,6 @@ PrefabInstance:
       propertyPath: m_CollisionDetection
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3276170594565944034, guid: 2f36e409d128c15489f4564dbb0eaa06,
-        type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 3909460937602537797, guid: 2f36e409d128c15489f4564dbb0eaa06,
         type: 3}
       propertyPath: m_Layer
@@ -44,11 +39,6 @@ PrefabInstance:
         type: 3}
       propertyPath: _assetId
       value: 781890063
-      objectReference: {fileID: 0}
-    - target: {fileID: 6228112635760847090, guid: 2f36e409d128c15489f4564dbb0eaa06,
-        type: 3}
-      propertyPath: m_Layer
-      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6626116969431513676, guid: 2f36e409d128c15489f4564dbb0eaa06,
         type: 3}
@@ -100,16 +90,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7207319026551331836, guid: 2f36e409d128c15489f4564dbb0eaa06,
-        type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7207319026551331836, guid: 2f36e409d128c15489f4564dbb0eaa06,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8225806642465027601, guid: 2f36e409d128c15489f4564dbb0eaa06,
         type: 3}
       propertyPath: behavioursToDisableOnServer.Array.size
@@ -125,16 +105,6 @@ PrefabInstance:
       propertyPath: behavioursToDisableOnRemotes.Array.data[0]
       value: 
       objectReference: {fileID: 3564595304620757659}
-    - target: {fileID: 8275894092589432256, guid: 2f36e409d128c15489f4564dbb0eaa06,
-        type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 8275894092589432256, guid: 2f36e409d128c15489f4564dbb0eaa06,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8286713046420401571, guid: 2f36e409d128c15489f4564dbb0eaa06,
         type: 3}
       propertyPath: m_Name
@@ -235,6 +205,7 @@ MonoBehaviour:
   visuals: {fileID: 7895272181717765352}
   anchoredSaveDataType: 2
   objectID: 
+  debugMe: 0
   networkTransformBase: {fileID: 8199118524238465969}
   searchClosestAnchor: {fileID: 1846523887855812951}
   doMigration: 0
