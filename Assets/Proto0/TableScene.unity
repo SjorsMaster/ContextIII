@@ -3941,12 +3941,12 @@ MonoBehaviour:
   visuals: {fileID: 1781025475}
   anchoredSaveDataType: 2
   objectID: 
+  debugMe: 0
   networkTransformBase: {fileID: 1190857208}
   searchClosestAnchor: {fileID: 1190857200}
   doMigration: 1
   searchClosestWorldAnchor: {fileID: 1190857200}
   portalTraveller: {fileID: 713530801}
-  debugMe: 0
 --- !u!114 &1190857200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4384,6 +4384,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_CullingMask.m_Bits
       value: 902327
+      objectReference: {fileID: 0}
+    - target: {fileID: 6369819150122877788, guid: 0134e8d74f9a45b46b77f642582fb292,
+        type: 3}
+      propertyPath: debugMe
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6369819150122877788, guid: 0134e8d74f9a45b46b77f642582fb292,
         type: 3}

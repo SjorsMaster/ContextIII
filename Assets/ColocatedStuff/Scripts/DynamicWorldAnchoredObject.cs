@@ -14,8 +14,6 @@ public class DynamicWorldAnchoredObject : DynamicAnchoredObject
 
     private WorldsAnchorManager worldsAnchorManager;
 
-    [SerializeField] private bool debugMe = false;
-
     #region Event Handlers
     public void PortalTraveller_OnWorldChanged(string newWorld)
     {
@@ -31,8 +29,10 @@ public class DynamicWorldAnchoredObject : DynamicAnchoredObject
     #endregion
 
     [ClientCallback]
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
+
         if (!doMigration)
         {
             return;
@@ -129,7 +129,7 @@ public class DynamicWorldAnchoredObject : DynamicAnchoredObject
             return;
         }
 
-        if (worldsAnchorManager.ReferenceWorld.TryGetValue(oldAnchorUUID, out string oldWorld))
+        if (!string.IsNullOrEmpty(oldAnchorUUID) && worldsAnchorManager.ReferenceWorld.TryGetValue(oldAnchorUUID, out string oldWorld))
         {
             if (targetWorld == oldWorld)
             {
