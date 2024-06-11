@@ -105,6 +105,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 7207319026551331836, guid: 2f36e409d128c15489f4564dbb0eaa06,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8225806642465027601, guid: 2f36e409d128c15489f4564dbb0eaa06,
         type: 3}
       propertyPath: behavioursToDisableOnServer.Array.size
@@ -119,6 +124,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8275894092589432256, guid: 2f36e409d128c15489f4564dbb0eaa06,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8286713046420401571, guid: 2f36e409d128c15489f4564dbb0eaa06,
         type: 3}

@@ -183,18 +183,22 @@ public class WorldsAnchorManager : NetworkSingleton<WorldsAnchorManager>
 
     public void ReparentAnchors()
     {
-        foreach (string uuid in ReferenceWorld.Keys)
+        VRDebugPanel.Instance.SendDebugMessage("Reparenting anchors...");
+        foreach (var pair in ReferenceWorld)
         {
-            if (ReferenceWorld.TryGetValue(uuid, out string worldName))
+            string worldName = pair.Value;
+            string uuid = pair.Key;
+
+            if (worldName == "Global")
             {
-                if (worldName == "Global")
-                {
-                    ServerManager.TryGetInstance().ReferenceAnchors[uuid].SpatialAnchor.gameObject.transform.SetParent(global);
-                }
-                else if (World.worlds.TryGetValue(worldName, out World world))
-                {
-                    ServerManager.TryGetInstance().ReferenceAnchors[uuid].SpatialAnchor.gameObject.transform.SetParent(world.transform);
-                }
+                SSA.Anchors[Guid.Parse(uuid)].gameObject.transform.SetParent(global);
+                VRDebugPanel.Instance.SendDebugMessage("Anchor was successfully parented to Global!");
+            }
+            else if (World.worlds.TryGetValue(worldName, out World world))
+            {
+                SSA.Anchors[Guid.Parse(uuid)].gameObject.transform.SetParent(world.transform);
+                world.Add(SSA.Anchors[Guid.Parse(uuid)].gameObject, false);
+                VRDebugPanel.Instance.SendDebugMessage("Anchor was successfully parented to the world!");
             }
         }
     }
