@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Airhockey : NetworkBehaviour
 {
-    [SerializeField] private Transform puck;
+    [SerializeField] private Transform puckTransform;
     [SerializeField] private Rigidbody puckRigidbody;
 
     [SerializeField] private Transform puckSpawn;
@@ -48,7 +48,7 @@ public class Airhockey : NetworkBehaviour
         rightGoal.OnGoal -= RightGoal_OnGoal;
     }
 
-    [Server]
+    [ServerCallback]
     public void BtnReset()
     {
         leftScore = 0;
@@ -63,7 +63,7 @@ public class Airhockey : NetworkBehaviour
         rightScoreText.text = rightScore.ToString();
 
         puckRigidbody.velocity = Vector3.zero;
-        puck.position = puckSpawn.position;
+        puckTransform.SetPositionAndRotation(puckSpawn.position, Quaternion.identity);
 
         RpcUpdateScore(leftScore, rightScore);
     }

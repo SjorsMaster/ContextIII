@@ -7502,6 +7502,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 186688745}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &188345611 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3751092479640469163, guid: 4421f71830bfdd042af30a2d0bf44cbd,
+    type: 3}
+  m_PrefabInstance: {fileID: 827204059}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &190210321
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18031,6 +18037,7 @@ MonoBehaviour:
   - {fileID: 2742740878546194021}
   - {fileID: 301766994}
   - {fileID: 207660519}
+  - {fileID: 188345611}
 --- !u!4 &432226582
 Transform:
   m_ObjectHideFlags: 0
@@ -64451,6 +64458,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CurvedCanvas Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8952858969582244686, guid: 258d40faa5b546f44ba4236361c0f33f,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8952858969582244686, guid: 258d40faa5b546f44ba4236361c0f33f,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8952858969582244686, guid: 258d40faa5b546f44ba4236361c0f33f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8952858969582244686, guid: 258d40faa5b546f44ba4236361c0f33f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

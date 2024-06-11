@@ -180,6 +180,24 @@ public class WorldsAnchorManager : NetworkSingleton<WorldsAnchorManager>
 
         VRDebugPanel.Instance.SendDebugMessage("Anchor was successfully parented to the world!");
     }
+
+    public void ReparentAnchors()
+    {
+        foreach (string uuid in ReferenceWorld.Keys)
+        {
+            if (ReferenceWorld.TryGetValue(uuid, out string worldName))
+            {
+                if (worldName == "Global")
+                {
+                    ServerManager.TryGetInstance().ReferenceAnchors[uuid].SpatialAnchor.gameObject.transform.SetParent(global);
+                }
+                else if (World.worlds.TryGetValue(worldName, out World world))
+                {
+                    ServerManager.TryGetInstance().ReferenceAnchors[uuid].SpatialAnchor.gameObject.transform.SetParent(world.transform);
+                }
+            }
+        }
+    }
 }
 
 public struct MsgParentToWorld : NetworkMessage
