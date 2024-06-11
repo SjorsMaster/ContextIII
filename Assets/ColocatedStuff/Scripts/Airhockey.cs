@@ -34,14 +34,12 @@ public class Airhockey : NetworkBehaviour
     }
     #endregion
 
-    [Server]
     private void OnEnable()
     {
         leftGoal.OnGoal += LeftGoal_OnGoal;
         rightGoal.OnGoal += RightGoal_OnGoal;
     }
 
-    [Server]
     private void OnDisable()
     {
         leftGoal.OnGoal -= LeftGoal_OnGoal;

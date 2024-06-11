@@ -721,7 +721,7 @@ MonoBehaviour:
   setParentOnAnchorSwitch: 1
   resetParentTransform: 0
   objectToParent: {fileID: 7794039351168418859}
-  Visuals: {fileID: 697717067106557229}
+  visuals: {fileID: 697717067106557229}
   anchoredSaveDataType: 1
   objectID: 
   networkTransformBase: {fileID: 2257697025745945254}

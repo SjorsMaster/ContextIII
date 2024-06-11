@@ -2,6 +2,7 @@
 using PortalsVR;
 using SharedSpaces;
 using SharedSpaces.Managers;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class DynamicWorldAnchoredObject : DynamicAnchoredObject
@@ -13,6 +14,8 @@ public class DynamicWorldAnchoredObject : DynamicAnchoredObject
 
     private WorldsAnchorManager worldsAnchorManager;
 
+    [SerializeField] private bool debugMe = false;
+
     #region Event Handlers
     public void PortalTraveller_OnWorldChanged(string newWorld)
     {
@@ -23,39 +26,7 @@ public class DynamicWorldAnchoredObject : DynamicAnchoredObject
     {
         base.OnAnchorUUIDUpdated(oldValue, newValue);
 
-        if (!doMigration)
-        {
-            return;
-        }
-
-        if (!Cache())
-        {
-            throw new System.Exception("Failed to cache WorldsAnchorManager.");
-        }
-
-        if (!worldsAnchorManager.ReferenceWorld.TryGetValue(newValue, out string targetWorld))
-        {
-            throw new System.Exception("Failed to get target world.");
-        }
-
-        if (targetWorld == "Global")
-        {
-            return;
-        }
-
-        if (worldsAnchorManager.ReferenceWorld.TryGetValue(oldValue, out string oldWorld))
-        {
-            if (targetWorld == oldWorld)
-            {
-                return;
-            }
-
-            World.worlds[oldWorld].Migrate(gameObject, World.worlds[targetWorld], false);
-        }
-        else
-        {
-            World.worlds[targetWorld].Add(gameObject, false);
-        }
+        UpdateWorldWhenNotBusy(oldValue, newValue);
     }
     #endregion
 
@@ -71,6 +42,12 @@ public class DynamicWorldAnchoredObject : DynamicAnchoredObject
         {
             World.worlds[portalTraveller.activeWorld].Add(gameObject, false);
         }
+
+        if (!debugMe) return;
+        InputManager.LPrimaryPress += () =>
+        {
+            VRDebugPanel.Instance.SendDebugMessage($"Visuals are active: {Visuals.activeSelf}");
+        };
     }
 
     [ServerCallback]
@@ -107,24 +84,37 @@ public class DynamicWorldAnchoredObject : DynamicAnchoredObject
         }
     }
 
-    private bool Cache()
+    private async Task<bool> Cache()
     {
-        if (worldsAnchorManager == null)
+        float time = Time.time;
+        float timeout = 10f;
+        while (worldsAnchorManager == null)
         {
-            return worldsAnchorManager = WorldsAnchorManager.TryGetInstance();
+            worldsAnchorManager = WorldsAnchorManager.TryGetInstance();
+
+            if (Time.time > time + timeout)
+            {
+                return false;
+            }
+
+            await Task.Yield();
         }
 
         return true;
     }
 
-    public void CorrectToWorld()
+    private string oldAnchorUUID;
+
+    public async void CorrectToWorld()
     {
         if (!doMigration)
         {
             return;
         }
 
-        if (!Cache())
+        bool result = await Cache();
+
+        if (!result)
         {
             throw new System.Exception("Failed to cache WorldsAnchorManager.");
         }
@@ -139,7 +129,53 @@ public class DynamicWorldAnchoredObject : DynamicAnchoredObject
             return;
         }
 
-        if (worldsAnchorManager.ReferenceWorld.TryGetValue(AnchorUUID, out string oldWorld))
+        if (worldsAnchorManager.ReferenceWorld.TryGetValue(oldAnchorUUID, out string oldWorld))
+        {
+            if (targetWorld == oldWorld)
+            {
+                return;
+            }
+
+            World.worlds[oldWorld].Migrate(gameObject, World.worlds[targetWorld], false);
+        }
+        else
+        {
+            World.worlds[targetWorld].Add(gameObject, false);
+        }
+
+        oldAnchorUUID = AnchorUUID;
+    }
+
+    private async void UpdateWorldWhenNotBusy(string oldValue, string newValue)
+    {
+        if (!doMigration)
+        {
+            return;
+        }
+
+        bool result = await Cache();
+
+        if (!result)
+        {
+            throw new System.Exception("Failed to cache WorldsAnchorManager.");
+        }
+
+        while (worldsAnchorManager.IsBusy)
+        {
+            await Task.Yield();
+        }
+
+        if (!worldsAnchorManager.ReferenceWorld.TryGetValue(newValue, out string targetWorld))
+        {
+            throw new System.Exception("Failed to get target world.");
+        }
+
+        if (targetWorld == "Global")
+        {
+            return;
+        }
+
+        if (worldsAnchorManager.ReferenceWorld.TryGetValue(oldValue, out string oldWorld))
         {
             if (targetWorld == oldWorld)
             {

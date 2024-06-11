@@ -339,9 +339,9 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   setParentOnAnchorSwitch: 0
-  resetLocalPositionAndRotationOnAnchorSwitch: 0
+  resetParentTransform: 0
   objectToParent: {fileID: 0}
-  Visuals: {fileID: 746234098152454359}
+  visuals: {fileID: 746234098152454359}
   anchoredSaveDataType: 2
   objectID: 
   networkTransformBase: {fileID: 842231150052200056}
@@ -366,7 +366,7 @@ MonoBehaviour:
   hitMask:
     serializedVersion: 2
     m_Bits: 131072
-  rb: {fileID: 3207577928387374881}
+  SpawnTransform: {fileID: 0}
 --- !u!54 &3207577928387374881
 Rigidbody:
   m_ObjectHideFlags: 0

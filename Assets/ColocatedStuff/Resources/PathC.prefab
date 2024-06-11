@@ -139,7 +139,7 @@ MonoBehaviour:
   setParentOnAnchorSwitch: 1
   resetParentTransform: 0
   objectToParent: {fileID: 7290867142930589837}
-  Visuals: {fileID: 2420596830498454156}
+  visuals: {fileID: 2420596830498454156}
   anchoredSaveDataType: 2
   objectID: 
   networkTransformBase: {fileID: 698186502024483031}
@@ -159,13 +159,12 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  BehavioursToDisableOnLocal:
-  - {fileID: 4790152483008222954}
-  - {fileID: 3316354466036555773}
-  - {fileID: 2484315748429373320}
-  BehavioursToDisableOnRemotes: []
+  behavioursToDisableOnLocal: []
   gameObjectsToDisableOnLocal: []
+  behavioursToDisableOnRemotes: []
   gameObjectsToDisableOnRemotes: []
+  behavioursToDisableOnServer: []
+  gameObjectsToDisableOnServer: []
 --- !u!1 &2420596830498454156
 GameObject:
   m_ObjectHideFlags: 0

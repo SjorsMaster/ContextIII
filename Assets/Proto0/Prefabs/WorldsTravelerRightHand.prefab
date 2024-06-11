@@ -151,7 +151,7 @@ PrefabInstance:
     - target: {fileID: 7677627623939523407, guid: df7fb9b57d9958448a4cdb0b07e23e13,
         type: 3}
       propertyPath: behavioursToDisableOnRemotes.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7677627623939523407, guid: df7fb9b57d9958448a4cdb0b07e23e13,
         type: 3}
@@ -225,7 +225,7 @@ MonoBehaviour:
   setParentOnAnchorSwitch: 1
   resetParentTransform: 0
   objectToParent: {fileID: 7927333402572394345}
-  Visuals: {fileID: 5291590078735550954}
+  visuals: {fileID: 5291590078735550954}
   anchoredSaveDataType: 2
   objectID: 
   networkTransformBase: {fileID: 3201684640041004388}

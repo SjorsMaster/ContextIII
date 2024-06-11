@@ -135,9 +135,9 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   setParentOnAnchorSwitch: 1
-  resetLocalPositionAndRotationOnAnchorSwitch: 0
+  resetParentTransform: 0
   objectToParent: {fileID: 2060728174160315600}
-  Visuals: {fileID: 6792913255271061618}
+  visuals: {fileID: 6792913255271061618}
   anchoredSaveDataType: 2
   objectID: 
   networkTransformBase: {fileID: 6763785920937890521}

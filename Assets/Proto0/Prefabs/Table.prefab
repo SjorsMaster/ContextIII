@@ -1314,6 +1314,12 @@ MonoBehaviour:
   onPlayerTriggerExit:
     m_PersistentCalls:
       m_Calls: []
+  onPlayerCollisionEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  onPlayerCollisionExit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &6053206690840813059
 GameObject:
   m_ObjectHideFlags: 0
@@ -1543,7 +1549,7 @@ MonoBehaviour:
   setParentOnAnchorSwitch: 1
   resetParentTransform: 0
   objectToParent: {fileID: 5482252681041226755}
-  Visuals: {fileID: 4413199354272528252}
+  visuals: {fileID: 4413199354272528252}
   anchoredSaveDataType: 0
   objectID: 
   networkTransformBase: {fileID: 3401314653156834077}
@@ -1551,6 +1557,7 @@ MonoBehaviour:
   doMigration: 1
   searchClosestWorldAnchor: {fileID: 2127404254173029886}
   portalTraveller: {fileID: 0}
+  debugMe: 0
 --- !u!114 &2993858031755505874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1595,7 +1602,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  puck: {fileID: 0}
+  puckTransform: {fileID: 0}
   puckRigidbody: {fileID: 0}
   puckSpawn: {fileID: 3717015891287997560}
   leftGoal: {fileID: 3452508054405894060}

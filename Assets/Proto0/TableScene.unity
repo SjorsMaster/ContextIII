@@ -3938,7 +3938,7 @@ MonoBehaviour:
   setParentOnAnchorSwitch: 1
   resetParentTransform: 0
   objectToParent: {fileID: 1190857203}
-  Visuals: {fileID: 1781025475}
+  visuals: {fileID: 1781025475}
   anchoredSaveDataType: 2
   objectID: 
   networkTransformBase: {fileID: 1190857208}
@@ -3946,6 +3946,7 @@ MonoBehaviour:
   doMigration: 1
   searchClosestWorldAnchor: {fileID: 1190857200}
   portalTraveller: {fileID: 713530801}
+  debugMe: 0
 --- !u!114 &1190857200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12425,6 +12426,11 @@ PrefabInstance:
       propertyPath: puckTransform
       value: 
       objectReference: {fileID: 8660271319336557572}
+    - target: {fileID: 4740821650864373632, guid: 12025454bcb4bd84eaedd8e01644bb36,
+        type: 3}
+      propertyPath: debugMe
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4740821650864373632, guid: 12025454bcb4bd84eaedd8e01644bb36,
         type: 3}
       propertyPath: objectID
