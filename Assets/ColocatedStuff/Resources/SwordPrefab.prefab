@@ -14,8 +14,7 @@ GameObject:
   - component: {fileID: 9037534322738877700}
   - component: {fileID: 805366470114555738}
   - component: {fileID: 7481152212227155457}
-  - component: {fileID: 8918804986147368849}
-  - component: {fileID: 8594141735494419935}
+  - component: {fileID: 6873820148393206020}
   - component: {fileID: 7785435608762258542}
   m_Layer: 16
   m_Name: SwordPrefab
@@ -140,9 +139,10 @@ MonoBehaviour:
   visuals: {fileID: 6792913255271061618}
   anchoredSaveDataType: 2
   objectID: 
+  debugMe: 0
   networkTransformBase: {fileID: 6763785920937890521}
   searchClosestAnchor: {fileID: 805366470114555738}
---- !u!114 &8918804986147368849
+--- !u!114 &6873820148393206020
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -151,40 +151,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 228458086804016150}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94ea4fff895071f408819ef996415ed9, type: 3}
+  m_Script: {fileID: 11500000, guid: c25df0be6ff38aa45a27d6b2d370a532, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
   networkTransformBase: {fileID: 6763785920937890521}
-  rayCollider: {fileID: 678049999699111569}
-  grabbable: {fileID: 8594141735494419935}
-  canBeStolen: 0
-  isThrowable: 1
-  rb: {fileID: 7785435608762258542}
---- !u!114 &8594141735494419935
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 228458086804016150}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43f86b14a27b52f4f9298c33015b5c26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _transferOnSecondSelection: 0
-  _addNewPointsToFront: 0
-  _forwardElement: {fileID: 0}
-  _oneGrabTransformer: {fileID: 0}
-  _twoGrabTransformer: {fileID: 0}
-  _targetTransform: {fileID: 2060728174160315600}
-  _maxGrabPoints: -1
-  _rigidbody: {fileID: 7785435608762258542}
-  _kinematicWhileSelected: 1
-  _throwWhenUnselected: 1
+  rayInteractable: {fileID: 8626642695738142419}
+  pivot: {fileID: 0}
+  grabOffset:
+    OffsetPosition: {x: 0, y: 0, z: 0}
+    OffsetRotation: {x: 45, y: 0, z: 0}
+  grabConstraints:
+    ConstrainPoint: 0
+    ConstrainPosition: 0
+    MinPos: {x: 0, y: 0, z: 0}
+    MaxPos: {x: 0, y: 0, z: 0}
+    ConstrainRotation: 0
+    MinRotation: {x: 0, y: 0, z: 0}
+    MaxRotation: {x: 0, y: 0, z: 0}
 --- !u!54 &7785435608762258542
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -208,7 +194,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -670,7 +656,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7137404816258572240}
   - component: {fileID: 8626642695738142419}
-  - component: {fileID: 4844972304087300762}
   m_Layer: 16
   m_Name: RayInteractable
   m_TagString: Untagged
@@ -709,47 +694,8 @@ MonoBehaviour:
   _maxInteractors: -1
   _maxSelectingInteractors: -1
   _data: {fileID: 0}
-  _pointableElement: {fileID: 8594141735494419935}
+  _pointableElement: {fileID: 0}
   _surface: {fileID: 2436432742916964027}
   _selectSurface: {fileID: 0}
-  _movementProvider: {fileID: 4844972304087300762}
+  _movementProvider: {fileID: 0}
   _tiebreakerScore: 0
---- !u!114 &4844972304087300762
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8806438393122132784}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b04d39d26e3b7804e9963f738ef7bfe1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _travellingData:
-    _travelSpeed: 0.8
-    _useFixedTravelTime: 1
-    _travelCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 2
-        outSlope: 2
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4

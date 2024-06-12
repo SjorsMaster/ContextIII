@@ -43,4 +43,9 @@ public class RenderPath : MonoBehaviour
         lineRenderer.positionCount = positions.Count;
         lineRenderer.SetPositions(positions.ToArray());
     }
+
+    public void ToggleLine(bool value)
+    {
+        lineRenderer.enabled = value;
+    }
 }

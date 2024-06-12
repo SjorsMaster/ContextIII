@@ -212,8 +212,8 @@ Transform:
   m_GameObject: {fileID: 1271438107300850852}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.2, y: 0, z: -0.45}
-  m_LocalScale: {x: 0.3925, y: 0.11545, z: 0.6877316}
+  m_LocalPosition: {x: -2.7143, y: 0, z: -0.45}
+  m_LocalScale: {x: 0.28036597, y: 0.11545, z: 0.73071486}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2344313694500603415}
@@ -449,6 +449,7 @@ GameObject:
   - component: {fileID: 2466773092175557085}
   - component: {fileID: 3820846104147447442}
   - component: {fileID: 4902387226538313008}
+  - component: {fileID: 7755146701794020572}
   m_Layer: 0
   m_Name: WallSouthWest
   m_TagString: Untagged
@@ -563,6 +564,33 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!54 &7755146701794020572
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2037050527908655578}
+  serializedVersion: 4
+  m_Mass: 20
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 1
 --- !u!1 &3556278384226675841
 GameObject:
   m_ObjectHideFlags: 0
@@ -575,6 +603,7 @@ GameObject:
   - component: {fileID: 9050757052425231232}
   - component: {fileID: 8511778416859735899}
   - component: {fileID: 5155639958618154640}
+  - component: {fileID: 6546225693126391311}
   m_Layer: 0
   m_Name: WallSouth
   m_TagString: Untagged
@@ -668,6 +697,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &6546225693126391311
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3556278384226675841}
+  serializedVersion: 4
+  m_Mass: 20
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 1
 --- !u!1 &4033049042801092816
 GameObject:
   m_ObjectHideFlags: 0
@@ -681,6 +737,7 @@ GameObject:
   - component: {fileID: 4339495426503767875}
   - component: {fileID: 729500508978605120}
   - component: {fileID: 8539108334438050357}
+  - component: {fileID: 6060886884223056128}
   m_Layer: 0
   m_Name: WallNorthEast
   m_TagString: Untagged
@@ -795,6 +852,33 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!54 &6060886884223056128
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4033049042801092816}
+  serializedVersion: 4
+  m_Mass: 20
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 1
 --- !u!1 &4413199354272528252
 GameObject:
   m_ObjectHideFlags: 0
@@ -885,8 +969,8 @@ Transform:
   m_GameObject: {fileID: 4512632676440023652}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.2, y: 0, z: -0.45}
-  m_LocalScale: {x: 0.3925, y: 0.11545, z: 0.6877316}
+  m_LocalPosition: {x: -0.28568, y: 0, z: -0.45}
+  m_LocalScale: {x: 0.28036597, y: 0.11545, z: 0.73071486}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2344313694500603415}
@@ -949,8 +1033,8 @@ Transform:
   m_GameObject: {fileID: 4538090417473683572}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.42854, y: 0, z: 0.028125}
+  m_LocalScale: {x: 0.71430814, y: 1, z: 1.0625}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4489427417617352270}
@@ -988,16 +1072,16 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5098604416608392726}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.11802848, y: -0.6971867, z: 0.11802848, w: 0.6971867}
-  m_LocalPosition: {x: -0.53000146, y: 0.9100001, z: 0}
-  m_LocalScale: {x: 0.16694015, y: 1.5978719, z: 0.6326479}
+  m_LocalRotation: {x: 0.16691749, y: -0, z: -0, w: 0.9859709}
+  m_LocalPosition: {x: -1.5, y: 0.09100002, z: 0.102999985}
+  m_LocalScale: {x: 0.5008205, y: 0.15978722, z: 0.06326482}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8798983034052596941}
   - {fileID: 93510755240642187}
   - {fileID: 3824438816359188209}
   - {fileID: 6421521276830721696}
-  m_Father: {fileID: 4489427417617352270}
+  m_Father: {fileID: 2344313694500603415}
   m_LocalEulerAnglesHint: {x: 19.217, y: 0, z: 0}
 --- !u!33 &8255837603206583853
 MeshFilter:
@@ -1082,6 +1166,7 @@ GameObject:
   - component: {fileID: 3385055508409657779}
   - component: {fileID: 6782057660931799131}
   - component: {fileID: 115932317982924645}
+  - component: {fileID: 3868269387676355490}
   m_Layer: 0
   m_Name: WallNorthWest
   m_TagString: Untagged
@@ -1175,6 +1260,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &3868269387676355490
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5408603288018193861}
+  serializedVersion: 4
+  m_Mass: 20
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 1
 --- !u!1 &5971649087939760013
 GameObject:
   m_ObjectHideFlags: 0
@@ -1332,6 +1444,7 @@ GameObject:
   - component: {fileID: 7616909234529258532}
   - component: {fileID: 3124477664056120192}
   - component: {fileID: 6258079660942475224}
+  - component: {fileID: 5802613393495216228}
   m_Layer: 0
   m_Name: WallSoutEast
   m_TagString: Untagged
@@ -1425,6 +1538,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &5802613393495216228
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6053206690840813059}
+  serializedVersion: 4
+  m_Mass: 20
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 1
 --- !u!1 &6468239861685597773
 GameObject:
   m_ObjectHideFlags: 0
@@ -1552,12 +1692,12 @@ MonoBehaviour:
   visuals: {fileID: 4413199354272528252}
   anchoredSaveDataType: 0
   objectID: 
+  debugMe: 0
   networkTransformBase: {fileID: 3401314653156834077}
   searchClosestAnchor: {fileID: 2127404254173029886}
   doMigration: 1
   searchClosestWorldAnchor: {fileID: 2127404254173029886}
   portalTraveller: {fileID: 0}
-  debugMe: 0
 --- !u!114 &2993858031755505874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1859,6 +1999,7 @@ GameObject:
   - component: {fileID: 1834599358660197810}
   - component: {fileID: 6175821834355742962}
   - component: {fileID: 9174361775086122776}
+  - component: {fileID: 6630939819345602480}
   m_Layer: 0
   m_Name: WallNorth
   m_TagString: Untagged
@@ -1878,8 +2019,7 @@ Transform:
   m_LocalPosition: {x: -1.5, y: 0, z: 0.049999833}
   m_LocalScale: {x: 0.100000024, y: 0.1, z: 3}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 9116556920610044424}
+  m_Children: []
   m_Father: {fileID: 6126804299491956812}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1834599358660197810
@@ -1953,6 +2093,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &6630939819345602480
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9030966868737282938}
+  serializedVersion: 4
+  m_Mass: 20
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 1
 --- !u!1001 &2810832890419978748
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2011,6 +2178,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -153482859162321178, guid: 137d868b5a66a47278cd63c480b1728c,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.71430814
+      objectReference: {fileID: 0}
+    - target: {fileID: -153482859162321178, guid: 137d868b5a66a47278cd63c480b1728c,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.0625
+      objectReference: {fileID: 0}
+    - target: {fileID: -153482859162321178, guid: 137d868b5a66a47278cd63c480b1728c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.42854
+      objectReference: {fileID: 0}
+    - target: {fileID: -153482859162321178, guid: 137d868b5a66a47278cd63c480b1728c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.028125
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 137d868b5a66a47278cd63c480b1728c,
         type: 3}
       propertyPath: m_Name
@@ -2019,6 +2206,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 137d868b5a66a47278cd63c480b1728c,
+        type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 9116556920610044424}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 137d868b5a66a47278cd63c480b1728c,
         type: 3}
       insertIndex: -1

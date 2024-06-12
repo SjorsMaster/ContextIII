@@ -7,7 +7,7 @@ public class RotateTowards : MonoBehaviour
     [SerializeField] private Animator anim;
     private Transform target;
 
-    private readonly List<AnchoredObject> playersInRange = new();
+    private readonly List<PlayerComponent> playersInRange = new();
 
     private void Start()
     {
@@ -20,49 +20,42 @@ public class RotateTowards : MonoBehaviour
         {
             transform.LookAt(target);
         }
+
+        SearchClosestPlayer();
     }
 
     public void OnTriggerEnter(Collider other)
     {
-        AnchoredObject player = other.GetComponent<AnchoredObject>();
+        PlayerComponent player = other.GetComponent<PlayerComponent>();
         if (player == null)
         {
             return;
         }
 
-        if (player.name != "Head")
+        if (player.PlayerComponentType != PlayerComponentType.Head)
         {
             return;
         }
 
         playersInRange.Add(player);
-        SearchClosestPlayer();
 
         anim.SetBool("Show", true);
     }
 
     public void OnTriggerExit(Collider other)
     {
-        AnchoredObject player = other.GetComponent<AnchoredObject>();
+        PlayerComponent player = other.GetComponent<PlayerComponent>();
         if (player == null)
         {
             return;
         }
 
-        if (player.name != "Head")
+        if (player.PlayerComponentType != PlayerComponentType.Head)
         {
             return;
         }
 
         playersInRange.Remove(player);
-        if (playersInRange.Count > 0)
-        {
-            SearchClosestPlayer();
-        }
-        else
-        {
-            target = null;
-        }
 
         anim.SetBool("Show", false);
     }
@@ -73,7 +66,7 @@ public class RotateTowards : MonoBehaviour
 
         for (int i = 0; i < playersInRange.Count; i++)
         {
-            AnchoredObject p = playersInRange[i];
+            PlayerComponent p = playersInRange[i];
             if (p == null)
             {
                 playersInRange.RemoveAt(i);

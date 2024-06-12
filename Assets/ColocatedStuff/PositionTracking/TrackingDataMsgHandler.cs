@@ -57,4 +57,12 @@ public class TrackingDataMsgHandler : NetworkBehaviour
         base.OnStopClient();
         NetworkClient.UnregisterHandler<PositionSaveData>();
     }
+
+    public void ToggleLines(bool value)
+    {
+        foreach (var line in activeRenders.Values)
+        {
+            line.ToggleLine(value);
+        }
+    }
 }

@@ -124,7 +124,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5338006677053634484}
   - component: {fileID: 6491520988340596126}
-  - component: {fileID: 7760765579354587576}
   m_Layer: 7
   m_Name: RayInteractable
   m_TagString: Untagged
@@ -163,50 +162,11 @@ MonoBehaviour:
   _maxInteractors: -1
   _maxSelectingInteractors: -1
   _data: {fileID: 0}
-  _pointableElement: {fileID: 7921020197809542962}
+  _pointableElement: {fileID: 0}
   _surface: {fileID: 117685574774006253}
   _selectSurface: {fileID: 0}
-  _movementProvider: {fileID: 7760765579354587576}
+  _movementProvider: {fileID: 0}
   _tiebreakerScore: 0
---- !u!114 &7760765579354587576
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4189013670142417885}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b04d39d26e3b7804e9963f738ef7bfe1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _travellingData:
-    _travelSpeed: 3
-    _useFixedTravelTime: 0
-    _travelCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 2
-        outSlope: 2
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
 --- !u!1 &4717452000032088868
 GameObject:
   m_ObjectHideFlags: 0
@@ -237,7 +197,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.02, z: 0.1}
+  m_LocalScale: {x: 0.064, y: 0.01, z: 0.064}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5231561383244992129}
@@ -271,7 +231,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: df64beec1a554964eb70e83c478dd84f, type: 2}
+  - {fileID: 2100000, guid: a590b56f7a7409a49b9312eb831a3944, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -374,8 +334,6 @@ GameObject:
   - component: {fileID: 7276153737610577436}
   - component: {fileID: 308829392177415102}
   - component: {fileID: 5312637018623005573}
-  - component: {fileID: 801657176944387949}
-  - component: {fileID: 7921020197809542962}
   m_Layer: 7
   m_Name: Puck
   m_TagString: Untagged
@@ -488,6 +446,7 @@ MonoBehaviour:
   visuals: {fileID: 8383657646820476995}
   anchoredSaveDataType: 2
   objectID: 
+  debugMe: 0
   networkTransformBase: {fileID: 8686944737107153095}
   searchClosestAnchor: {fileID: 7276153737610577436}
   doMigration: 1
@@ -520,46 +479,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!114 &801657176944387949
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8856054890414497976}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94ea4fff895071f408819ef996415ed9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncDirection: 0
-  syncMode: 0
-  syncInterval: 0
-  networkTransformBase: {fileID: 8686944737107153095}
-  rayCollider: {fileID: 8969427129418070939}
-  grabbable: {fileID: 7921020197809542962}
-  canBeStolen: 1
-  isThrowable: 1
-  rb: {fileID: 5312637018623005573}
---- !u!114 &7921020197809542962
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8856054890414497976}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43f86b14a27b52f4f9298c33015b5c26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _transferOnSecondSelection: 0
-  _addNewPointsToFront: 0
-  _forwardElement: {fileID: 0}
-  _oneGrabTransformer: {fileID: 0}
-  _twoGrabTransformer: {fileID: 0}
-  _targetTransform: {fileID: 0}
-  _maxGrabPoints: -1
-  _rigidbody: {fileID: 5312637018623005573}
-  _kinematicWhileSelected: 1
-  _throwWhenUnselected: 1

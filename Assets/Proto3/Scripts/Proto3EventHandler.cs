@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class Proto3EventHandler : MonoBehaviour
 {
+    public static Action CommentWasSpawned;
+
     [SerializeField] private CommentInputField CommentInputFieldPrefab;
 
     [SerializeField] private float cooldown = 10f;
@@ -73,6 +75,8 @@ public class Proto3EventHandler : MonoBehaviour
         var anchoredObject = AnchoredObjectsManager.AnchoredObjects[objectID];
         Comment comment = anchoredObject.GetComponent<Comment>();
         comment.CmdSetCommentText(text);
+
+        CommentWasSpawned?.Invoke();
     }
 
     //public void CorrectCommentData()
