@@ -116,12 +116,16 @@ namespace SharedSpaces.Menus
         public async void PlaceWorldAnchor()
         {
             WorldsAnchorManager.Instance.PlaceAnchorInWorld("Global");
+            await Task.Yield();
+
             foreach (var world in World.worlds)
             {
                 while (WorldsAnchorManager.Instance.IsBusy)
                 {
                     await Task.Yield();
                 }
+
+                await Task.Delay(1000);
                 WorldsAnchorManager.Instance.PlaceAnchorInWorld(world.Key);
             }
         }
