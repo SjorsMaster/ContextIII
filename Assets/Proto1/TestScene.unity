@@ -63684,6 +63684,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 440234009744090205, guid: 258d40faa5b546f44ba4236361c0f33f,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 609365761005458740, guid: 258d40faa5b546f44ba4236361c0f33f,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -63959,6 +63964,16 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2928273645885247040, guid: 258d40faa5b546f44ba4236361c0f33f,
+        type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2742740878546194020}
+    - target: {fileID: 2928273645885247040, guid: 258d40faa5b546f44ba4236361c0f33f,
+        type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Btn_SetPort
+      objectReference: {fileID: 0}
     - target: {fileID: 2934494201025512114, guid: 258d40faa5b546f44ba4236361c0f33f,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -64069,26 +64084,6 @@ PrefabInstance:
       propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Btn_SetIP
       objectReference: {fileID: 0}
-    - target: {fileID: 3473438842041437579, guid: 258d40faa5b546f44ba4236361c0f33f,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3473438842041437579, guid: 258d40faa5b546f44ba4236361c0f33f,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3473438842041437579, guid: 258d40faa5b546f44ba4236361c0f33f,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3473438842041437579, guid: 258d40faa5b546f44ba4236361c0f33f,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3766076365939256182, guid: 258d40faa5b546f44ba4236361c0f33f,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -64143,26 +64138,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 4415172952893467181, guid: 258d40faa5b546f44ba4236361c0f33f,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4415172952893467181, guid: 258d40faa5b546f44ba4236361c0f33f,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4415172952893467181, guid: 258d40faa5b546f44ba4236361c0f33f,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4415172952893467181, guid: 258d40faa5b546f44ba4236361c0f33f,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5015886741838156455, guid: 258d40faa5b546f44ba4236361c0f33f,
         type: 3}
@@ -64468,6 +64443,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7566446552707445229, guid: 258d40faa5b546f44ba4236361c0f33f,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7566446552707445229, guid: 258d40faa5b546f44ba4236361c0f33f,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.99777603
+      objectReference: {fileID: 0}
+    - target: {fileID: 7566446552707445229, guid: 258d40faa5b546f44ba4236361c0f33f,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8168274512487263453, guid: 258d40faa5b546f44ba4236361c0f33f,
         type: 3}

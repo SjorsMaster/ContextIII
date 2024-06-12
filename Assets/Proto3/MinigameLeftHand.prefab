@@ -116,7 +116,7 @@ PrefabInstance:
     - target: {fileID: 4373288590785630858, guid: 236df684c33a70e43a7274c2cfaad1a4,
         type: 3}
       propertyPath: behavioursToDisableOnRemotes.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4373288590785630858, guid: 236df684c33a70e43a7274c2cfaad1a4,
         type: 3}
