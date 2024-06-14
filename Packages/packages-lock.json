@@ -1,15 +1,16 @@
 {
   "dependencies": {
     "com.mcyvar.sharedspaces-unityvr": {
-      "version": "file:D:/My projects/SharedSpaces-UnityVR-UnityProject/Assets/SharedSpaces-UnityVR",
+      "version": "https://github.com/McYvar/SharedSpaces-UnityVR.git",
       "depth": 0,
-      "source": "local",
+      "source": "git",
       "dependencies": {
         "com.unity.nuget.newtonsoft-json": "3.2.1",
         "com.unity.textmeshpro": "3.0.8",
         "com.meta.xr.sdk.all": "65.0.0",
         "com.unity.inputsystem": "1.7.0"
-      }
+      },
+      "hash": "5001b1a27e2e5c9d48f89d6ba1ba6ce41da74b4d"
     },
     "com.meta.xr.mrutilitykit": {
       "version": "65.0.0",
