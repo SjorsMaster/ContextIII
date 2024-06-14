@@ -60,8 +60,7 @@ public class Airhockey : NetworkBehaviour
         leftScoreText.text = leftScore.ToString();
         rightScoreText.text = rightScore.ToString();
 
-        puckRigidbody.velocity = Vector3.zero;
-        puckTransform.SetPositionAndRotation(puckSpawn.position, Quaternion.identity);
+        ResetPuck();
 
         RpcUpdateScore(leftScore, rightScore);
     }
@@ -71,5 +70,12 @@ public class Airhockey : NetworkBehaviour
     {
         leftScoreText.text = leftScore.ToString();
         rightScoreText.text = rightSCore.ToString();
+    }
+
+    [ServerCallback]
+    public void ResetPuck()
+    {
+        puckRigidbody.velocity = Vector3.zero;
+        puckTransform.SetPositionAndRotation(puckSpawn.position, Quaternion.identity);
     }
 }
