@@ -7,6 +7,9 @@ using UnityEngine;
 
 public class TrackingDataMsgHandler : NetworkBehaviour
 {
+    [SerializeField] private TrackingSaveDataManager manager;
+    [SerializeField] private TrackingSaveDataHandler handler;
+
     private readonly Dictionary<uint, RenderPath> activeRenders = new();
 
     #region Event Handlers
@@ -64,5 +67,20 @@ public class TrackingDataMsgHandler : NetworkBehaviour
         {
             line.ToggleLine(value);
         }
+    }
+
+    [Command(requiresAuthority = false)]
+    public void CmdRequestVisualizeLines()
+    {
+        handler.StopAllTrackers();
+        handler.RenderAllSavedPaths();
+        manager.SaveData();
+        manager.VisualizeOnClients();
+    }
+
+    [Command(requiresAuthority = false)]
+    public void CmdStartTracking()
+    {
+        handler.StartAllTrackers();
     }
 }

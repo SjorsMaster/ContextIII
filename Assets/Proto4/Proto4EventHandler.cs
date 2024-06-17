@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class Proto4EventHandler : MonoBehaviour
 {
-    [SerializeField] private TrackingDataMsgHandler handler;
-
     #region Event Handlers
     private void Proto3EventHandler_CommentWasSpawned()
     {
@@ -32,7 +30,5 @@ public class Proto4EventHandler : MonoBehaviour
                 obj.Visuals.SetActive(value);
             }
         }
-
-        handler.ToggleLines(value);
     }
 }
