@@ -26,18 +26,18 @@ public class TrackingSaveDataHandler : MonoBehaviour, ISaveDataHandler<TrackingS
     public void SaveData(ref TrackingSaveData data)
     {
         List<PositionTracker> positionTrackers = PositionTrackers;
-        PositionSaveData[] positionSaveDatas = new PositionSaveData[positionTrackers.Count];
+        List<PositionSaveData> positionSaveDatas = new(data.PositionSaveDatas);
 
         for (uint i = 0; i < positionTrackers.Count; i++)
         {
-            positionSaveDatas[i] = new()
+            positionSaveDatas.Add(new()
             {
                 ID = i,
                 AnchoredPositions = positionTrackers[(int)i].PositionData
-            };
+            });
         }
 
-        data.PositionSaveDatas = positionSaveDatas;
+        data.PositionSaveDatas = positionSaveDatas.ToArray();
     }
 
     public void RenderAllSavedPaths()
