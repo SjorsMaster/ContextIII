@@ -270,7 +270,7 @@ PrefabInstance:
     - target: {fileID: 295906122444618807, guid: 8064a92755afc5043847c258ee0183c5,
         type: 3}
       propertyPath: gameObjectsToDisableOnLocal.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 295906122444618807, guid: 8064a92755afc5043847c258ee0183c5,
         type: 3}
@@ -280,7 +280,7 @@ PrefabInstance:
     - target: {fileID: 295906122444618807, guid: 8064a92755afc5043847c258ee0183c5,
         type: 3}
       propertyPath: gameObjectsToDisableOnRemotes.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 295906122444618807, guid: 8064a92755afc5043847c258ee0183c5,
         type: 3}

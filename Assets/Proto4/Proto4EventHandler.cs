@@ -3,10 +3,15 @@ using UnityEngine;
 
 public class Proto4EventHandler : MonoBehaviour
 {
+    [SerializeField] private TrackingDataMsgHandler trackingDataMsgHandler;
+
+    private bool current;
+
     #region Event Handlers
     private void Proto3EventHandler_CommentWasSpawned()
     {
         ToggleComments(true);
+        trackingDataMsgHandler.ToggleLines(true);
     }
     #endregion
 
@@ -30,5 +35,15 @@ public class Proto4EventHandler : MonoBehaviour
                 obj.Visuals.SetActive(value);
             }
         }
+
+        current = value;
+    }
+
+    public void FlipToggle()
+    {
+        ToggleComments(!current);
+        trackingDataMsgHandler.ToggleLines(!current);
+
+        current = !current;
     }
 }

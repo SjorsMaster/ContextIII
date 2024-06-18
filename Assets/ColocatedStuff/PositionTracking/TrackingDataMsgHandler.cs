@@ -10,16 +10,16 @@ public class TrackingDataMsgHandler : NetworkBehaviour
     [SerializeField] private TrackingSaveDataManager manager;
     [SerializeField] private TrackingSaveDataHandler handler;
 
-    private readonly List<RenderPath> activeRenders = new();
+    private readonly Dictionary<uint, RenderPath> activeRenders = new();
 
     #region Event Handlers
     private void OnTrackingDataReceived(PositionSaveData data)
     {
-        //if (activeRenders.TryGetValue(data.ID, out RenderPath render))
-        //{
-        //    Destroy(render.gameObject);
-        //    activeRenders.Remove(data.ID);
-        //}
+        if (activeRenders.TryGetValue(data.ID, out RenderPath render))
+        {
+            Destroy(render.gameObject);
+            activeRenders.Remove(data.ID);
+        }
 
         List<Vector3> linePositions = new();
         foreach (var pos in data.AnchoredPositions)
@@ -43,7 +43,7 @@ public class TrackingDataMsgHandler : NetworkBehaviour
         GameObject obj = new($"PathRenderer({data.ID})");
         RenderPath path = obj.AddComponent<RenderPath>();
         path.RenderLine(linePositions);
-        activeRenders.Add(path);
+        activeRenders.Add(data.ID, path);
     }
     #endregion
 
@@ -63,17 +63,22 @@ public class TrackingDataMsgHandler : NetworkBehaviour
 
     public void ToggleLines(bool value)
     {
-        foreach (var line in activeRenders)
+        foreach (var line in activeRenders.Values)
         {
             line.ToggleLine(value);
         }
     }
 
     [Command(requiresAuthority = false)]
-    public void CmdRequestVisualizeLines()
+    public void CmdStopTracking()
     {
         handler.StopAllTrackers();
         manager.SaveData();
+    }
+
+    [Command(requiresAuthority = false)]
+    public void CmdVisualizeLines()
+    {
         handler.RenderAllSavedPaths();
         manager.VisualizeOnClients();
     }
